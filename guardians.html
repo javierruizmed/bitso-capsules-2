@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+
+    --blue:     #5463FF;
+
+    --blue-d:   #4250E0;
+
+    --lima:     #DFFF50;
+
+    --beige:    #E3DBD2;
+
+    --gray:     #575048;
+
+    --dark:     #1A1A2E;
+
+    --off:      #F5F4F2;
+
+    --white:    #ffffff;
+
+    --red:      #C0392B;
+
+    --orange:   #E67E22;
+
+    --green:    #27AE60;
+
+    --red-soft: #FFEBEE;
+
+    --ora-soft: #FFF3E0;
+
+    --grn-soft: #F0FDF4;
+
+  }
+
+  body {
+
+    font-family: 'DM Sans', sans-serif;
+
+    background: var(--white);
+
+    color: var(--dark);
+
+    font-size: 14px;
+
+    line-height: 1.65;
+
+    max-width: 920px;
+
+    margin: 0 auto;
+
+    padding: 0 0 56px;
+
+  }
+
+  /* ── COVER ─────────────────────────────────── */
+
+  .cover {
+
+    background: var(--blue);
+
+    padding: 44px 44px 40px;
+
+    position: relative;
+
+    overflow: hidden;
+
+  }
+
+  .cover::before {
+
+    content: '';
+
+    position: absolute;
+
+    left: 0; top: 0; bottom: 0;
+
+    width: 5px;
+
+    background: var(--lima);
+
+  }
+
+  .cover-eyebrow {
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 3.5px;
+
+    color: var(--lima);
+
+    text-transform: uppercase;
+
+    margin-bottom: 12px;
+
+  }
+
+  .cover-title {
+
+    font-size: 42px;
+
+    font-weight: 700;
+
+    color: var(--white);
+
+    line-height: 1.1;
+
+    margin-bottom: 6px;
+
+  }
+
+  .cover-sub {
+
+    font-size: 16px;
+
+    color: rgba(255,255,255,0.65);
+
+    margin-bottom: 28px;
+
+  }
+
+  .cover-divider {
+
+    width: 48px;
+
+    height: 2px;
+
+    background: rgba(255,255,255,0.25);
+
+    margin-bottom: 16px;
+
+  }
+
+  .cover-meta {
+
+    font-size: 12px;
+
+    color: rgba(255,255,255,0.5);
+
+    line-height: 1.7;
+
+  }
+
+  .cover-meta strong { color: rgba(255,255,255,0.82); }
+
+  .cover-meta .channel { color: var(--lima); font-weight: 600; }
+
+  /* ── BODY ───────────────────────────────────── */
+
+  .body { padding: 0 36px; }
+
+  .intro {
+
+    padding: 28px 0 20px;
+
+    font-size: 14px;
+
+    color: var(--gray);
+
+    border-bottom: 1px solid var(--beige);
+
+    margin-bottom: 32px;
+
+    line-height: 1.75;
+
+  }
+
+  /* ── SECTION HEADER ─────────────────────────── */
+
+  .section-hd {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: var(--blue);
+
+    padding: 10px 18px;
+
+    border-radius: 4px;
+
+    margin: 36px 0 20px;
+
+  }
+
+  .section-num {
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,0.55);
+
+    text-transform: uppercase;
+
+  }
+
+  .section-title {
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    color: var(--white);
+
+    text-transform: uppercase;
+
+  }
+
+  /* ── TYPOGRAPHY ─────────────────────────────── */
+
+  h3 { font-size: 15px; font-weight: 700; color: var(--blue); margin: 24px 0 10px; }
+
+  p  { font-size: 13.5px; color: var(--dark); margin-bottom: 12px; line-height: 1.7; }
+
+  /* ── KPI ROW ────────────────────────────────── */
+
+  .kpi-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin: 16px 0 24px; }
+
+  .kpi-card {
+
+    background: var(--off);
+
+    border: 1px solid var(--beige);
+
+    border-radius: 8px;
+
+    padding: 18px 14px;
+
+    text-align: center;
+
+  }
+
+  .kpi-val  { font-size: 30px; font-weight: 700; color: var(--blue); line-height: 1.1; margin-bottom: 4px; }
+
+  .kpi-lbl  { font-size: 11px; color: var(--gray); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .kpi-sub  { font-size: 11px; color: var(--gray); margin-top: 2px; }
+
+  .kpi-red  { color: var(--red) !important; }
+
+  .kpi-ora  { color: var(--orange) !important; }
+
+  /* ── TABLES ─────────────────────────────────── */
+
+  .tbl-wrap { overflow-x: auto; margin: 16px 0 20px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+
+  thead tr { background: var(--blue); }
+
+  thead th {
+
+    padding: 9px 12px; color: var(--white);
+
+    font-weight: 600; font-size: 11.5px; text-align: center;
+
+  }
+
+  thead th:first-child { text-align: left; }
+
+  tbody tr:nth-child(even) { background: var(--off); }
+
+  tbody tr:hover { background: #EEF0FF; }
+
+  tbody td { padding: 8px 12px; border-bottom: 1px solid #ECEAE7; text-align: center; }
+
+  tbody td:first-child { text-align: left; font-weight: 500; }
+
+  .td-hi  { font-weight: 700; color: var(--blue); }
+
+  .td-red { font-weight: 700; color: var(--red); }
+
+  .td-ora { font-weight: 600; color: var(--orange); }
+
+  .td-grn { font-weight: 700; color: var(--green); }
+
+  .td-dim { color: #aaa; }
+
+  /* ── CALLOUTS ───────────────────────────────── */
+
+  .callout {
+
+    display: flex; gap: 12px;
+
+    padding: 13px 16px; border-radius: 6px;
+
+    margin: 14px 0; font-size: 13px; line-height: 1.6;
+
+  }
+
+  .callout-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+  .callout.warn   { background: #FFF8E1; border-left: 4px solid #F59E0B; }
+
+  .callout.danger { background: #FEF2F2; border-left: 4px solid var(--red); }
+
+  .callout.info   { background: #EEF0FF; border-left: 4px solid var(--blue); }
+
+  .callout.tip    { background: var(--grn-soft); border-left: 4px solid var(--green); }
+
+  /* ── PAIN BLOCKS ────────────────────────────── */
+
+  .pain-block { border: 1px solid var(--beige); border-radius: 8px; margin: 16px 0; overflow: hidden; }
+
+  .pain-hd {
+
+    padding: 10px 16px; font-size: 13px; font-weight: 700;
+
+    display: flex; align-items: center; gap: 8px;
+
+  }
+
+  .pain-hd.red  { background: var(--red-soft); color: var(--red); }
+
+  .pain-hd.ora  { background: var(--ora-soft); color: var(--orange); }
+
+  .pain-hd.blue { background: #EEF0FF; color: var(--blue); }
+
+  .pain-body { padding: 14px 16px; font-size: 13px; line-height: 1.65; }
+
+  .pain-body p  { font-size: 13px; margin-bottom: 10px; }
+
+  .tk {
+
+    font-size: 11px; background: #EEF0FF; color: var(--blue);
+
+    padding: 1px 6px; border-radius: 3px; font-family: monospace; margin-left: 3px;
+
+  }
+
+  /* ── TIMELINE ───────────────────────────────── */
+
+  .timeline { margin: 16px 0 20px; padding-left: 8px; }
+
+  .tl-item {
+
+    display: flex; gap: 16px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #F0EDE9;
+
+  }
+
+  .tl-item:last-child { border-bottom: none; }
+
+  .tl-date {
+
+    flex-shrink: 0; width: 72px;
+
+    font-size: 11px; font-weight: 700;
+
+    color: var(--blue); padding-top: 2px;
+
+  }
+
+  .tl-dot {
+
+    flex-shrink: 0; width: 10px; height: 10px;
+
+    border-radius: 50%; background: var(--blue);
+
+    margin-top: 5px;
+
+  }
+
+  .tl-dot.red { background: var(--red); }
+
+  .tl-dot.ora { background: var(--orange); }
+
+  .tl-content { font-size: 13px; line-height: 1.55; }
+
+  .tl-content strong { color: var(--dark); }
+
+  .tl-tag {
+
+    display: inline-block; font-size: 10px; font-weight: 700;
+
+    padding: 1px 7px; border-radius: 20px; margin-left: 6px;
+
+    vertical-align: middle;
+
+  }
+
+  .tl-tag.release  { background: #EEF0FF; color: var(--blue); }
+
+  .tl-tag.incident { background: var(--red-soft); color: var(--red); }
+
+  .tl-tag.maint    { background: var(--ora-soft); color: var(--orange); }
+
+  /* ── CS NEEDS TABLE ─────────────────────────── */
+
+  .needs-table table thead th { font-size: 11px; letter-spacing: 0.3px; }
+
+  .badge {
+
+    display: inline-block; padding: 2px 8px; border-radius: 20px;
+
+    font-size: 11px; font-weight: 700;
+
+  }
+
+  .badge-pending  { background: #FEF9C3; color: #854D0E; }
+
+  .badge-progress { background: #DBEAFE; color: #1D4ED8; }
+
+  /* ── CHART WRAP ─────────────────────────────── */
+
+  .chart-wrap {
+
+    background: var(--off); border: 1px solid var(--beige);
+
+    border-radius: 8px; padding: 20px 16px 14px; margin: 16px 0 24px;
+
+  }
+
+  .chart-title {
+
+    font-size: 11px; font-weight: 700; color: var(--gray);
+
+    text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 16px;
+
+  }
+
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; }
+
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--gray); }
+
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+  /* ── METRIC DEF ─────────────────────────────── */
+
+  .metric-def {
+
+    background: var(--off); border: 1px solid var(--beige);
+
+    border-radius: 8px; padding: 14px 16px; margin: 10px 0; font-size: 13px;
+
+  }
+
+  .metric-def-title { font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+
+  .metric-formula {
+
+    font-family: monospace; font-size: 12px;
+
+    background: #fff; border: 1px solid var(--beige);
+
+    border-radius: 4px; padding: 4px 8px; margin-top: 6px;
+
+    display: inline-block; color: var(--blue);
+
+  }
+
+  /* ── DIVIDER / FOOTER ───────────────────────── */
+
+  hr { border: none; border-top: 1px solid var(--beige); margin: 36px 0; }
+
+  .footer { font-size: 12px; color: var(--gray); line-height: 1.7; }
+
+  .footer strong { color: var(--dark); }
+
+</style>
+
+</head>
+
+<body>
+
+<!-- COVER -->
+
+<div class="cover">
+
+  <div class="cover-eyebrow">Experience Capsule · Guardians Experience</div>
+
+  <div class="cover-title">Access to My Account</div>
+
+  <div class="cover-sub">Dec 2025 – May 2026 · Retail Segment</div>
+
+  <div class="cover-divider"></div>
+
+  <div class="cover-meta">
+
+    Prepared by <strong>Javier Ruiz</strong> · Experience Senior Specialist · Bitso Client Services
+
+    &nbsp;·&nbsp; <span class="channel">#exp-guardians-capsule</span>
+
+  </div>
+
+</div>
+
+<div class="body">
+
+<div class="intro">
+
+  This capsule covers <strong>Access to my account</strong> — the single largest contact type in CS, representing 23–28% of total volume. The focus is on <strong>Issues with SMS</strong> and <strong>I can't restore my password</strong>, two sub-categories that were near-zero before March 2026 and have since become the fastest-growing drivers of friction at Bitso. Both trace directly to authentication infrastructure changes introduced in mid-March, and by April, SMS issues alone represented <strong>36% of all Access to my account contacts</strong>.
+
+</div>
+
+<!-- 01 INCOMING OVERVIEW -->
+
+<div class="section-hd"><span class="section-num">01</span><span class="section-title">Incoming Overview</span></div>
+
+<p>Access to my account is consistently the <strong>#1 contact type in CS</strong>, representing between 23% and 28% of all incoming tickets. Over the six-month period, it grew faster than total CS volume — increasing 47% from December to April, while overall CS incoming grew 20% in the same window.</p>
+
+<div class="kpi-row">
+
+  <div class="kpi-card">
+
+    <div class="kpi-val">7,135</div>
+
+    <div class="kpi-lbl">Peak volume</div>
+
+    <div class="kpi-sub">April 2026 · 28% of total CS</div>
+
+  </div>
+
+  <div class="kpi-card">
+
+    <div class="kpi-val kpi-red">+47%</div>
+
+    <div class="kpi-lbl">Growth Dec → Apr</div>
+
+    <div class="kpi-sub">vs. +20% for total CS</div>
+
+  </div>
+
+  <div class="kpi-card">
+
+    <div class="kpi-val">#1</div>
+
+    <div class="kpi-lbl">Contact type rank</div>
+
+    <div class="kpi-sub">Every month in the period</div>
+
+  </div>
+
+</div>
+
+<!-- Monthly incoming chart -->
+
+<div class="chart-wrap">
+
+  <div class="chart-title">Access to My Account — Monthly Volume &amp; % of Total CS</div>
+
+  <svg width="100%" viewBox="0 0 820 190" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- grid -->
+
+    <line x1="60" y1="20" x2="800" y2="20" stroke="#E0DED9" stroke-width="1"/>
+
+    <line x1="60" y1="60" x2="800" y2="60" stroke="#E0DED9" stroke-width="1"/>
+
+    <line x1="60" y1="100" x2="800" y2="100" stroke="#E0DED9" stroke-width="1"/>
+
+    <line x1="60" y1="140" x2="800" y2="140" stroke="#E0DED9" stroke-width="1"/>
+
+    <!-- y labels -->
+
+    <text x="52" y="24" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">8,000</text>
+
+    <text x="52" y="64" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">6,000</text>
+
+    <text x="52" y="104" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">4,000</text>
+
+    <text x="52" y="144" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">2,000</text>
+
+    <!-- scale: 8000=120px. bars: 4849→72.7, 5920→88.8, 5037→75.6, 6530→97.9, 7125→106.9, 1306→19.6 -->
+
+    <!-- Dec -->
+
+    <rect x="78" y="67" width="70" height="73" fill="#9BA5FF" rx="3"/>
+
+    <text x="113" y="61" font-family="DM Sans,sans-serif" font-size="10" fill="#1A1A2E" text-anchor="middle" font-weight="600">4,849</text>
+
+    <!-- Jan -->
+
+    <rect x="188" y="51" width="70" height="89" fill="#5463FF" rx="3"/>
+
+    <text x="223" y="45" font-family="DM Sans,sans-serif" font-size="10" fill="#1A1A2E" text-anchor="middle" font-weight="600">5,920</text>
+
+    <!-- Feb -->
+
+    <rect x="298" y="64" width="70" height="76" fill="#9BA5FF" rx="3"/>
+
+    <text x="333" y="58" font-family="DM Sans,sans-serif" font-size="10" fill="#1A1A2E" text-anchor="middle" font-weight="600">5,037</text>
+
+    <!-- Mar -->
+
+    <rect x="408" y="42" width="70" height="98" fill="#5463FF" rx="3"/>
+
+    <text x="443" y="36" font-family="DM Sans,sans-serif" font-size="10" fill="#1A1A2E" text-anchor="middle" font-weight="600">6,530</text>
+
+    <!-- Apr -->
+
+    <rect x="518" y="33" width="70" height="107" fill="#C0392B" rx="3"/>
+
+    <text x="553" y="27" font-family="DM Sans,sans-serif" font-size="10" fill="#C0392B" text-anchor="middle" font-weight="700">7,135</text>
+
+    <!-- May partial -->
+
+    <rect x="628" y="120" width="70" height="20" fill="#E3DBD2" rx="3"/>
+
+    <text x="663" y="114" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">1,306*</text>
+
+    <!-- % labels below bars -->
+
+    <text x="113" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">23%</text>
+
+    <text x="223" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">25%</text>
+
+    <text x="333" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">24%</text>
+
+    <text x="443" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#5463FF" text-anchor="middle" font-weight="600">26%</text>
+
+    <text x="553" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#C0392B" text-anchor="middle" font-weight="700">28%</text>
+
+    <text x="663" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">26%*</text>
+
+    <!-- x labels -->
+
+    <text x="113" y="175" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Dec '25</text>
+
+    <text x="223" y="175" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Jan '26</text>
+
+    <text x="333" y="175" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Feb '26</text>
+
+    <text x="443" y="175" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Mar '26</text>
+
+    <text x="553" y="175" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Apr '26</text>
+
+    <text x="663" y="175" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">May '26</text>
+
+    <line x1="60" y1="140" x2="800" y2="140" stroke="#1A1A2E" stroke-width="1.5"/>
+
+  </svg>
+
+  <div class="legend">
+
+    <div class="legend-item"><div class="legend-dot" style="background:#5463FF"></div> High volume months</div>
+
+    <div class="legend-item"><div class="legend-dot" style="background:#9BA5FF"></div> Baseline months</div>
+
+    <div class="legend-item"><div class="legend-dot" style="background:#C0392B"></div> Peak (April)</div>
+
+    <div class="legend-item"><div class="legend-dot" style="background:#E3DBD2"></div> May (partial)</div>
+
+  </div>
+
+</div>
+
+<h3>Sub-category breakdown</h3>
+
+<p>Within Access to my account, the spike is driven almost entirely by two sub-categories that were previously negligible: <strong>Issues with SMS</strong> and <strong>I can't restore my password</strong>. Meanwhile, the historically dominant <strong>Forgot my password</strong> category disappeared entirely in April — indicating a re-categorization, not a resolution.</p>
+
+<div class="tbl-wrap">
+
+<table>
+
+  <thead>
+
+    <tr><th>Sub-category</th><th>Dec '25</th><th>Jan '26</th><th>Feb '26</th><th>Mar '26</th><th>Apr '26</th><th>May '26</th></tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr>
+
+      <td><strong>Issues with SMS</strong></td>
+
+      <td>593</td><td>596</td><td>568</td>
+
+      <td class="td-ora">1,712</td>
+
+      <td class="td-red">2,565</td>
+
+      <td>545</td>
+
+    </tr>
+
+    <tr>
+
+      <td><strong>I can't restore my password</strong></td>
+
+      <td class="td-dim">1</td><td class="td-dim">2</td><td class="td-dim">5</td>
+
+      <td class="td-ora">781</td>
+
+      <td class="td-red">1,595</td>
+
+      <td>291</td>
+
+    </tr>
+
+    <tr>
+
+      <td>I forgot my password</td>
+
+      <td>1,415</td><td>1,800</td><td>1,740</td>
+
+      <td>1,083</td>
+
+      <td class="td-dim">0</td>
+
+      <td class="td-dim">0</td>
+
+    </tr>
+
+    <tr>
+
+      <td>I have my account suspended</td>
+
+      <td>1,013</td><td>1,442</td><td>974</td><td>1,220</td><td>1,006</td><td>129</td>
+
+    </tr>
+
+    <tr>
+
+      <td>I want to disable 2FA</td>
+
+      <td>967</td><td>1,193</td><td>1,023</td><td>922</td><td>904</td><td>194</td>
+
+    </tr>
+
+    <tr>
+
+      <td>I can't authorize my device</td>
+
+      <td>111</td><td>121</td><td>102</td><td>92</td><td>117</td><td>22</td>
+
+    </tr>
+
+    <tr>
+
+      <td class="td-dim">Other / General</td>
+
+      <td class="td-dim">196</td><td class="td-dim">233</td><td class="td-dim">223</td>
+
+      <td class="td-dim">249</td><td class="td-dim">414</td><td class="td-dim">67</td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+</div>
+
+<!-- SMS chart -->
+
+<div class="chart-wrap">
+
+  <div class="chart-title">SMS Issues + I can't restore my password — Monthly Trend</div>
+
+  <svg width="100%" viewBox="0 0 820 180" xmlns="http://www.w3.org/2000/svg">
+
+    <line x1="60" y1="20" x2="800" y2="20" stroke="#E0DED9" stroke-width="1"/>
+
+    <line x1="60" y1="60" x2="800" y2="60" stroke="#E0DED9" stroke-width="1"/>
+
+    <line x1="60" y1="100" x2="800" y2="100" stroke="#E0DED9" stroke-width="1"/>
+
+    <line x1="60" y1="140" x2="800" y2="140" stroke="#E0DED9" stroke-width="1"/>
+
+    <text x="52" y="24" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">3,000</text>
+
+    <text x="52" y="64" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">2,000</text>
+
+    <text x="52" y="104" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">1,000</text>
+
+    <text x="52" y="144" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">0</text>
+
+    <!-- scale: 3000=120px. SMS: 593=23.7, 596=23.8, 568=22.7, 1712=68.5, 2565=102.6, 545=21.8 -->
+
+    <!-- Password: 1,1,2,781=31.2, 1595=63.8, 291=11.6 -->
+
+    <!-- SMS bars -->
+
+    <rect x="78"  y="116" width="42" height="24" fill="#5463FF" rx="2"/>
+
+    <rect x="188" y="116" width="42" height="24" fill="#5463FF" rx="2"/>
+
+    <rect x="298" y="117" width="42" height="23" fill="#5463FF" rx="2"/>
+
+    <rect x="408" y="71"  width="42" height="69" fill="#E67E22" rx="2"/>
+
+    <rect x="518" y="37"  width="42" height="103" fill="#C0392B" rx="2"/>
+
+    <rect x="628" y="118" width="42" height="22" fill="#5463FF" rx="2"/>
+
+    <!-- Password bars -->
+
+    <rect x="122" y="140" width="42" height="0"  fill="#9BA5FF" rx="2"/>
+
+    <rect x="232" y="140" width="42" height="0"  fill="#9BA5FF" rx="2"/>
+
+    <rect x="342" y="140" width="42" height="0"  fill="#9BA5FF" rx="2"/>
+
+    <rect x="452" y="109" width="42" height="31" fill="#E67E22" rx="2" opacity="0.7"/>
+
+    <rect x="562" y="76"  width="42" height="64" fill="#C0392B" rx="2" opacity="0.7"/>
+
+    <rect x="672" y="128" width="42" height="12" fill="#9BA5FF" rx="2" opacity="0.7"/>
+
+    <!-- value labels SMS -->
+
+    <text x="99"  y="110" font-family="DM Sans,sans-serif" font-size="9.5" fill="#575048" text-anchor="middle">593</text>
+
+    <text x="209" y="110" font-family="DM Sans,sans-serif" font-size="9.5" fill="#575048" text-anchor="middle">596</text>
+
+    <text x="319" y="111" font-family="DM Sans,sans-serif" font-size="9.5" fill="#575048" text-anchor="middle">568</text>
+
+    <text x="429" y="65"  font-family="DM Sans,sans-serif" font-size="9.5" fill="#E67E22" text-anchor="middle" font-weight="700">1,712</text>
+
+    <text x="539" y="31"  font-family="DM Sans,sans-serif" font-size="9.5" fill="#C0392B" text-anchor="middle" font-weight="700">2,565</text>
+
+    <text x="649" y="112" font-family="DM Sans,sans-serif" font-size="9.5" fill="#575048" text-anchor="middle">545</text>
+
+    <!-- value labels password -->
+
+    <text x="473" y="103" font-family="DM Sans,sans-serif" font-size="9.5" fill="#E67E22" text-anchor="middle" font-weight="700">781</text>
+
+    <text x="583" y="70"  font-family="DM Sans,sans-serif" font-size="9.5" fill="#C0392B" text-anchor="middle" font-weight="700">1,595</text>
+
+    <text x="693" y="122" font-family="DM Sans,sans-serif" font-size="9.5" fill="#575048" text-anchor="middle">291</text>
+
+    <!-- x labels -->
+
+    <text x="113" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Dec '25</text>
+
+    <text x="223" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Jan '26</text>
+
+    <text x="333" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Feb '26</text>
+
+    <text x="443" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Mar '26</text>
+
+    <text x="553" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Apr '26</text>
+
+    <text x="663" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">May '26</text>
+
+    <line x1="60" y1="140" x2="800" y2="140" stroke="#1A1A2E" stroke-width="1.5"/>
+
+  </svg>
+
+  <div class="legend">
+
+    <div class="legend-item"><div class="legend-dot" style="background:#5463FF"></div> SMS Issues</div>
+
+    <div class="legend-item"><div class="legend-dot" style="background:#9BA5FF;opacity:0.7"></div> I can't restore my password</div>
+
+    <div class="legend-item"><div class="legend-dot" style="background:#E67E22"></div> Spike onset (March)</div>
+
+    <div class="legend-item"><div class="legend-dot" style="background:#C0392B"></div> Peak (April)</div>
+
+  </div>
+
+</div>
+
+<!-- 02 USER EXPERIENCE -->
+
+<div class="section-hd"><span class="section-num">02</span><span class="section-title">User Experience</span></div>
+
+<h3>Metric definitions</h3>
+
+<div class="metric-def">
+
+  <div class="metric-def-title">CSI — Customer Satisfaction Index</div>
+
+  Survey that measures the experience of the user <strong>with Bitso</strong> on a scale from 1 to 10. Sent once the ticket is set to solved.<br><br>
+
+  <strong>Score:</strong> Detractor (0–6) = −1 &nbsp;·&nbsp; Passive (7–8) = 0 &nbsp;·&nbsp; Promoter (9–10) = +1<br>
+
+  <span class="metric-formula">(Promoters − Detractors) / Total surveys responded</span>
+
+</div>
+
+<div class="metric-def">
+
+  <div class="metric-def-title">CSAT — Customer Satisfaction</div>
+
+  Survey that measures the experience of the user <strong>with the CS agent</strong> on a scale of 👍 / passive / 👎. Sent once the ticket is set to solved.<br><br>
+
+  <strong>Score:</strong> Promoter = 3 &nbsp;·&nbsp; Passive = 2 &nbsp;·&nbsp; Detractor = 1<br>
+
+  <span class="metric-formula">Total promoter surveys / Total surveys responded</span>
+
+</div>
+
+<h3>CSI — Access to my account performance</h3>
+
+<div class="tbl-wrap">
+
+<table>
+
+  <thead>
+
+    <tr><th>Month</th><th>Surveys</th><th>CSI Score</th><th>CSAT Score</th><th>Signal</th></tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr><td>Dec '25</td><td>45</td><td>24.4%</td><td class="td-ora">64.4%</td><td>Baseline</td></tr>
+
+    <tr><td>Jan '26</td><td>58</td><td>29.3%</td><td class="td-ora">69.0%</td><td>Stable</td></tr>
+
+    <tr><td>Feb '26</td><td>35</td><td>25.7%</td><td class="td-ora">60.0%</td><td>↓ Soft dip</td></tr>
+
+    <tr><td>Mar '26</td><td>46</td><td class="td-grn">39.1%</td><td class="td-grn">76.1%</td><td>↑ Best month</td></tr>
+
+    <tr><td>Apr '26</td><td>21</td><td class="td-red">0.0%</td><td class="td-red">52.4%</td><td>↓ Worst month — coincides with volume peak</td></tr>
+
+    <tr><td>May '26</td><td class="td-dim">6</td><td class="td-dim">100.0%*</td><td class="td-dim">100.0%*</td><td class="td-dim">* Low sample — not representative</td></tr>
+
+  </tbody>
+
+</table>
+
+</div>
+
+<h3>CSI — SMS sub-category specifically</h3>
+
+<p>Drilling into the CSI for the SMS sub-category specifically shows a different picture than the overall Access score — and a more concerning one given the volume trajectory.</p>
+
+<div class="tbl-wrap">
+
+<table>
+
+  <thead>
+
+    <tr><th>Month</th><th>CS Surveys</th><th>Promoters</th><th>Detractors</th><th>CSI Score</th><th>MoM Δ</th></tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr><td>Feb '26</td><td>16</td><td>10</td><td>6</td><td class="td-ora">25.0%</td><td>—</td></tr>
+
+    <tr><td>Mar '26</td><td>39</td><td>28</td><td>10</td><td class="td-grn">45.0%</td><td>+20 pp</td></tr>
+
+    <tr><td>Apr '26</td><td>40</td><td>29</td><td>9</td><td class="td-ora">50.0%</td><td>+5 pp</td></tr>
+
+  </tbody>
+
+</table>
+
+</div>
+
+<div class="callout warn">
+
+  <span class="callout-icon">⚠️</span>
+
+  <span>The CSI improved from 25% to 50% — but a 50% CSI on the fastest-growing contact type at Bitso means roughly <strong>1 in 4 users who contacted support over an SMS issue left dissatisfied</strong>. The improvement rate (+5 pp from March to April) is not keeping pace with the volume increase (+64.6% in the same period). All 99 survey records for SMS issues fall under "I haven't received the SMS code" — the second sub-label ("I do not receive the SMS message on my cell phone") had no survey records, suggesting a categorization overlap.</span>
+
+</div>
+
+<!-- 03 USER VOICE -->
+
+<div class="section-hd"><span class="section-num">03</span><span class="section-title">Voice of the Customer</span></div>
+
+<p>Ticket and survey analysis surfaces consistent patterns across promoters and detractors. The quotes below come directly from customer feedback in the review period.</p>
+
+<div class="pain-block">
+
+  <div class="pain-hd blue">👍 What promoters say — they praise agents, but flag the product gap</div>
+
+  <div class="pain-body">
+
+    <p>Promoters acknowledge the underlying SMS problem but credit the support team for resolving it. However, even satisfied customers surface improvement opportunities:</p>
+
+    <p><em>"No me llegó el SMS para iniciar sesión y tuve que pedir ayuda a soporte, y el servicio fue muy bueno"</em> — then adds: <em>"deberían activar la función de que el código llegue al correo registrado."</em> <span class="tk">#3253587</span></p>
+
+    <p>Several promoters explicitly praised Bitso's security posture: <em>"tienen un exigente sistema de seguridad, me siento confiado"</em> <span class="tk">#3203694</span> — yet a notable outlier scored positively overall despite writing: <em>"tiene problemas con los SMS, y esa experiencia me es desagradable."</em> <span class="tk">#3261960</span> This suggests CSI is capturing the overall relationship with Bitso, not just the SMS resolution quality — which may be inflating scores.</p>
+
+  </div>
+
+</div>
+
+<div class="pain-block">
+
+  <div class="pain-hd red">👎 What detractors say — three recurring pain points</div>
+
+  <div class="pain-body">
+
+    <p><strong>1. No SMS + no resolution path:</strong> <em>"1: no da los números clave. 2: no dan solución"</em> <span class="tk">#3255311</span> — Users feel agents cannot resolve the SMS issue and offer no workaround. This is the most damaging pattern: the contact type generates high volume and the resolution rate is perceived as low.</p>
+
+    <p><strong>2. 2FA confusion + carrier escalation needed:</strong> <em>"La forma como indican el paso a paso de la verificación 2FA es muy confusa... y muy importante que hablen con los operadores de celular para que el mensaje de texto de verificación funcione."</em> <span class="tk">#3243664</span> Customers are asking Bitso to escalate directly with mobile carriers — they've already ruled out their own device as the cause.</p>
+
+    <p><strong>3. Account blocks and frozen funds:</strong> <em>"Dejar tanta burocracia y bloquear el dinero contra la voluntad del cliente viola los derechos individuales"</em> <span class="tk">#3265370</span> and <em>"Te desconectan y no puedes hacer una operación."</em> <span class="tk">#3256168</span> SMS failures compound into account access blocks, which users perceive as Bitso holding their funds — the highest-stakes outcome.</p>
+
+    <p><strong>From March detractors — process failures:</strong> One customer described following all technical recommendations, verifying that SMS from other senders arrived normally, speaking with at least 3 agents, and having a verification link expire in 2 minutes. Key quote: <em>"Deben mejorar las opciones y atención... Ineficiente e inconveniente."</em> <span class="tk">#3212214</span></p>
+
+    <p><strong>Alternative channel requests:</strong> <em>"Estaría mejor por WhatsApp, como lo hacen algunas instituciones bancarias"</em> <span class="tk">#3207171</span> — users are actively proposing solutions, which indicates strong unmet need.</p>
+
+    <p><strong>From February detractors — resolution time:</strong> <em>"Todo — no es posible que llevo más de 72 HRS y nadie me escucha para poder ingresar a mi cuenta"</em> <span class="tk">#3151712</span> and <em>"Muy molesto, 6 asesores y no me pudieron ayudar. Hablamos de dinero amigos."</em> <span class="tk">#3169958</span></p>
+
+  </div>
+
+</div>
+
+<!-- 04 ROOT CAUSE -->
+
+<div class="section-hd"><span class="section-num">04</span><span class="section-title">Root Cause — What Happened in March</span></div>
+
+<p>The spike in SMS and password-related tickets is not random — it traces directly to a sequence of authentication changes and incidents that began in mid-March 2026. The timeline below reconstructs the causal chain.</p>
+
+<div class="timeline">
+
+  <div class="tl-item">
+
+    <div class="tl-date">12 Mar</div>
+
+    <div class="tl-dot"></div>
+
+    <div class="tl-content">
+
+      <strong>SMS activated as validation channel</strong> <span class="tl-tag release">Release</span><br>
+
+      Bitso enables SMS as an authentication channel. This is the starting point — from this date, users begin relying on SMS codes for login and verification steps.
+
+    </div>
+
+  </div>
+
+  <div class="tl-item">
+
+    <div class="tl-date">15 Mar</div>
+
+    <div class="tl-dot ora"></div>
+
+    <div class="tl-content">
+
+      <strong>Core Authentication Server Scheduled Maintenance</strong> <span class="tl-tag maint">Maintenance</span><br>
+
+      Planned downtime on the central authentication server. Any degradation here directly affects login, 2FA, and password restore flows.
+
+    </div>
+
+  </div>
+
+  <div class="tl-item">
+
+    <div class="tl-date">16 Mar</div>
+
+    <div class="tl-dot"></div>
+
+    <div class="tl-content">
+
+      <strong>Security StepUp required to configure 2FA</strong> <span class="tl-tag release">Release</span><br>
+
+      A new security step is now required to set up or change 2FA methods. This immediately introduced additional friction for users trying to access or recover their accounts.
+
+    </div>
+
+  </div>
+
+  <div class="tl-item">
+
+    <div class="tl-date">24 Mar</div>
+
+    <div class="tl-dot red"></div>
+
+    <div class="tl-content">
+
+      <strong>First confirmed incident: SMS not delivered + 2FA issues</strong> <span class="tl-tag incident">Incident</span><br>
+
+      Users report not receiving SMS codes. Simultaneously, 2FA issues are flagged. Password restore flow also affected — since it relies on SMS for identity verification.
+
+    </div>
+
+  </div>
+
+  <div class="tl-item">
+
+    <div class="tl-date">26–27 Mar</div>
+
+    <div class="tl-dot red"></div>
+
+    <div class="tl-content">
+
+      <strong>Two consecutive days: SMS delivery failure</strong> <span class="tl-tag incident">Incident</span><br>
+
+      "Users are not receiving the SMS to validate their phone number" — documented two days in a row. This is the event that drove the March ticket spike and set the trajectory toward the April peak.
+
+    </div>
+
+  </div>
+
+  <div class="tl-item">
+
+    <div class="tl-date">16 Apr</div>
+
+    <div class="tl-dot ora"></div>
+
+    <div class="tl-content">
+
+      <strong>Core Authentication Server Scheduled Maintenance</strong> <span class="tl-tag maint">Maintenance</span><br>
+
+      Second maintenance event on the authentication server within a month. Coincides with the April volume peak.
+
+    </div>
+
+  </div>
+
+  <div class="tl-item">
+
+    <div class="tl-date">22 Apr</div>
+
+    <div class="tl-dot red"></div>
+
+    <div class="tl-content">
+
+      <strong>Users unable to log in on mobile — 404 error</strong> <span class="tl-tag incident">Incident</span><br>
+
+      Confirmed login failure on mobile. Direct impact on access tickets — users could not enter the app.
+
+    </div>
+
+  </div>
+
+  <div class="tl-item">
+
+    <div class="tl-date">30 Apr</div>
+
+    <div class="tl-dot ora"></div>
+
+    <div class="tl-content">
+
+      <strong>Hubble 2FA UI inconsistency</strong> <span class="tl-tag incident">Incident</span><br>
+
+      Inconsistency in the 2FA interface detected in the internal tooling. Minor in scope but indicative of ongoing instability in auth flows.
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="callout info">
+
+  <span class="callout-icon">ℹ️</span>
+
+  <span><strong>On the "Forgot my password" → "I can't restore my password" shift:</strong> The historical "Forgot my password" category (1,415–1,800 tickets/month Dec–Feb) dropped to zero in April. At the same time, "I can't restore my password" — which had 1–5 tickets/month — exploded to 1,595. This strongly suggests a re-categorization of the contact reason in March, not an actual resolution of password issues. The underlying problem persists under a different label.</span>
+
+</div>
+
+<!-- 04 PAIN POINTS -->
+
+<div class="section-hd"><span class="section-num">05</span><span class="section-title">Pain Points</span></div>
+
+<div class="pain-block">
+
+  <div class="pain-hd red">🔴 SMS delivery failures blocking access and password recovery</div>
+
+  <div class="pain-body">
+
+    <p>The activation of SMS as an authentication channel on March 12 introduced a critical dependency: users who don't receive the SMS code cannot log in, cannot restore their password, and cannot complete 2FA setup. When delivery failed on March 24–27, this became a widespread blocker affecting thousands of users simultaneously.</p>
+
+    <p>The compounding effect is significant: <strong>Issues with SMS</strong> grew from ~580/month to 2,565 in April (+342%), and <strong>I can't restore my password</strong> went from near-zero to 1,595 (+31,800%) in the same period. Both categories are symptoms of the same root cause — SMS dependency without a reliable fallback for users when delivery fails.</p>
+
+    <div class="callout warn" style="margin-top:12px">
+
+      <span class="callout-icon">⚠️</span>
+
+      <span>May 2026 data (partial, ~first week) already shows 545 SMS tickets and 291 password restore tickets. The issue has not fully resolved — volume remains elevated above the Dec–Feb baseline.</span>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="pain-block">
+
+  <div class="pain-hd ora">🟠 2FA friction added without sufficient fallback paths</div>
+
+  <div class="pain-body">
+
+    <p>The March 16 release requiring a Security StepUp to configure 2FA added friction for users who were already struggling with SMS delivery. Users trying to recover account access hit a wall: they need SMS to proceed, but SMS isn't arriving. The 2FA disable request category (<strong>I want to disable 2FA</strong>) remained stable at ~900–1,100/month throughout the period, suggesting this is a persistent structural friction independent of the March spike.</p>
+
+    <p>The April 7 "Liveness for enabling 2FA" release and the Hubble 2FA UI inconsistency on April 30 indicate that 2FA-related changes continued to be deployed in a period of already elevated user friction — potentially compounding the impact.</p>
+
+  </div>
+
+</div>
+
+<div class="pain-block">
+
+  <div class="pain-hd ora">🟠 Mobile login outage (April 22) hit an already stressed contact type</div>
+
+  <div class="pain-body">
+
+    <p>The April 22 incident — users unable to log in on mobile due to a 404 error — landed on top of an already elevated ticket volume in Access to my account. April was already the peak month before this incident. Events like this, occurring when the category is already under stress, disproportionately impact CSI because there is no resolution path for the user within CS — the fix is purely on the product/engineering side.</p>
+
+  </div>
+
+</div>
+
+<!-- 05 CS NEEDS FROM PRODUCT -->
+
+<div class="section-hd"><span class="section-num">06</span><span class="section-title">CS Needs from Product</span></div>
+
+<p>Based on incoming data, CSI analysis, and direct customer feedback, these are the specific asks for the Guardians squad. The goal is to open a conversation: we're seeing this friction in CS — what's on your roadmap that addresses it?</p>
+
+<div class="tbl-wrap needs-table">
+
+<table>
+
+  <thead>
+
+    <tr><th style="width:24px">#</th><th>Issue Found</th><th>Action Required</th><th>Owner</th><th>Status</th></tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr>
+
+      <td class="td-hi">1</td>
+
+      <td>SMS delivery failures block login and password recovery — no reliable fallback when SMS doesn't arrive</td>
+
+      <td>Implement an alternative authentication channel (email OTP or authenticator app prompt) as a fallback when SMS delivery fails. This is the most-requested improvement by both promoters and detractors.</td>
+
+      <td><strong>Guardians / Shield</strong></td>
+
+      <td><span class="badge badge-pending">Pending</span></td>
+
+    </tr>
+
+    <tr>
+
+      <td class="td-hi">2</td>
+
+      <td>Verification link expires in 2 minutes — customers restart the process and contact CS again</td>
+
+      <td>Extend the session time on verification links or redesign the flow to prevent expiry-driven repeat contacts. Directly mentioned by detractors as a cause of frustration.</td>
+
+      <td><strong>Guardians / Mercury</strong></td>
+
+      <td><span class="badge badge-pending">Pending</span></td>
+
+    </tr>
+
+    <tr>
+
+      <td class="td-hi">3</td>
+
+      <td>Agents cannot resolve SMS issues — multi-agent chains (3–6 agents) without resolution</td>
+
+      <td>Define a clear escalation path and resolution toolkit for agents handling SMS failures. Customers who reach 3+ agents without resolution become the worst detractors and are at high churn risk.</td>
+
+      <td><strong>Guardians / CS Ops</strong></td>
+
+      <td><span class="badge badge-pending">Pending</span></td>
+
+    </tr>
+
+    <tr>
+
+      <td class="td-hi">4</td>
+
+      <td>Carrier-side SMS delivery failure — Bitso's SMS specifically not arriving while other senders work normally</td>
+
+      <td>Escalate with SMS providers / mobile carriers to investigate delivery failures. Multiple customers have independently confirmed this is carrier-specific, not device-specific.</td>
+
+      <td><strong>Guardians / Engineering</strong></td>
+
+      <td><span class="badge badge-pending">Pending</span></td>
+
+    </tr>
+
+    <tr>
+
+      <td class="td-hi">5</td>
+
+      <td>2FA setup process is confusing — "Forgot my password" re-categorization obscures trend continuity</td>
+
+      <td>Review 2FA setup UX for clarity; confirm whether the March re-categorization from "Forgot my password" to "I can't restore my password" was intentional and align on historical comparability in reporting.</td>
+
+      <td><strong>Guardians / CX</strong></td>
+
+      <td><span class="badge badge-pending">Pending</span></td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+</div>
+
+<hr>
+
+<div class="footer">
+
+  <strong>Javier Ruiz</strong> · Experience Senior Specialist · Bitso Client Services &nbsp;·&nbsp;
+
+  Questions or feedback? <strong>#exp-guardians-capsule</strong>
+
+</div>
+
+</div><!-- /body -->
+
+</body>
+
+</html>
