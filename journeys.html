@@ -28,7 +28,7 @@
 
   body { font-family:'DM Sans',sans-serif; background:var(--white); color:var(--dark); font-size:14px; line-height:1.65; max-width:920px; margin:0 auto; padding:0 0 56px; }
 
-  .cover { background:var(--blue); padding:44px 44px 40px; position:relative; overflow:hidden; }
+  .cover { background:var(--blue); padding:44px 36px 40px; position:relative; overflow:hidden; }
 
   .cover::before { content:''; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--lima); }
 
@@ -448,57 +448,9 @@
 
 <div class="section-hd"><span class="section-num">02</span><span class="section-title">Incoming Overview — KYC View</span></div>
 
-<p>The same friction that generates CS tickets also creates a parallel workload for the KYC team. Understanding how tickets arrive at KYC — and through which route — is key to seeing the full picture.</p>
+<p>The same friction that generates CS tickets also creates a parallel workload for the KYC team. The table below shows the key differences between how each team experiences Account Limits contacts.</p>
 
-<div class="route-grid">
-
-  <div class="route-card blue">
-
-    <div class="route-label blue">🗨️ Route A — via Chat</div>
-
-    <div class="route-step">
-
-      <strong>User</strong> doesn't know why limits can't increase → writes to chat<br>
-
-      <span class="route-arrow">↓ manual escalation</span><br>
-
-      <strong>CS Agent</strong> investigates, cannot resolve alone<br>
-
-      <span class="route-arrow">↓ escalates</span><br>
-
-      <strong>KYC Team</strong> receives escalated ticket<br>
-
-      <span class="route-arrow">↓</span><br>
-
-      <span class="route-outcome blue">Manual review + user response</span>
-
-    </div>
-
-  </div>
-
-  <div class="route-card orange">
-
-    <div class="route-label orange">📱 Route B — via API</div>
-
-    <div class="route-step">
-
-      <strong>User in-app</strong> tries to upgrade and gets stuck<br>
-
-      <span class="route-arrow">↓ app detects it</span><br>
-
-      <strong>System/App</strong> auto-generates ticket via API<br>
-
-      <span class="route-arrow">↓ bypasses CS entirely</span><br>
-
-      <strong>KYC Team</strong> receives direct API ticket<br>
-
-      <span class="route-arrow">↓</span><br>
-
-      <span class="route-outcome orange">Document review + approve or reject</span>
-
-    </div>
-
-  </div>
+  
 
 </div>
 
@@ -664,7 +616,7 @@
 
 <h3>CSI — KYC side (by sub-category)</h3>
 
-<p>The KYC perspective reveals a much more granular — and concerning — picture. Level 3→4 users, who are at the highest-intent stage of the Bitso lifecycle, show the most volatile and consistently low CSI. Users arriving via Internal Escalation (Route A) score significantly worse than those arriving via API (Route B).</p>
+<p>The KYC perspective reveals a much more granular — and concerning — picture. Level 3→4 users, who are at the highest-intent stage of the Bitso lifecycle, show the most volatile and consistently low CSI. Users who escalated via chat score significantly worse than those whose ticket was generated directly by the app.</p>
 
 <div class="tbl-wrap">
 
@@ -814,7 +766,7 @@
 
 <!-- 05 ROOT CAUSE -->
 
-<div class="section-hd"><span class="section-num">05</span><span class="section-title">Root Cause — IDWall & The Verification Stack</span></div>
+<div class="section-hd"><span class="section-num">05</span><span class="section-title">Root Cause — IDWall &amp; The Verification Stack</span></div>
 
 <p>The event calendar shows a clear pattern: IDWall incidents directly cause spikes in both CS and KYC ticket volume, while simultaneously driving the worst CSI readings in the period.</p>
 
@@ -957,32 +909,6 @@
   <div class="pain-body"><p>When IDWall rejected an attempt, attackers immediately deleted the account — erasing their trail. The operation was deliberately timed around the Brazilian IRS (Receita Federal) refund disbursement window.</p></div>
 
 </div>
-
-<h3>Response & Roadmap</h3>
-
-<div class="tbl-wrap">
-
-<table>
-
-  <thead><tr><th>Initiative</th><th>Team</th><th>Status</th></tr></thead>
-
-  <tbody>
-
-    <tr><td>API trigger fix — Hubble vs IDWall mismatch</td><td>Engineering</td><td class="td-grn">✅ Done</td></tr>
-
-    <tr><td>Fraud team recovery operation (~$28K USD recovered)</td><td>Fraud</td><td class="td-grn">✅ Done</td></tr>
-
-    <tr><td>Suspicious liveness tracking database (500+ accounts documented)</td><td>KYC</td><td class="td-grn">✅ Done</td></tr>
-
-    <tr><td>ID photo upload extinction — live capture only</td><td>Product</td><td class="td-grn">✅ Done</td></tr>
-
-    <tr><td>Hubble / IDWall full identity crossmatch</td><td>Engineering</td><td class="td-grn">✅ Done</td></tr>
-
-    <tr><td>IDWall — liveness model upgrade + biometric deduplication</td><td>IDWall · KYC</td><td class="td-ora">⏳ In progress</td></tr>
-
-  </tbody>
-
-</table>
 
 </div>
 
