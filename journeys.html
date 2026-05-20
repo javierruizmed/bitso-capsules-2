@@ -15,10 +15,15 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
+
     --blue:#5463FF; --lima:#DFFF50; --beige:#E3DBD2; --gray:#575048;
+
     --dark:#1A1A2E; --off:#F5F4F2; --white:#ffffff;
+
     --red:#C0392B; --orange:#E67E22; --green:#27AE60;
+
     --red-soft:#FFEBEE; --ora-soft:#FFF3E0; --grn-soft:#F0FDF4;
+
   }
 
   body { font-family:'DM Sans',sans-serif; background:var(--white); color:var(--dark); font-size:14px; line-height:1.65; max-width:920px; margin:0 auto; padding:0 0 56px; }
@@ -53,7 +58,7 @@
 
   h3 { font-size:15px; font-weight:700; color:var(--blue); margin:24px 0 10px; }
 
-  p  { font-size:13.5px; color:var(--dark); margin-bottom:12px; line-height:1.7; }
+  p { font-size:13.5px; color:var(--dark); margin-bottom:12px; line-height:1.7; }
 
   .kpi-row { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:16px 0 24px; }
 
@@ -68,6 +73,8 @@
   .kpi-red { color:var(--red) !important; }
 
   .kpi-ora { color:var(--orange) !important; }
+
+  .kpi-grn { color:var(--green) !important; }
 
   .tbl-wrap { overflow-x:auto; margin:16px 0 20px; }
 
@@ -87,7 +94,7 @@
 
   tbody td:first-child { text-align:left; font-weight:500; }
 
-  .td-hi  { font-weight:700; color:var(--blue); }
+  .td-hi { font-weight:700; color:var(--blue); }
 
   .td-red { font-weight:700; color:var(--red); }
 
@@ -101,21 +108,21 @@
 
   .callout-icon { font-size:15px; flex-shrink:0; margin-top:1px; }
 
-  .callout.warn   { background:#FFF8E1; border-left:4px solid #F59E0B; }
+  .callout.warn { background:#FFF8E1; border-left:4px solid #F59E0B; }
 
   .callout.danger { background:#FEF2F2; border-left:4px solid var(--red); }
 
-  .callout.info   { background:#EEF0FF; border-left:4px solid var(--blue); }
+  .callout.info { background:#EEF0FF; border-left:4px solid var(--blue); }
 
-  .callout.tip    { background:var(--grn-soft); border-left:4px solid var(--green); }
+  .callout.tip { background:var(--grn-soft); border-left:4px solid var(--green); }
 
   .pain-block { border:1px solid var(--beige); border-radius:8px; margin:16px 0; overflow:hidden; }
 
   .pain-hd { padding:10px 16px; font-size:13px; font-weight:700; display:flex; align-items:center; gap:8px; }
 
-  .pain-hd.red  { background:var(--red-soft); color:var(--red); }
+  .pain-hd.red { background:var(--red-soft); color:var(--red); }
 
-  .pain-hd.ora  { background:var(--ora-soft); color:var(--orange); }
+  .pain-hd.ora { background:var(--ora-soft); color:var(--orange); }
 
   .pain-hd.blue { background:#EEF0FF; color:var(--blue); }
 
@@ -131,11 +138,11 @@
 
   .tl-date { flex-shrink:0; width:80px; font-size:11px; font-weight:700; color:var(--blue); padding-top:2px; }
 
-  .tl-dot  { flex-shrink:0; width:10px; height:10px; border-radius:50%; margin-top:5px; }
+  .tl-dot { flex-shrink:0; width:10px; height:10px; border-radius:50%; margin-top:5px; }
 
-  .tl-dot.red  { background:var(--red); }
+  .tl-dot.red { background:var(--red); }
 
-  .tl-dot.ora  { background:var(--orange); }
+  .tl-dot.ora { background:var(--orange); }
 
   .tl-dot.blue { background:var(--blue); }
 
@@ -145,9 +152,9 @@
 
   .tl-tag.incident { background:var(--red-soft); color:var(--red); }
 
-  .tl-tag.release  { background:#EEF0FF; color:var(--blue); }
+  .tl-tag.release { background:#EEF0FF; color:var(--blue); }
 
-  .tl-tag.maint    { background:var(--ora-soft); color:var(--orange); }
+  .tl-tag.maint { background:var(--ora-soft); color:var(--orange); }
 
   .chart-wrap { background:var(--off); border:1px solid var(--beige); border-radius:8px; padding:20px 16px 14px; margin:16px 0 24px; }
 
@@ -168,6 +175,30 @@
   .badge { display:inline-block; padding:2px 8px; border-radius:20px; font-size:11px; font-weight:700; }
 
   .badge-pending { background:#FEF9C3; color:#854D0E; }
+
+  .route-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:16px 0 20px; }
+
+  .route-card { border-radius:8px; padding:16px; }
+
+  .route-card.blue { border:2px solid var(--blue); background:#F8F9FF; }
+
+  .route-card.orange { border:2px solid var(--orange); background:#FFFAF5; }
+
+  .route-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+
+  .route-label.blue { color:var(--blue); }
+
+  .route-label.orange { color:var(--orange); }
+
+  .route-step { font-size:12px; color:var(--dark); line-height:1.7; }
+
+  .route-arrow { font-size:10px; color:var(--gray); }
+
+  .route-outcome { font-weight:700; margin-top:4px; }
+
+  .route-outcome.blue { color:var(--blue); }
+
+  .route-outcome.orange { color:var(--orange); }
 
   hr { border:none; border-top:1px solid var(--beige); margin:36px 0; }
 
@@ -205,15 +236,15 @@
 
 <div class="intro">
 
-  This capsule covers <strong>Account Limits</strong> — a category where the user's ability to operate on Bitso is directly tied to completing identity verification successfully. When the verification journey breaks, users don't just experience friction: they hit a hard stop that prevents them from accessing higher limits and transacting freely. The data points to a persistent and significant volume of users stuck in this flow, with <strong>IDWall/Jumio</strong> — Bitso's biometric and document verification provider — appearing as a recurring point of failure for both legitimate users and, as documented in Operation Restituição, as an exploited gap for organized fraud.
+  This capsule covers <strong>Account Limits</strong> — a category where the user's ability to operate on Bitso is directly tied to completing identity verification successfully. When the verification journey breaks, users hit a hard stop that prevents them from accessing higher limits and transacting freely. This capsule takes a dual perspective: <strong>CS incoming data</strong> reveals what users experience, while <strong>KYC operational data</strong> reveals the systemic gaps that neither team can resolve alone. At the center of both: <strong>IDWall</strong> — Bitso's biometric verification provider — as a recurring point of failure.
 
 </div>
 
-<!-- 01 INCOMING -->
+<!-- 01 INCOMING — CS VIEW -->
 
-<div class="section-hd"><span class="section-num">01</span><span class="section-title">Incoming Overview</span></div>
+<div class="section-hd"><span class="section-num">01</span><span class="section-title">Incoming Overview — CS View</span></div>
 
-<p>Account Limits is a consistently high-volume contact type. Users primarily contact CS because they couldn't increase their limits — a contact that represents a failed product journey, not a question CS can resolve unilaterally. The category peaked in January 2026 at 1,993 tickets and has trended downward since April.</p>
+<p>Account Limits is a consistently high-volume contact type — users contact CS because they couldn't increase their limits, a problem that CS cannot resolve unilaterally. It peaked in January 2026 at 1,993 tickets and has trended downward since, though it remains structurally elevated.</p>
 
 <div class="kpi-row">
 
@@ -251,25 +282,25 @@
 
 <div class="chart-wrap">
 
-  <div class="chart-title">Account Limits — Monthly Ticket Volume</div>
+  <div class="chart-title">Account Limits — Monthly Ticket Volume (CS Incoming)</div>
 
   <svg width="100%" viewBox="0 0 820 200" xmlns="http://www.w3.org/2000/svg">
 
-    <line x1="60" y1="25"  x2="800" y2="25"  stroke="#E0DED9" stroke-width="1"/>
+    <line x1="60" y1="25" x2="800" y2="25" stroke="#E0DED9" stroke-width="1"/>
 
-    <line x1="60" y1="55"  x2="800" y2="55"  stroke="#E0DED9" stroke-width="1"/>
+    <line x1="60" y1="55" x2="800" y2="55" stroke="#E0DED9" stroke-width="1"/>
 
-    <line x1="60" y1="85"  x2="800" y2="85"  stroke="#E0DED9" stroke-width="1"/>
+    <line x1="60" y1="85" x2="800" y2="85" stroke="#E0DED9" stroke-width="1"/>
 
     <line x1="60" y1="115" x2="800" y2="115" stroke="#E0DED9" stroke-width="1"/>
 
     <line x1="60" y1="145" x2="800" y2="145" stroke="#E0DED9" stroke-width="1"/>
 
-    <text x="52" y="29"  font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">2,500</text>
+    <text x="52" y="29" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">2,500</text>
 
-    <text x="52" y="59"  font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">2,000</text>
+    <text x="52" y="59" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">2,000</text>
 
-    <text x="52" y="89"  font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">1,500</text>
+    <text x="52" y="89" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">1,500</text>
 
     <text x="52" y="119" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">1,000</text>
 
@@ -277,65 +308,57 @@
 
     <text x="52" y="178" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">0</text>
 
-    <!-- scale 2500->150px, baseline y=175 -->
+    <!-- scale 2500→150px, baseline y=175 -->
 
-    <!-- Dec 1504: cant=1237(74.2), other=267(16.0) -->
+    <!-- Dec 1504 -->
 
-    <rect x="70"  y="100.8" width="70" height="74.2" fill="#5463FF" rx="2"/>
+    <rect x="70" y="100.8" width="70" height="74.2" fill="#5463FF" rx="2"/>
 
-    <rect x="70"  y="84.8"  width="70" height="16.0" fill="#9BA5FF" rx="2"/>
+    <rect x="70" y="84.8" width="70" height="16.0" fill="#9BA5FF" rx="2"/>
 
     <text x="105" y="78" font-family="DM Sans,sans-serif" font-size="9.5" fill="#575048" text-anchor="middle">1,504</text>
 
     <text x="105" y="192" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Dec '25</text>
 
-    <!-- Jan 1993 PEAK: cant=1693(101.6), other=300(18.0) -->
+    <!-- Jan 1993 PEAK -->
 
-    <rect x="197" y="73.4"  width="70" height="101.6" fill="#C0392B" rx="2"/>
+    <rect x="197" y="73.4" width="70" height="101.6" fill="#C0392B" rx="2"/>
 
-    <rect x="197" y="55.4"  width="70" height="18.0"  fill="#E57373" rx="2"/>
+    <rect x="197" y="55.4" width="70" height="18.0" fill="#E57373" rx="2"/>
 
     <text x="232" y="48" font-family="DM Sans,sans-serif" font-size="9.5" fill="#C0392B" text-anchor="middle" font-weight="700">1,993</text>
 
     <text x="232" y="192" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Jan '26</text>
 
-    <!-- Feb 1779: cant=1535(92.1), other=244(14.6) -->
+    <!-- Feb 1779 -->
 
-    <rect x="324" y="82.9"  width="70" height="92.1" fill="#5463FF" rx="2"/>
+    <rect x="324" y="82.9" width="70" height="92.1" fill="#5463FF" rx="2"/>
 
-    <rect x="324" y="68.3"  width="70" height="14.6" fill="#9BA5FF" rx="2"/>
+    <rect x="324" y="68.3" width="70" height="14.6" fill="#9BA5FF" rx="2"/>
 
     <text x="359" y="61" font-family="DM Sans,sans-serif" font-size="9.5" fill="#575048" text-anchor="middle">1,779</text>
 
     <text x="359" y="192" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Feb '26</text>
 
-    <!-- Mar 1937: cant=1664(99.8), other=273(16.4) -->
+    <!-- Mar 1937 -->
 
-    <rect x="451" y="75.2"  width="70" height="99.8" fill="#5463FF" rx="2"/>
+    <rect x="451" y="75.2" width="70" height="99.8" fill="#5463FF" rx="2"/>
 
-    <rect x="451" y="58.8"  width="70" height="16.4" fill="#9BA5FF" rx="2"/>
+    <rect x="451" y="58.8" width="70" height="16.4" fill="#9BA5FF" rx="2"/>
 
     <text x="486" y="51" font-family="DM Sans,sans-serif" font-size="9.5" fill="#575048" text-anchor="middle">1,937</text>
 
     <text x="486" y="192" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Mar '26</text>
 
-    <!-- Apr 1316: cant=1096(65.8), other=220(13.2) -->
+    <!-- Apr 1316 -->
 
     <rect x="578" y="109.2" width="70" height="65.8" fill="#5463FF" rx="2"/>
 
-    <rect x="578" y="96.0"  width="70" height="13.2" fill="#9BA5FF" rx="2"/>
+    <rect x="578" y="96.0" width="70" height="13.2" fill="#9BA5FF" rx="2"/>
 
     <text x="613" y="89" font-family="DM Sans,sans-serif" font-size="9.5" fill="#575048" text-anchor="middle">1,316</text>
 
     <text x="613" y="192" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Apr '26</text>
-
-    <!-- May partial 614 -->
-
-    <rect x="705" y="138.2" width="70" height="36.8" fill="#E3DBD2" rx="2"/>
-
-    <text x="740" y="131" font-family="DM Sans,sans-serif" font-size="9.5" fill="#575048" text-anchor="middle">614*</text>
-
-    <text x="740" y="192" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">May '26</text>
 
     <line x1="60" y1="175" x2="800" y2="175" stroke="#1A1A2E" stroke-width="1.5"/>
 
@@ -343,13 +366,11 @@
 
   <div class="legend">
 
-    <div class="legend-item"><div class="legend-dot" style="background:#C0392B;width:14px;height:14px;border-radius:3px"></div> <strong style="color:#C0392B">January peak</strong></div>
+    <div class="legend-item"><div class="legend-dot" style="background:#C0392B"></div> <strong style="color:#C0392B">January peak</strong></div>
 
-    <div class="legend-item"><div class="legend-dot" style="background:#5463FF;width:14px;height:14px;border-radius:3px"></div> <strong>I couldn't increase my limits</strong></div>
+    <div class="legend-item"><div class="legend-dot" style="background:#5463FF"></div> <strong>I couldn't increase my limits</strong></div>
 
-    <div class="legend-item"><div class="legend-dot" style="background:#9BA5FF;width:14px;height:14px;border-radius:3px"></div> Other sub-categories</div>
-
-    <div class="legend-item"><div class="legend-dot" style="background:#E3DBD2;width:14px;height:14px;border-radius:3px"></div> <em>May (partial)</em></div>
+    <div class="legend-item"><div class="legend-dot" style="background:#9BA5FF"></div> Other sub-categories</div>
 
   </div>
 
@@ -357,35 +378,25 @@
 
 <h3>Where in the upgrade journey are users getting stuck?</h3>
 
-<p><strong>Upgrade 1→2</strong> is consistently the most common friction point — 575 in December peaking at 856 in March. This is the first significant limit increase a user encounters after basic account setup. Upgrades 0→1 and 2→3 also generate significant volume.</p>
+<p><strong>Upgrade 1→2</strong> is the most common friction point — peaking at 856 in March. This is the first significant limit increase after basic account setup. Upgrades 0→1 and 2→3 also generate significant volume. Together, these three tiers represent over 85% of all limit increase contacts.</p>
 
 <div class="tbl-wrap">
 
 <table>
 
-  <thead>
-
-    <tr><th>Upgrade Level</th><th>Dec '25</th><th>Jan '26</th><th>Feb '26</th><th>Mar '26</th><th>Apr '26</th><th>May '26</th></tr>
-
-  </thead>
+  <thead><tr><th>Upgrade Level</th><th>Dec '25</th><th>Jan '26</th><th>Feb '26</th><th>Mar '26</th><th>Apr '26</th></tr></thead>
 
   <tbody>
 
-    <tr><td>Upgrade 0 → 1</td><td>457</td><td>522</td><td>492</td><td>515</td><td>455</td><td>180</td></tr>
+    <tr><td>Upgrade 0 → 1</td><td>457</td><td>522</td><td>492</td><td>515</td><td>455</td></tr>
 
-    <tr>
+    <tr><td><strong>Upgrade 1 → 2</strong></td><td>575</td><td class="td-red">819</td><td>755</td><td class="td-red">856</td><td>453</td></tr>
 
-      <td><strong>Upgrade 1 → 2</strong></td>
+    <tr><td>Upgrade 2 → 3</td><td>170</td><td>236</td><td>240</td><td>234</td><td>167</td></tr>
 
-      <td>575</td><td class="td-red">819</td><td>755</td><td class="td-red">856</td><td>453</td><td>221</td>
+    <tr><td>Upgrade 3 → 4</td><td>192</td><td>244</td><td>172</td><td>210</td><td>146</td></tr>
 
-    </tr>
-
-    <tr><td>Upgrade 2 → 3</td><td>170</td><td>236</td><td>240</td><td>234</td><td>167</td><td>88</td></tr>
-
-    <tr><td>Upgrade 3 → 4</td><td>192</td><td>244</td><td>172</td><td>210</td><td>146</td><td>77</td></tr>
-
-    <tr><td class="td-dim">Upgrade 4→5 / Special</td><td class="td-dim">14</td><td class="td-dim">11</td><td class="td-dim">12</td><td class="td-dim">10</td><td class="td-dim">8</td><td class="td-dim">3</td></tr>
+    <tr><td class="td-dim">Upgrade 4→5 / Special</td><td class="td-dim">14</td><td class="td-dim">11</td><td class="td-dim">12</td><td class="td-dim">10</td><td class="td-dim">8</td></tr>
 
   </tbody>
 
@@ -395,47 +406,37 @@
 
 <h3>What document is blocking users?</h3>
 
-<p>Failures are spread across the entire verification stack — pointing to a systemic issue, not a single fixable gap. <strong>ID / Liveness Test</strong> is the top failure, directly dependent on Jumio. <strong>Unique Identifier</strong> is a close second but operates independently of Jumio, suggesting two parallel problems.</p>
+<p>Failures are spread across the entire verification stack — pointing to a systemic issue. <strong>ID / Liveness Test</strong> is the top failure (IDWall/Jumio-dependent). <strong>Unique Identifier</strong> runs at ~350/month independently of IDWall status — two parallel problems.</p>
 
 <div class="tbl-wrap">
 
 <table>
 
-  <thead>
-
-    <tr><th>Document Type</th><th>Dec '25</th><th>Jan '26</th><th>Feb '26</th><th>Mar '26</th><th>Apr '26</th><th>May '26</th></tr>
-
-  </thead>
+  <thead><tr><th>Document Type</th><th>Dec '25</th><th>Jan '26</th><th>Feb '26</th><th>Mar '26</th><th>Apr '26</th></tr></thead>
 
   <tbody>
 
     <tr>
 
-      <td><strong>ID / Liveness Test</strong> <span style="font-size:10px;color:var(--red);font-weight:600">Jumio-dependent</span></td>
+      <td><strong>ID / Liveness Test</strong> <span style="font-size:10px;color:var(--red);font-weight:600">IDWall-dependent</span></td>
 
-      <td>426</td><td class="td-red">598</td><td>534</td><td class="td-red">619</td><td>386</td><td>207</td>
-
-    </tr>
-
-    <tr>
-
-      <td><strong>Proof of Address</strong></td>
-
-      <td>332</td><td class="td-ora">449</td><td>447</td><td>426</td><td>303</td><td>115</td>
+      <td>426</td><td class="td-red">598</td><td>534</td><td class="td-red">619</td><td>386</td>
 
     </tr>
+
+    <tr><td><strong>Proof of Address</strong></td><td>332</td><td class="td-ora">449</td><td>447</td><td>426</td><td>303</td></tr>
 
     <tr>
 
       <td><strong>Unique Identifier</strong> <span style="font-size:10px;color:var(--orange);font-weight:600">CURP/CPF</span></td>
 
-      <td>352</td><td>350</td><td>358</td><td>386</td><td>235</td><td>122</td>
+      <td>352</td><td>350</td><td>358</td><td>386</td><td>235</td>
 
     </tr>
 
-    <tr><td>Proof of Income</td><td>173</td><td>234</td><td>170</td><td>204</td><td>145</td><td>78</td></tr>
+    <tr><td>Proof of Income</td><td>173</td><td>234</td><td>170</td><td>204</td><td>145</td></tr>
 
-    <tr><td class="td-dim">Other Financial Info / Other</td><td class="td-dim">117</td><td class="td-dim">196</td><td class="td-dim">157</td><td class="td-dim">188</td><td class="td-dim">160</td><td class="td-dim">45</td></tr>
+    <tr><td class="td-dim">Other Financial / Other</td><td class="td-dim">117</td><td class="td-dim">196</td><td class="td-dim">157</td><td class="td-dim">188</td><td class="td-dim">160</td></tr>
 
   </tbody>
 
@@ -443,63 +444,57 @@
 
 </div>
 
-<div class="callout info">
+<!-- 02 INCOMING — KYC VIEW -->
 
-  <span class="callout-icon">ℹ️</span>
+<div class="section-hd"><span class="section-num">02</span><span class="section-title">Incoming Overview — KYC View</span></div>
 
-  <span><strong>Two independent problems in the verification stack:</strong> ID/Liveness Test (Jumio-dependent, 386–619/month) and Unique Identifier (stable ~350/month regardless of Jumio status). Fixing Jumio alone would not resolve all verification failures — Unique Identifier requires a separate investigation.</span>
+<p>The same friction that generates CS tickets also creates a parallel workload for the KYC team. Understanding how tickets arrive at KYC — and through which route — is key to seeing the full picture.</p>
 
-</div>
+<div class="route-grid">
 
-<h3>The two routes to CS — and why each matters</h3>
+  <div class="route-card blue">
 
-<p>Account Limits contacts reach CS through two distinct paths. Understanding which route a ticket came from determines what CS can actually do to help.</p>
+    <div class="route-label blue">🗨️ Route A — via Chat</div>
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 20px;">
+    <div class="route-step">
 
-  <div style="border:2px solid var(--blue);border-radius:8px;padding:16px;background:#F8F9FF;">
+      <strong>User</strong> doesn't know why limits can't increase → writes to chat<br>
 
-    <div style="font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">🗨️ Route A — via Chat</div>
+      <span class="route-arrow">↓ manual escalation</span><br>
 
-    <div style="font-size:12px;color:var(--dark);line-height:1.6;">
+      <strong>CS Agent</strong> investigates, cannot resolve alone<br>
 
-      <strong>User</strong> doesn't know why limits can't be increased → writes to chat<br>
-
-      <span style="color:var(--gray);font-size:11px;">↓ escala manualmente</span><br>
-
-      <strong>CS Agent</strong> receives ticket, investigates, cannot resolve alone<br>
-
-      <span style="color:var(--gray);font-size:11px;">↓ escalates</span><br>
+      <span class="route-arrow">↓ escalates</span><br>
 
       <strong>KYC Team</strong> receives escalated ticket<br>
 
-      <span style="color:var(--gray);font-size:11px;">↓</span><br>
+      <span class="route-arrow">↓</span><br>
 
-      <strong style="color:var(--blue)">Manual review + user response</strong>
+      <span class="route-outcome blue">Manual review + user response</span>
 
     </div>
 
   </div>
 
-  <div style="border:2px solid var(--orange);border-radius:8px;padding:16px;background:#FFFAF5;">
+  <div class="route-card orange">
 
-    <div style="font-size:11px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">📱 Route B — via API</div>
+    <div class="route-label orange">📱 Route B — via API</div>
 
-    <div style="font-size:12px;color:var(--dark);line-height:1.6;">
+    <div class="route-step">
 
-      <strong>User in-app</strong> tries to upgrade limits and gets stuck in the journey<br>
+      <strong>User in-app</strong> tries to upgrade and gets stuck<br>
 
-      <span style="color:var(--gray);font-size:11px;">↓ app detects it</span><br>
+      <span class="route-arrow">↓ app detects it</span><br>
 
       <strong>System/App</strong> auto-generates ticket via API<br>
 
-      <span style="color:var(--gray);font-size:11px;">↓ bypasses CS entirely</span><br>
+      <span class="route-arrow">↓ bypasses CS entirely</span><br>
 
-      <strong>KYC Team</strong> receives direct ticket from API<br>
+      <strong>KYC Team</strong> receives direct API ticket<br>
 
-      <span style="color:var(--gray);font-size:11px;">↓</span><br>
+      <span class="route-arrow">↓</span><br>
 
-      <strong style="color:var(--orange)">Document review + approve or reject</strong>
+      <span class="route-outcome orange">Document review + approve or reject</span>
 
     </div>
 
@@ -507,17 +502,21 @@
 
 </div>
 
-<h3>KYC incoming — what's generating the most volume</h3>
-
-<p>Looking at the KYC-side data (Incoming API by sub-category), the picture becomes more nuanced. <strong>Level 3→4</strong> is the highest-volume sub-category by far — and critically, it has the worst CSI of the group.</p>
-
-<div class="tbl-wrap">
+<div class="tbl-wrap" style="margin-bottom:24px;">
 
 <table>
 
   <thead>
 
-    <tr><th>Sub-category (Level 3)</th><th>Dec '25</th><th>Jan '26</th><th>Feb '26</th><th>Mar '26</th><th>Apr '26</th><th>May '26</th></tr>
+    <tr>
+
+      <th></th>
+
+      <th>CS (Customer Support)</th>
+
+      <th>KYC (API Tickets)</th>
+
+    </tr>
 
   </thead>
 
@@ -525,51 +524,85 @@
 
     <tr>
 
-      <td><strong>Level 3 → 4</strong> <span style="font-size:10px;color:var(--red);font-weight:600">Highest intent users</span></td>
+      <td><strong>When it appears</strong></td>
 
-      <td>1,155</td><td>1,024</td><td>852</td><td>736</td><td class="td-hi">756</td><td>399</td>
+      <td>User can't move forward and opens a chat</td>
 
-    </tr>
-
-    <tr>
-
-      <td>IDWall</td>
-
-      <td>702</td><td>755</td><td>733</td><td>733</td><td class="td-red">1,044</td><td>560</td>
+      <td>User attempts the in-app flow and fails</td>
 
     </tr>
 
     <tr>
 
-      <td>Internal Validator</td>
+      <td><strong>Critical levels</strong></td>
 
-      <td>452</td><td>501</td><td>512</td><td>528</td><td>307</td><td>562</td>
+      <td>L0→1 and L1→2</td>
 
-    </tr>
-
-    <tr>
-
-      <td>Stocks</td>
-
-      <td>507</td><td>735</td><td>486</td><td>546</td><td>771</td><td>378</td>
+      <td>L3→4 and L4→5</td>
 
     </tr>
 
     <tr>
 
-      <td>Jumio Warning</td>
+      <td><strong>Main cause</strong></td>
 
-      <td>363</td><td>474</td><td>406</td><td>536</td><td>366</td><td>251</td>
+      <td>Doesn't understand the process / can't complete it</td>
+
+      <td>Documentation rejected or inconsistent</td>
 
     </tr>
 
     <tr>
 
-      <td class="td-dim">Bridge / Level 4→5 / Other</td>
+      <td><strong>Who resolves it</strong></td>
 
-      <td class="td-dim">357</td><td class="td-dim">385</td><td class="td-dim">307</td><td class="td-dim">302</td><td class="td-dim">373</td><td class="td-dim">141</td>
+      <td>CS agent via chat</td>
+
+      <td>KYC team via API ticket</td>
 
     </tr>
+
+  </tbody>
+
+</table>
+
+</div>
+
+<h3>KYC incoming — top sub-categories</h3>
+
+<p><strong>Level 3→4</strong> is the highest-volume KYC sub-category. <strong>IDWall</strong> spiked dramatically in April to 1,044 — directly linked to the Operation Restitution fraud investigation and the April 1 Jumio delays incident.</p>
+
+<div class="tbl-wrap">
+
+<table>
+
+  <thead><tr><th>Sub-category</th><th>Dec '25</th><th>Jan '26</th><th>Feb '26</th><th>Mar '26</th><th>Apr '26</th></tr></thead>
+
+  <tbody>
+
+    <tr>
+
+      <td><strong>Level 3 → 4</strong> <span style="font-size:10px;color:var(--blue);font-weight:600">Highest intent users</span></td>
+
+      <td>1,155</td><td>1,024</td><td>852</td><td>736</td><td>756</td>
+
+    </tr>
+
+    <tr>
+
+      <td><strong>IDWall</strong></td>
+
+      <td>702</td><td>755</td><td>733</td><td>733</td><td class="td-red">1,044</td>
+
+    </tr>
+
+    <tr><td>Internal Validator</td><td>452</td><td>501</td><td>512</td><td>528</td><td>307</td></tr>
+
+    <tr><td>Stocks</td><td>507</td><td>735</td><td>486</td><td>546</td><td>771</td></tr>
+
+    <tr><td>Jumio Warning</td><td>363</td><td>474</td><td>406</td><td>536</td><td>366</td></tr>
+
+    <tr><td class="td-dim">Bridge / Level 4→5 / Other</td><td class="td-dim">357</td><td class="td-dim">385</td><td class="td-dim">303</td><td class="td-dim">302</td><td class="td-dim">373</td></tr>
 
   </tbody>
 
@@ -581,155 +614,33 @@
 
   <span class="callout-icon">🔴</span>
 
-  <span><strong>IDWall spiked to 1,044 in April</strong> — the highest in the period and likely directly linked to the Operation Restituição fraud attack (April 1 Jumio delays incident + the IRS scam investigation). This is the same month the fraud team was actively blocking accounts, generating a surge in KYC review tickets.</span>
+  <span><strong>IDWall spiked to 1,044 in April</strong> — nearly double any prior month. This coincides with the Operation Restitution fraud investigation and the April 1 Jumio delays incident. The KYC team was simultaneously dealing with fraud-related review volume and legitimate user verification failures at the same time.</span>
 
 </div>
 
-<h3>CSI by sub-category — Level 3→4 users are the most frustrated</h3>
+<!-- 03 USER EXPERIENCE -->
 
-<p>Upgrade 3→4 users are the highest-intent users in Bitso's lifecycle — they've already completed three verification rounds and are seeking access to significantly higher limits. Yet their CSI is the most volatile and often the lowest.</p>
-
-<div class="tbl-wrap">
-
-<table>
-
-  <thead>
-
-    <tr><th>Sub-category</th><th>Dec '25</th><th>Jan '26</th><th>Feb '26</th><th>Mar '26</th><th>Apr '26</th><th>May '26</th></tr>
-
-  </thead>
-
-  <tbody>
-
-    <tr>
-
-      <td><strong>Level 3→4</strong></td>
-
-      <td class="td-ora">42.9%<br><span style="font-size:10px;color:#aaa">n=28</span></td>
-
-      <td class="td-ora">41.7%<br><span style="font-size:10px;color:#aaa">n=12</span></td>
-
-      <td class="td-red">18.5%<br><span style="font-size:10px;color:#aaa">n=27</span></td>
-
-      <td class="td-ora">45.5%<br><span style="font-size:10px;color:#aaa">n=22</span></td>
-
-      <td class="td-ora">46.2%<br><span style="font-size:10px;color:#aaa">n=26</span></td>
-
-      <td class="td-grn">70.0%<br><span style="font-size:10px;color:#aaa">n=10</span></td>
-
-    </tr>
-
-    <tr>
-
-      <td>Jumio Warning</td>
-
-      <td class="td-grn">100%</td><td class="td-dim">0.0%</td><td class="td-ora">60.0%</td><td class="td-grn">75.0%</td><td class="td-ora">33.3%</td><td class="td-dim">0.0%</td>
-
-    </tr>
-
-    <tr>
-
-      <td>Issues with physical docs</td>
-
-      <td class="td-red">-16.7%</td><td class="td-grn">75.0%</td><td class="td-red">-33.3%</td><td class="td-red">13.3%</td><td class="td-ora">44.4%</td><td class="td-ora">50.0%</td>
-
-    </tr>
-
-    <tr>
-
-      <td>Unique Identifier</td>
-
-      <td class="td-red">-16.7%</td><td class="td-grn">100%</td><td class="td-grn">66.7%</td><td class="td-grn">91.7%</td><td class="td-ora">60.0%</td><td class="td-grn">100%</td>
-
-    </tr>
-
-    <tr>
-
-      <td>Stocks</td>
-
-      <td class="td-grn">71.4%</td><td class="td-grn">71.4%</td><td class="td-grn">100%</td><td class="td-ora">45.5%</td><td class="td-grn">71.4%</td><td class="td-grn">100%</td>
-
-    </tr>
-
-  </tbody>
-
-</table>
-
-</div>
-
-<div class="callout warn">
-
-  <span class="callout-icon">⚠️</span>
-
-  <span><strong>Level 3→4 CSI dropped to 18.5% in February</strong> — the worst reading in the dataset. These are users who have already invested significantly in the Bitso verification process. When they fail at this stage, the frustration is compounded by the effort already spent. February coincides with the first Jumio incident of 2026 (Feb 3).</span>
-
-</div>
-
-<h3>CSAT004 — Document Clarity: an active initiative addressing this</h3>
-
-<p>The Registration squad has an active initiative — <strong>CSAT004: Document Clarity Upgrade</strong> — that directly targets the high rejection rate at the document submission step. The problem definition aligns precisely with what CS sees in ticket volume:</p>
-
-<div class="pain-block">
-
-  <div class="pain-hd blue">📋 CSAT004 — What it addresses</div>
-
-  <div class="pain-body">
-
-    <p><strong>Problem:</strong> High rejection rate in Account Limit Increase requests due to users uploading invalid or incomplete documentation. Users rely on vague instructions ("upload a document like a payslip or bonus receipt") with no visual examples or clear validation rules — leading to incorrect uploads, multiple rejections, and back-and-forth tickets.</p>
-
-    <p><strong>CS impact:</strong> Every rejected document creates at least one follow-up ticket. The current absence of clear requirements is a direct driver of the Proof of Income and document-related tickets visible in the incoming data.</p>
-
-    <p><strong>Proposed improvements:</strong> Clear bullet-point documentation requirements per market (MX, AR, BR), visual examples of valid vs. invalid documents, multi-document upload support, and removal of "account statement" as a valid option across all markets.</p>
-
-    <p><strong>Expected KPI impact:</strong> Reduction in first-time rejection rate, lower ticket volume for documentation issues, faster approval cycle, CSAT improvement.</p>
-
-  </div>
-
-</div>
-
-<!-- 02 USER EXPERIENCE -->
-
-<div class="section-hd"><span class="section-num">02</span><span class="section-title">User Experience</span></div>
-
-<h3>Metric definitions</h3>
+<div class="section-hd"><span class="section-num">03</span><span class="section-title">User Experience</span></div>
 
 <div class="metric-def">
 
   <div class="metric-def-title">CSI — Customer Satisfaction Index</div>
 
-  Survey that measures the experience of the user <strong>with Bitso</strong> on a scale from 1 to 10. Sent once the ticket is set to solved.<br><br>
+  Survey measuring the user's experience <strong>with Bitso</strong> on a scale from 1–10. Sent once the ticket is solved.<br>
 
-  <strong>Score:</strong> Detractor (0–6) = −1 &nbsp;·&nbsp; Passive (7–8) = 0 &nbsp;·&nbsp; Promoter (9–10) = +1<br>
+  <strong>Score:</strong> Detractor (0–6) = −1 · Passive (7–8) = 0 · Promoter (9–10) = +1<br>
 
   <span class="metric-formula">(Promoters − Detractors) / Total surveys responded</span>
 
 </div>
 
-<div class="metric-def">
-
-  <div class="metric-def-title">CSAT — Customer Satisfaction</div>
-
-  Survey that measures the experience of the user <strong>with the CS agent</strong> on a scale of 👍 / passive / 👎. Sent once the ticket is set to solved.<br><br>
-
-  <strong>Score:</strong> Promoter = 3 &nbsp;·&nbsp; Passive = 2 &nbsp;·&nbsp; Detractor = 1<br>
-
-  <span class="metric-formula">Total promoter surveys / Total surveys responded</span>
-
-</div>
-
-<h3>CSI — Account Limits performance</h3>
-
-<p>Account Limits shows a notably higher CSI than other major contact types — above Withdrawals (avg ~34%) and Access to my account (avg ~44%). When CS can resolve the issue, users respond positively. The February dip to 48.7% coincides directly with the first Jumio incident of the year.</p>
+<h3>CSI — CS side (Account Limits overall)</h3>
 
 <div class="tbl-wrap">
 
 <table>
 
-  <thead>
-
-    <tr><th>Month</th><th>CS Surveys</th><th>CSI Score</th><th>Signal</th></tr>
-
-  </thead>
+  <thead><tr><th>Month</th><th>CS Surveys</th><th>CSI Score</th><th>Signal</th></tr></thead>
 
   <tbody>
 
@@ -743,7 +654,7 @@
 
     <tr><td>Mar '26</td><td>47</td><td class="td-grn">61.7%</td><td>↑ Recovery</td></tr>
 
-    <tr><td>Apr '26</td><td>25</td><td class="td-grn">76.9%</td><td>↑ Highest score — but lowest survey volume</td></tr>
+    <tr><td>Apr '26</td><td>25</td><td class="td-grn">76.9%</td><td>↑ Highest — but lowest survey volume</td></tr>
 
   </tbody>
 
@@ -751,29 +662,163 @@
 
 </div>
 
-<div class="callout warn">
+<h3>CSI — KYC side (by sub-category)</h3>
 
-  <span class="callout-icon">⚠️</span>
+<p>The KYC perspective reveals a much more granular — and concerning — picture. Level 3→4 users, who are at the highest-intent stage of the Bitso lifecycle, show the most volatile and consistently low CSI. Users arriving via Internal Escalation (Route A) score significantly worse than those arriving via API (Route B).</p>
 
-  <span><strong>Low survey response rate:</strong> With 1,316–1,993 tickets/month but only 25–60 survey responses, the response rate is below 4%. Scores are directional signals, not precise measurements — April's 76.9% is based on only 25 surveys. A systematic effort to improve survey coverage for this category is needed before CSI can be used as a reliable KPI here.</span>
+<div class="tbl-wrap">
+
+<table>
+
+  <thead><tr><th>Sub-category</th><th>Dec '25</th><th>Jan '26</th><th>Feb '26</th><th>Mar '26</th><th>Apr '26</th></tr></thead>
+
+  <tbody>
+
+    <tr>
+
+      <td><strong>API · Level 3→4</strong></td>
+
+      <td class="td-ora">42.9%<br><span style="font-size:10px;color:#aaa">n=28</span></td>
+
+      <td class="td-ora">41.7%<br><span style="font-size:10px;color:#aaa">n=12</span></td>
+
+      <td class="td-red">18.5%<br><span style="font-size:10px;color:#aaa">n=27</span></td>
+
+      <td class="td-ora">45.5%<br><span style="font-size:10px;color:#aaa">n=22</span></td>
+
+      <td class="td-ora">46.2%<br><span style="font-size:10px;color:#aaa">n=26</span></td>
+
+    </tr>
+
+    <tr>
+
+      <td><strong>Internal Esc. · Level 3→4</strong> <span style="font-size:10px;color:var(--red)">Route A</span></td>
+
+      <td class="td-red">-28.6%<br><span style="font-size:10px;color:#aaa">n=7</span></td>
+
+      <td>0.0%<br><span style="font-size:10px;color:#aaa">n=6</span></td>
+
+      <td class="td-red">-20.0%<br><span style="font-size:10px;color:#aaa">n=5</span></td>
+
+      <td class="td-grn">100%<br><span style="font-size:10px;color:#aaa">n=1</span></td>
+
+      <td class="td-grn">100%<br><span style="font-size:10px;color:#aaa">n=1</span></td>
+
+    </tr>
+
+    <tr>
+
+      <td><strong>Issues physical ID/Liveness</strong> <span style="font-size:10px;color:var(--red)">IDWall</span></td>
+
+      <td class="td-red">-16.7%<br><span style="font-size:10px;color:#aaa">n=6</span></td>
+
+      <td class="td-grn">75.0%<br><span style="font-size:10px;color:#aaa">n=8</span></td>
+
+      <td class="td-red">-33.3%<br><span style="font-size:10px;color:#aaa">n=6</span></td>
+
+      <td class="td-red">13.3%<br><span style="font-size:10px;color:#aaa">n=15</span></td>
+
+      <td class="td-ora">44.4%<br><span style="font-size:10px;color:#aaa">n=9</span></td>
+
+    </tr>
+
+    <tr>
+
+      <td>Jumio Warning</td>
+
+      <td class="td-grn">100%</td><td>0.0%</td><td class="td-ora">60.0%</td><td class="td-grn">75.0%</td><td class="td-ora">33.3%</td>
+
+    </tr>
+
+    <tr>
+
+      <td>Unique Identifier</td>
+
+      <td class="td-red">-16.7%</td><td class="td-grn">100%</td><td class="td-grn">66.7%</td><td class="td-grn">91.7%</td><td class="td-ora">60.0%</td>
+
+    </tr>
+
+    <tr>
+
+      <td><strong>Total KYC</strong></td>
+
+      <td class="td-ora">32.4%<br><span style="font-size:10px;color:#aaa">n=74</span></td>
+
+      <td class="td-grn">57.4%<br><span style="font-size:10px;color:#aaa">n=61</span></td>
+
+      <td class="td-red">31.2%<br><span style="font-size:10px;color:#aaa">n=77</span></td>
+
+      <td class="td-ora">52.4%<br><span style="font-size:10px;color:#aaa">n=82</span></td>
+
+      <td class="td-ora">51.6%<br><span style="font-size:10px;color:#aaa">n=64</span></td>
+
+    </tr>
+
+  </tbody>
+
+</table>
 
 </div>
 
-<div class="callout warn">
+<div class="callout danger">
 
-  <span class="callout-icon">⚠️</span>
+  <span class="callout-icon">🔴</span>
 
-  <span><strong>No usable verbatims available for this period.</strong> The Looker Explore returned only 1 survey record for Account Limits in the Feb–Apr 2026 window, and upon review of the source ticket, it dates from January 2025 and does not correspond to a negative experience — the limit increase was resolved successfully. This highlights a data gap: the survey response rate for Account Limits is below 4%, making it difficult to surface the user voice for this category. Improving survey coverage here is a priority for future capsules.</span>
+  <span><strong>February is the worst month across all KYC metrics:</strong> Total KYC CSI 31.2%, Level 3→4 API 18.5%, Issues physical ID/Liveness -33.3%. All three indicators hit their lowest point simultaneously — directly coinciding with the Jumio incident of February 3. Users who have already completed two or three verification rounds and are blocked at the final step leave the interaction extremely frustrated.</span>
 
 </div>
 
-<!-- 03 ROOT CAUSE -->
+<!-- 04 VOICE OF THE CUSTOMER -->
 
-<div class="section-hd"><span class="section-num">03</span><span class="section-title">Root Cause — The Jumio Problem</span></div>
+<div class="section-hd"><span class="section-num">04</span><span class="section-title">Voice of the Customer</span></div>
 
-<p>Jumio powers the ID / Liveness Test step — the single largest document failure in Account Limits. When Jumio underperforms, users hitting the verification wall have no alternative path. CS cannot override Jumio results or manually verify identity — they can only ask users to retry. The event calendar shows two incidents in 60 days.</p>
+<p>With 203 survey records available, we now have a more complete picture of what users say. The patterns are consistent across promoters and detractors.</p>
 
-<div style="margin:16px 0 20px; padding-left:8px;">
+<div class="pain-block">
+
+  <div class="pain-hd blue">👍 What promoters say — CS resolves well, but the product gap shows through</div>
+
+  <div class="pain-body">
+
+    <p><em>"El tiempo de la revisión de los documentos es larga. Esperé 8 días para un incremento de $1,999 MXN en mis límites. Tuve que usar el chat y Luis me ayudó rapidísimo."</em> <span class="tk">#3072138</span> — A promoter praising the agent, but surfacing an 8-day wait for a minor limit increase.</p>
+
+    <p><em>"Se me explicó el proceso de aumento de límite. Como mejora propongo que cuando un usuario nuevo se dé de alta, tenga una sección para el aumento de límites y los requisitos para hacerlo."</em> <span class="tk">#3065291</span> — Upgrade 3→4 user proposing exactly what CSAT004 is trying to solve.</p>
+
+    <p><em>"Lo único inconveniente es que no pude aumentar mi capacidad de retiro por tener un documento vencido, pero todo lo demás está perfecto."</em> <span class="tk">#3206081</span> — Upgrade 1→2 promoter blocked by an expired document with no proactive warning.</p>
+
+  </div>
+
+</div>
+
+<div class="pain-block">
+
+  <div class="pain-hd red">👎 What detractors say — process complexity, arbitrary decisions, blocked funds</div>
+
+  <div class="pain-body">
+
+    <p><em>"Abrir una línea telefónica a sus usuarios. Su incompetencia en ciertas temas es de antología y tienen fallas graves en sus procedimientos como trámites para aumentar límite. Una experiencia realmente terrible."</em> <span class="tk">#3135923</span> — Upgrade 3→4, process described as fundamentally broken.</p>
+
+    <p><em>"De forma arbitraria redujeron mis límites de $1,500,000 MXN a $25,000 con el ridículo pretexto de no proveer estados de cuenta... es nefasto la forma en que tienen cautivo los recursos de las personas."</em> <span class="tk">#3173150</span> — Upgrade 1→2, limit reduction perceived as arbitrary — user describes Bitso as "abusive."</p>
+
+    <p><em>"Tengo un problema con mi cuenta, no puedo hacer retiros; porque me tienen esperando y no me han resuelto lo de los límites de retiros."</em> <span class="tk">#3150661</span> — Upgrade 1→2, limit issue blocking withdrawals — the compounding effect.</p>
+
+    <p><em>"Es muy complicado subir el límite de transacción a pesar de enviar mis documentos solicitados."</em> <span class="tk">#3210211</span> — Upgrade 1→2, documents submitted correctly but still rejected.</p>
+
+    <p><em>"No puedo transferir, tengo límite y después no puedo volver a enviar documentos."</em> <span class="tk">#3197351</span> — Upgrade 1→2, system blocking the retry after a rejection.</p>
+
+    <p><em>"No soy nuevo en el uso de billeteras de criptomonedas. Esta es una de las peores interfaces de usuario que he visto en mi vida."</em> <span class="tk">#3102437</span> — Upgrade 2→3, experienced crypto user frustrated by UX complexity.</p>
+
+  </div>
+
+</div>
+
+<!-- 05 ROOT CAUSE -->
+
+<div class="section-hd"><span class="section-num">05</span><span class="section-title">Root Cause — IDWall & The Verification Stack</span></div>
+
+<p>The event calendar shows a clear pattern: IDWall incidents directly cause spikes in both CS and KYC ticket volume, while simultaneously driving the worst CSI readings in the period.</p>
+
+<div style="margin:16px 0 20px;padding-left:8px;">
 
   <div class="tl-item">
 
@@ -781,7 +826,7 @@
 
     <div class="tl-dot red"></div>
 
-    <div class="tl-content"><strong>Jumio Delay</strong> <span class="tl-tag incident">Incident</span><br>First Jumio performance incident of 2026. Directly coincides with the February CSI drop to 48.7% — the worst month in the period for Account Limits satisfaction.</div>
+    <div class="tl-content"><strong>Jumio Delay</strong> <span class="tl-tag incident">Incident</span><br>First IDWall/Jumio performance incident of 2026. Directly coincides with February being the worst month across all KYC metrics: Total KYC CSI 31.2%, Level 3→4 18.5%, Issues physical ID/Liveness -33.3%.</div>
 
   </div>
 
@@ -791,7 +836,7 @@
 
     <div class="tl-dot red"></div>
 
-    <div class="tl-content"><strong>Hubble error with documents</strong> <span class="tl-tag incident">Incident</span><br>Error in Hubble (internal CS tooling) affecting document processing — agents unable to manually resolve or escalate verification issues exactly when Jumio was degraded.</div>
+    <div class="tl-content"><strong>Hubble error with documents</strong> <span class="tl-tag incident">Incident</span><br>Error in Hubble affecting document processing — agents unable to resolve verification issues exactly when IDWall was already degraded.</div>
 
   </div>
 
@@ -801,7 +846,7 @@
 
     <div class="tl-dot red"></div>
 
-    <div class="tl-content"><strong>Incident for unverified level-0 users</strong> <span class="tl-tag incident">Incident</span><br>Confirmed incident affecting users who had not yet completed any tier verification — the most vulnerable segment in the limit upgrade journey.</div>
+    <div class="tl-content"><strong>Incident for unverified level-0 users</strong> <span class="tl-tag incident">Incident</span><br>Confirmed incident affecting users who had not yet completed any tier verification.</div>
 
   </div>
 
@@ -811,7 +856,7 @@
 
     <div class="tl-dot blue"></div>
 
-    <div class="tl-content"><strong>KYC Refresh</strong> <span class="tl-tag release">Release</span><br>Product release updating the KYC verification flow. Changes to verification flows can temporarily increase contact volume as users encounter new requirements or interface changes.</div>
+    <div class="tl-content"><strong>KYC Refresh</strong> <span class="tl-tag release">Release</span><br>Product release updating the KYC verification flow — any changes to verification flows can temporarily increase contact volume.</div>
 
   </div>
 
@@ -821,7 +866,7 @@
 
     <div class="tl-dot red"></div>
 
-    <div class="tl-content"><strong>Jumio Delays</strong> <span class="tl-tag incident">Incident</span><br>Second Jumio incident in two months. Verification processing slowed or failed — blocking users from completing the liveness/identity check for their limit upgrade.</div>
+    <div class="tl-content"><strong>Jumio Delays</strong> <span class="tl-tag incident">Incident</span><br>Second IDWall incident in two months. Directly caused IDWall KYC sub-category to spike to 1,044 in April — nearly double any prior month.</div>
 
   </div>
 
@@ -831,7 +876,7 @@
 
     <div class="tl-dot red"></div>
 
-    <div class="tl-content"><strong>Increase in KYC document review tickets — Brazil</strong> <span class="tl-tag incident">Incident</span><br>Spike in document review tickets specifically in Brazil — likely Jumio capacity issues combined with Brazil-specific document validation rules generating higher rejection rates.</div>
+    <div class="tl-content"><strong>Increase in KYC document review tickets — Brazil</strong> <span class="tl-tag incident">Incident</span><br>Spike in document review tickets specifically in Brazil — likely Jumio capacity combined with Brazil-specific document validation rules.</div>
 
   </div>
 
@@ -841,79 +886,17 @@
 
     <div class="tl-dot blue"></div>
 
-    <div class="tl-content"><strong>Reframing Limits</strong> <span class="tl-tag release">Release</span><br>Product release related to account limit restructuring — may affect tier thresholds or upgrade requirements, with potential impact on contact volume in coming weeks.</div>
+    <div class="tl-content"><strong>Reframing Limits</strong> <span class="tl-tag release">Release</span><br>Product release related to account limit restructuring — may affect tier thresholds or upgrade requirements in coming weeks.</div>
 
   </div>
 
 </div>
 
-<div class="callout danger">
+<!-- 06 OPERATION RESTITUIÇÃO -->
 
-  <span class="callout-icon">🔴</span>
+<div class="section-hd"><span class="section-num">06</span><span class="section-title">Operation Restitution — The Other Side of the IDWall Gap</span></div>
 
-  <span><strong>Two Jumio incidents in 60 days</strong> against a backdrop of 1,500–2,000 monthly Account Limits tickets means the verification provider is a systemic risk to this journey. Each degradation event directly impacts hundreds of users at the highest-intent moment in the Bitso lifecycle — users who have already decided to use Bitso more, and are blocked at the final step.</span>
-
-</div>
-
-<!-- 04 PAIN POINTS -->
-
-<div class="section-hd"><span class="section-num">04</span><span class="section-title">Pain Points</span></div>
-
-<div class="pain-block">
-
-  <div class="pain-hd red">🔴 Jumio failures block the highest-intent users with no alternative path</div>
-
-  <div class="pain-body">
-
-    <p>The ID / Liveness Test step generates 386–619 tickets per month. When Jumio experiences delays or errors, CS has no resolution tool — they can only ask the user to retry. There is no degraded-mode experience, no estimated wait time, and no alternative verification path for users whose liveness check fails due to provider issues rather than genuine identity concerns.</p>
-
-    <p>These are users who have actively chosen to upgrade — they're at the highest-intent moment in the Bitso journey. The drop-off at this stage represents lost activation, not just a support ticket volume problem.</p>
-
-  </div>
-
-</div>
-
-<div class="pain-block">
-
-  <div class="pain-hd red">🔴 Upgrade 1→2 is the most common breaking point</div>
-
-  <div class="pain-body">
-
-    <p>Level 1→2 consistently generates the most tickets of any upgrade tier — peaking at 856 in March. This is the first significant limit increase after basic account setup, and it sets the tone for the entire relationship. Users who fail here are unlikely to attempt further upgrades. It's worth reviewing whether the document requirements at this tier are proportional to the limit being unlocked.</p>
-
-  </div>
-
-</div>
-
-<div class="pain-block">
-
-  <div class="pain-hd ora">🟠 Unique Identifier failures — a separate, persistent structural issue</div>
-
-  <div class="pain-body">
-
-    <p>The Unique Identifier sub-category (CURP in Mexico, CPF in Brazil) generates ~350 tickets/month regardless of Jumio status — a separate problem with identifier validation. At this volume, it's the second-largest document failure after ID/Liveness and deserves its own investigation. Users who submit identifiers that don't match expected formats or names get rejected with no clear guidance on what's wrong or how to fix it.</p>
-
-  </div>
-
-</div>
-
-<div class="pain-block">
-
-  <div class="pain-hd ora">🟠 Authentication failures bleeding into the verification journey</div>
-
-  <div class="pain-body">
-
-    <p>Based on cross-referencing with Guardians capsule data, there is a compounding pattern affecting some users: the same SMS and email delivery failures documented in the Guardians capsule also impact the Account Limits flow. Users who need to verify their identity to upgrade limits may simultaneously be unable to authenticate — creating a double barrier that CS cannot resolve end-to-end. This is inferred from the Guardians data and the timing of both contact type spikes in March–April, not from direct Account Limits verbatims.</p>
-
-  </div>
-
-</div>
-
-<!-- OPERATION RESTITUIÇÃO -->
-
-<div class="section-hd"><span class="section-num">05</span><span class="section-title">Operation Restituição — The Other Side of the Jumio Gap</span></div>
-
-<p>The IDWall verification gaps that block legitimate users from upgrading their limits were simultaneously exploited by an organized fraud group. In March–April 2026, a coordinated IRS refund scam attack used biometric verification weaknesses to open 500+ fraudulent accounts and drain real users' tax refunds. This is documented in an internal cross-department investigation — <strong>Operation Restituição</strong> — produced by KYC, Fraud, Product, Engineering, Compliance, and CS teams.</p>
+<p>The Operation Restitution case is the clearest example of what IDWall's verification gaps cost in practice. When the provider fails to detect manipulated biometrics — face swaps, static photo uploads, identity mismatches — it doesn't only block legitimate users. It also opens the door to the opposite problem: fraudulent accounts that pass verification they shouldn't. Both failures come from the same root cause: a provider whose detection model is not reliable enough for the volume and threat landscape Bitso operates in.</p>
 
 <div class="kpi-row">
 
@@ -939,7 +922,7 @@
 
   <div class="kpi-card">
 
-    <div class="kpi-val kpi-grn" style="color:var(--green)">~$28K USD</div>
+    <div class="kpi-val kpi-grn">~$28K USD</div>
 
     <div class="kpi-lbl">Successfully recovered</div>
 
@@ -955,11 +938,7 @@
 
   <div class="pain-hd red">🔴 M.O. 01 — Face swapping / Deepfake liveness (from March 20)</div>
 
-  <div class="pain-body">
-
-    <p>Attackers overlaid a real victim's face onto their own biometric video using real-time face-swap tools. IDWall's liveness detection failed to identify the manipulation and <strong>auto-approved</strong> the check. One extreme case: the exact same liveness was approved across <strong>52 different accounts</strong> — no deduplication existed in the pipeline.</p>
-
-  </div>
+  <div class="pain-body"><p>Attackers overlaid a real victim's face onto their own biometric video using real-time face-swap tools. IDWall's liveness detection <strong>auto-approved</strong> the check. Extreme case: the exact same liveness was approved across <strong>52 different accounts</strong>.</p></div>
 
 </div>
 
@@ -967,11 +946,7 @@
 
   <div class="pain-hd red">🔴 M.O. 02 — CPF/biometric identity mismatch (from March 27)</div>
 
-  <div class="pain-body">
-
-    <p>Scammers registered any CPF in Hubble and validated a completely different person's biometrics in IDWall. <strong>No crossmatch existed between the two systems</strong> and no API ticket was generated — so the account passed as fully verified with a mismatched identity. 143 confirmed repeated-face static photo upload cases were documented.</p>
-
-  </div>
+  <div class="pain-body"><p>Scammers registered any CPF in Hubble and validated a different person's biometrics in IDWall. <strong>No crossmatch existed</strong> between the two systems — account passed as fully verified with mismatched identity. 143 confirmed repeated-face static photo upload cases documented.</p></div>
 
 </div>
 
@@ -979,91 +954,29 @@
 
   <div class="pain-hd ora">🟠 M.O. 03 — Delete-on-rejection + IRS timing (from April 7)</div>
 
-  <div class="pain-body">
-
-    <p>When IDWall rejected an attempt, attackers immediately deleted the account — erasing their trail and preventing auditing. The operation was deliberately timed around the Receita Federal IRS refund disbursement window to maximize financial impact per account.</p>
-
-  </div>
+  <div class="pain-body"><p>When IDWall rejected an attempt, attackers immediately deleted the account — erasing their trail. The operation was deliberately timed around the Brazilian IRS (Receita Federal) refund disbursement window.</p></div>
 
 </div>
 
-<h3>The KYC blind spot — a systems gap, not a human one</h3>
-
-<p>The KYC team was operating correctly within the information they received. The problem was structural: accounts auto-approved by IDWall via face swap or liveness bypass never generated a KYC review ticket — meaning they passed as fully verified with <strong>zero human review at any point</strong>.</p>
+<h3>Response & Roadmap</h3>
 
 <div class="tbl-wrap">
 
 <table>
 
-  <thead>
-
-    <tr><th>KYC team could see ✅</th><th>KYC team was missing ❌</th></tr>
-
-  </thead>
+  <thead><tr><th>Initiative</th><th>Team</th><th>Status</th></tr></thead>
 
   <tbody>
 
-    <tr>
+    <tr><td>API trigger fix — Hubble vs IDWall mismatch</td><td>Engineering</td><td class="td-grn">✅ Done</td></tr>
 
-      <td>Accounts rejected by IDWall — documentoscopy failures</td>
-
-      <td>Accounts <strong>auto-approved</strong> by IDWall via face swap or liveness bypass</td>
-
-    </tr>
-
-    <tr>
-
-      <td>Accounts rejected by IDWall — liveness failures</td>
-
-      <td>Hubble vs IDWall identity mismatches where no API ticket was generated</td>
-
-    </tr>
-
-    <tr>
-
-      <td>Cases where the API trigger fired correctly on Hubble vs OCR mismatch</td>
-
-      <td>Same biometric reused across multiple accounts (no deduplication)</td>
-
-    </tr>
-
-    <tr>
-
-      <td></td>
-
-      <td>143 repeated-face static photo upload cases</td>
-
-    </tr>
-
-  </tbody>
-
-</table>
-
-</div>
-
-<h3>Response & Roadmap — what's been done and what's in progress</h3>
-
-<div class="tbl-wrap">
-
-<table>
-
-  <thead>
-
-    <tr><th>Initiative</th><th>Team</th><th>Status</th></tr>
-
-  </thead>
-
-  <tbody>
-
-    <tr><td>API trigger fix — Hubble vs IDWall mismatch (all mismatches now generate KYC tickets)</td><td>Engineering</td><td class="td-grn">✅ Done</td></tr>
-
-    <tr><td>Fraud team recovery operation (accounts blocked, R$ 139K recovered)</td><td>Fraud</td><td class="td-grn">✅ Done</td></tr>
+    <tr><td>Fraud team recovery operation (~$28K USD recovered)</td><td>Fraud</td><td class="td-grn">✅ Done</td></tr>
 
     <tr><td>Suspicious liveness tracking database (500+ accounts documented)</td><td>KYC</td><td class="td-grn">✅ Done</td></tr>
 
-    <tr><td>ID photo upload extinction — live capture only (closes repeated-face vector)</td><td>Product</td><td class="td-grn">✅ Done</td></tr>
+    <tr><td>ID photo upload extinction — live capture only</td><td>Product</td><td class="td-grn">✅ Done</td></tr>
 
-    <tr><td>Hubble / IDWall full identity crossmatch (all OCR fields must match Hubble data)</td><td>Engineering</td><td class="td-grn">✅ Done</td></tr>
+    <tr><td>Hubble / IDWall full identity crossmatch</td><td>Engineering</td><td class="td-grn">✅ Done</td></tr>
 
     <tr><td>IDWall — liveness model upgrade + biometric deduplication</td><td>IDWall · KYC</td><td class="td-ora">⏳ In progress</td></tr>
 
@@ -1073,103 +986,81 @@
 
 </div>
 
-<div class="callout info">
+<!-- 07 WHAT USERS ARE TELLING US -->
 
-  <span class="callout-icon">ℹ️</span>
+<div class="section-hd"><span class="section-num">07</span><span class="section-title">What Users Are Telling Us — And What Could Help</span></div>
 
-  <span><strong>Why this matters for CS:</strong> Several of the mitigations already deployed (live capture only, full identity crossmatch) will change the verification experience for legitimate users — potentially reducing some friction points documented in the incoming data. However, the IDWall liveness upgrade still in progress means the biometric verification gap remains partially open. CS agents should be aware of this context when handling Account Limits escalations.</span>
+<p>The data and verbatims in this capsule point to a consistent set of friction patterns. Below is a summary of what users experience, along with proposals for improvement.</p>
+
+<div class="pain-block">
+
+  <div class="pain-hd red">📄 Documentation friction — users don't know what's expected</div>
+
+  <div class="pain-body">
+
+    <p>Users upload documents, get rejected, and receive no clear explanation. Many retry multiple times with the same result. Several verbatims show users submitting documents they believe are correct, only to find out later a specific field, format, or currency interpretation was wrong. The requirements are unclear, inconsistent across markets, and in some cases contradictory — one user noted the email said "gross income" while the agent asked for "net income."</p>
+
+    <div class="callout tip">
+
+      <span class="callout-icon">💡</span>
+
+      <div><strong>What could help:</strong> Clear, bullet-point requirements per market (MX, AR, BR). Visual examples of valid vs. invalid documents. Multi-document upload capability. Removal of "account statement" as a valid option. A message at the start of the process telling users what to expect and that more information may be requested.</div>
+
+    </div>
+
+  </div>
 
 </div>
 
-<div class="section-hd"><span class="section-num">06</span><span class="section-title">CS Needs from Product</span></div>
+<div class="pain-block">
 
-<p>Based on the incoming data, CSI analysis, and event correlation, these are the specific asks for the Journeys fleet — Registration squad in particular.</p>
+  <div class="pain-hd red">🔍 IDWall reliability — a provider that needs closer oversight</div>
 
-<div class="tbl-wrap">
+  <div class="pain-body">
 
-<table>
+    <p>Two IDWall incidents in 60 days (Feb 3 and Apr 1) directly drove the worst CSI readings of the period — and in February, every KYC sub-category hit its floor simultaneously. CS agents have no visibility when IDWall is degraded, so they ask users to retry without being able to explain why verification is failing.</p>
 
-  <thead>
+    <div class="callout tip">
 
-    <tr><th style="width:24px">#</th><th>Issue Found</th><th>Action Required</th><th>Owner</th><th>Status</th></tr>
+      <span class="callout-icon">💡</span>
 
-  </thead>
+      <div><strong>What could help:</strong> An internal alert for CS agents when IDWall is degraded, so they can set expectations proactively. A user-facing message that explains delays without exposing the provider. A review of IDWall's SLA and detection model performance as part of a formal vendor assessment.</div>
 
-  <tbody>
+    </div>
 
-    <tr>
+  </div>
 
-      <td class="td-hi">1</td>
+</div>
 
-      <td>Jumio delays block users at the ID/Liveness step — 2 incidents in 60 days, 400–600 tickets/month</td>
+<div class="pain-block">
 
-      <td>Define a degraded-mode fallback when Jumio is slow or unavailable: manual review queue, estimated processing time shown to user, or alternative verification path. Users should never hit a silent wall.</td>
+  <div class="pain-hd ora">🔄 Retry friction — users who are rejected get stuck</div>
 
-      <td><strong>Registration / Engineering</strong></td>
+  <div class="pain-body">
 
-      <td><span class="badge badge-pending">Pending</span></td>
+    <p>Multiple verbatims describe users who were rejected and then couldn't re-upload documents, or who had to compress files, convert formats, or submit via chat because the in-app flow blocked them. The system punishes the user for the rejection rather than enabling correction.</p>
 
-    </tr>
+    <div class="callout tip">
 
-    <tr>
+      <span class="callout-icon">💡</span>
 
-      <td class="td-hi">2</td>
+      <div><strong>What could help:</strong> Review the retry flow after a document rejection. Users should be able to re-upload without starting over, and should receive a specific explanation of what was wrong.</div>
 
-      <td>CS agents have no visibility into Jumio incidents — can't set user expectations</td>
+    </div>
 
-      <td>Create an internal alert so CS agents are notified when Jumio is degraded. Agents should be able to say "verification is taking longer today" rather than asking users to retry indefinitely.</td>
+  </div>
 
-      <td><strong>Registration / CS Ops</strong></td>
+</div>
 
-      <td><span class="badge badge-pending">Pending</span></td>
+<div class="pain-block">
 
-    </tr>
+  <div class="pain-hd blue">📊 Upgrade 1→2 — highest volume, worth a proportionality review</div>
 
-    <tr>
+  <div class="pain-body">
 
-      <td class="td-hi">3</td>
+    <p>This is the single highest-volume breaking point in the period — peaking at 856 tickets in March. It's worth asking whether the documentation requirements at this tier are proportional to the limit being unlocked, and whether any can be simplified or deferred without compliance risk.</p>
 
-      <td>Upgrade 1→2 is the highest-volume breaking point — requirements may be disproportionate</td>
-
-      <td>Review document requirements at the 1→2 tier: are they proportional to the limit increase? Consider whether any requirements can be simplified or deferred without compliance risk.</td>
-
-      <td><strong>Registration / Compliance</strong></td>
-
-      <td><span class="badge badge-pending">Pending</span></td>
-
-    </tr>
-
-    <tr>
-
-      <td class="td-hi">4</td>
-
-      <td>Unique Identifier failures generate ~350 tickets/month — no clear user-facing error guidance</td>
-
-      <td>Investigate root cause of Unique Identifier rejections. Define a user-facing error message that explains exactly what's wrong and how to fix it — currently users get rejected with no actionable feedback.</td>
-
-      <td><strong>Registration / Gearbox</strong></td>
-
-      <td><span class="badge badge-pending">Pending</span></td>
-
-    </tr>
-
-    <tr>
-
-      <td class="td-hi">5</td>
-
-      <td>Brazil KYC spike in April — market-specific document validation issues</td>
-
-      <td>Review Brazil-specific document validation rules and rejection rates post-April 28 incident. Determine whether Jumio capacity or rule changes drove the spike and define a mitigation plan.</td>
-
-      <td><strong>Registration / Brazil</strong></td>
-
-      <td><span class="badge badge-pending">Pending</span></td>
-
-    </tr>
-
-  </tbody>
-
-</table>
+  </div>
 
 </div>
 
