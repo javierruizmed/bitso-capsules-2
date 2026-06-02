@@ -1,1 +1,771 @@
-<!-- placeholder -->
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+
+    --blue:#5463FF; --lima:#DFFF50; --beige:#E3DBD2; --gray:#575048;
+
+    --dark:#1A1A2E; --off:#F5F4F2; --white:#ffffff;
+
+    --red:#C0392B; --orange:#E67E22; --green:#27AE60;
+
+    --red-soft:#FFEBEE; --ora-soft:#FFF3E0; --grn-soft:#F0FDF4;
+
+  }
+
+  body { font-family:'DM Sans',sans-serif; background:var(--white); color:var(--dark); font-size:14px; line-height:1.65; max-width:920px; margin:0 auto; padding:0 0 56px; }
+
+  .cover { background:var(--blue); padding:44px 36px 40px; position:relative; overflow:hidden; }
+
+  .cover::before { content:''; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--lima); }
+
+  .cover-eyebrow { font-size:10px; font-weight:700; letter-spacing:3.5px; color:var(--lima); text-transform:uppercase; margin-bottom:12px; }
+
+  .cover-title { font-size:42px; font-weight:700; color:var(--white); line-height:1.1; margin-bottom:6px; }
+
+  .cover-sub { font-size:16px; color:rgba(255,255,255,0.65); margin-bottom:28px; }
+
+  .cover-divider { width:48px; height:2px; background:rgba(255,255,255,0.25); margin-bottom:16px; }
+
+  .cover-meta { font-size:12px; color:rgba(255,255,255,0.5); line-height:1.7; }
+
+  .cover-meta strong { color:rgba(255,255,255,0.82); }
+
+  .cover-meta .channel { color:var(--lima); font-weight:600; }
+
+  .body { padding:0 36px; }
+
+  .intro { padding:28px 0 20px; font-size:14px; color:var(--gray); border-bottom:1px solid var(--beige); margin-bottom:32px; line-height:1.75; }
+
+  .section-hd { display:flex; align-items:center; gap:10px; background:var(--blue); padding:10px 18px; border-radius:4px; margin:36px 0 20px; }
+
+  .section-num { font-size:10px; font-weight:700; letter-spacing:2px; color:rgba(255,255,255,0.55); text-transform:uppercase; }
+
+  .section-title { font-size:12px; font-weight:700; letter-spacing:1.2px; color:var(--white); text-transform:uppercase; }
+
+  h3 { font-size:15px; font-weight:700; color:var(--blue); margin:24px 0 10px; }
+
+  p { font-size:13.5px; color:var(--dark); margin-bottom:12px; line-height:1.7; }
+
+  .kpi-row { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:16px 0 24px; }
+
+  .kpi-card { background:var(--off); border:1px solid var(--beige); border-radius:8px; padding:18px 14px; text-align:center; }
+
+  .kpi-val { font-size:30px; font-weight:700; color:var(--blue); line-height:1.1; margin-bottom:4px; }
+
+  .kpi-lbl { font-size:11px; color:var(--gray); font-weight:600; text-transform:uppercase; letter-spacing:0.5px; }
+
+  .kpi-sub { font-size:11px; color:var(--gray); margin-top:2px; }
+
+  .kpi-red { color:var(--red) !important; }
+
+  .kpi-ora { color:var(--orange) !important; }
+
+  .kpi-grn { color:var(--green) !important; }
+
+  .tbl-wrap { overflow-x:auto; margin:16px 0 20px; }
+
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+
+  thead tr { background:var(--blue); }
+
+  thead th { padding:9px 12px; color:var(--white); font-weight:600; font-size:11.5px; text-align:center; }
+
+  thead th:first-child { text-align:left; }
+
+  tbody tr:nth-child(even) { background:var(--off); }
+
+  tbody tr:hover { background:#EEF0FF; }
+
+  tbody td { padding:8px 12px; border-bottom:1px solid #ECEAE7; text-align:center; }
+
+  tbody td:first-child { text-align:left; font-weight:500; }
+
+  .td-hi { font-weight:700; color:var(--blue); }
+
+  .td-red { font-weight:700; color:var(--red); }
+
+  .td-ora { font-weight:600; color:var(--orange); }
+
+  .td-grn { font-weight:700; color:var(--green); }
+
+  .td-dim { color:#aaa; }
+
+  .callout { display:flex; gap:12px; padding:13px 16px; border-radius:6px; margin:14px 0; font-size:13px; line-height:1.6; }
+
+  .callout-icon { font-size:15px; flex-shrink:0; margin-top:1px; }
+
+  .callout.warn { background:#FFF8E1; border-left:4px solid #F59E0B; }
+
+  .callout.danger { background:#FEF2F2; border-left:4px solid var(--red); }
+
+  .callout.info { background:#EEF0FF; border-left:4px solid var(--blue); }
+
+  .callout.tip { background:var(--grn-soft); border-left:4px solid var(--green); }
+
+  .pain-block { border:1px solid var(--beige); border-radius:8px; margin:16px 0; overflow:hidden; }
+
+  .pain-hd { padding:10px 16px; font-size:13px; font-weight:700; display:flex; align-items:center; gap:8px; }
+
+  .pain-hd.red { background:var(--red-soft); color:var(--red); }
+
+  .pain-hd.ora { background:var(--ora-soft); color:var(--orange); }
+
+  .pain-hd.blue { background:#EEF0FF; color:var(--blue); }
+
+  .pain-hd.grn { background:var(--grn-soft); color:var(--green); }
+
+  .pain-body { padding:14px 16px; font-size:13px; line-height:1.65; }
+
+  .pain-body p { font-size:13px; margin-bottom:10px; }
+
+  .tk { font-size:11px; background:#EEF0FF; color:var(--blue); padding:1px 6px; border-radius:3px; font-family:monospace; margin-left:3px; }
+
+  .period-label { display:inline-block; font-size:10px; font-weight:700; padding:2px 8px; border-radius:20px; margin-left:8px; vertical-align:middle; }
+
+  .before { background:#EEF0FF; color:var(--blue); }
+
+  .during { background:#FFF8E1; color:#854D0E; }
+
+  .after { background:var(--grn-soft); color:var(--green); }
+
+  .chart-wrap { background:var(--off); border:1px solid var(--beige); border-radius:8px; padding:20px 16px 14px; margin:16px 0 24px; }
+
+  .chart-title { font-size:11px; font-weight:700; color:var(--gray); text-transform:uppercase; letter-spacing:0.6px; margin-bottom:16px; }
+
+  .legend { display:flex; gap:16px; flex-wrap:wrap; margin-top:10px; align-items:center; }
+
+  .legend-item { display:flex; align-items:center; gap:5px; font-size:11px; color:var(--gray); }
+
+  .legend-dot { width:12px; height:12px; border-radius:3px; flex-shrink:0; }
+
+  hr { border:none; border-top:1px solid var(--beige); margin:36px 0; }
+
+  .footer { font-size:12px; color:var(--gray); line-height:1.7; }
+
+  .footer strong { color:var(--dark); }
+
+</style>
+
+</head>
+
+<body>
+
+<div class="cover">
+
+  <div class="cover-eyebrow">Experience Capsule · Investments Fleet</div>
+
+  <div class="cover-title">Stocks — Kobra<br>In-App Flow Impact</div>
+
+  <div class="cover-sub">Account Limits · Weeks 17–21 · Mexico · May 2026</div>
+
+  <div class="cover-divider"></div>
+
+  <div class="cover-meta">
+
+    Prepared by <strong>Javier Ruiz</strong> · Experience Senior Specialist · Bitso Customer Service
+
+    &nbsp;·&nbsp; <span class="channel">#exp-retail-user-voice-capsule</span>
+
+  </div>
+
+</div>
+
+<div class="body">
+
+<div class="intro">
+
+  This capsule focuses on a specific question the Investments Fleet asked: <strong>how did the Kobra In-App Flow release on May 7 change the contact rate for Stocks Account Limits?</strong> Before this release, users who wanted to increase their Stocks trading limits had to coordinate a physical visit through an agent — a manual, friction-heavy process where most users simply stopped responding. This capsule measures what changed, and what friction remains.
+
+</div>
+
+<!-- 01 CONTEXT -->
+
+<div class="section-hd"><span class="section-num">01</span><span class="section-title">Context — The Process Before and After</span></div>
+
+<p>By regulation, Stocks limit increases in Mexico require identity verification through a physical visit — a representative visits the user's home to complete the required paperwork. Before May 7, this entire process was coordinated manually by the CS through CS tickets.</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;">
+
+  <div style="border:2px solid var(--red);border-radius:8px;padding:16px;background:var(--red-soft);">
+
+    <div style="font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Before May 7</div>
+
+    <div style="font-size:12px;color:var(--dark);line-height:1.7;">
+
+      User wants to increase Stocks limits<br>
+
+      <span style="color:var(--gray);font-size:11px;">↓ opens ticket / contacts CS</span><br>
+
+      Agent manually coordinates visit<br>
+
+      <span style="color:var(--gray);font-size:11px;">↓ user often doesn't respond</span><br>
+
+      Ticket stays as <strong>"Not Scheduled"</strong><br>
+
+      <span style="color:var(--gray);font-size:11px;">↓ eventually closed</span><br>
+
+      <strong style="color:var(--red)">High drop-off, high manual load</strong>
+
+    </div>
+
+  </div>
+
+  <div style="border:2px solid var(--green);border-radius:8px;padding:16px;background:var(--grn-soft);">
+
+    <div style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">After May 7 — Kobra In-App</div>
+
+    <div style="font-size:12px;color:var(--dark);line-height:1.7;">
+
+      User wants to increase Stocks limits<br>
+
+      <span style="color:var(--gray);font-size:11px;">↓ schedules directly in the app</span><br>
+
+      Kobra handles coordination<br>
+
+      <span style="color:var(--gray);font-size:11px;">↓ CS only involved if something fails</span><br>
+
+      Tickets only for <strong>real problems</strong><br>
+
+      <span style="color:var(--gray);font-size:11px;">(no coverage, visit failed, restrictions)</span><br>
+
+      <strong style="color:var(--green)">Lower drop-off, lower manual load</strong>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="callout info">
+
+  <span class="callout-icon">ℹ️</span>
+
+  <span><strong>DHL as fallback:</strong> When Kobra has no coverage in the user's area, the CS manually coordinates via DHL — collecting the user's address and arranging document delivery. Coverage gaps represent approximately <strong>13% of cases</strong> (roughly 3–4 tickets per month). This is now the exception, not the rule.</span>
+
+</div>
+
+<!-- 02 INCOMING OVERVIEW -->
+
+<div class="section-hd"><span class="section-num">02</span><span class="section-title">Incoming Overview</span></div>
+
+<p>The analysis uses a before / during / after framework across 5 weeks, with the Kobra In-App Flow launching on <strong>Thursday May 7 (Week 19)</strong>.</p>
+
+<div style="display:flex;gap:8px;margin:12px 0 20px;flex-wrap:wrap;">
+
+  <span style="background:#EEF0FF;color:var(--blue);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;">Wk17 + Wk18 = BEFORE</span>
+
+  <span style="background:#FFF8E1;color:#854D0E;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;">Wk19 = DURING (launch week)</span>
+
+  <span style="background:var(--grn-soft);color:var(--green);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;">Wk20 + Wk21 = AFTER</span>
+
+</div>
+
+<div class="kpi-row">
+
+  <div class="kpi-card">
+
+    <div class="kpi-val kpi-grn">-88%</div>
+
+    <div class="kpi-lbl">"Not Scheduled" drop</div>
+
+    <div class="kpi-sub">199 (Wk19) → 23 (Wk20)</div>
+
+  </div>
+
+  <div class="kpi-card">
+
+    <div class="kpi-val">6.5%</div>
+
+    <div class="kpi-lbl">Acc. Limits share before</div>
+
+    <div class="kpi-sub">Avg. Wk17–18 of total Stocks</div>
+
+  </div>
+
+  <div class="kpi-card">
+
+    <div class="kpi-val kpi-ora">5.5%</div>
+
+    <div class="kpi-lbl">Acc. Limits share after</div>
+
+    <div class="kpi-sub">Avg. Wk20–21 of total Stocks</div>
+
+  </div>
+
+</div>
+
+<h3>Weekly Stocks incoming — total vs Account Limits</h3>
+
+<div class="chart-wrap">
+
+  <div class="chart-title">Stocks Incoming — Weekly Ticket Volume</div>
+
+  <svg width="100%" viewBox="0 0 820 220" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Grid lines -->
+
+    <line x1="60" y1="20" x2="800" y2="20" stroke="#E0DED9" stroke-width="1"/>
+
+    <line x1="60" y1="55" x2="800" y2="55" stroke="#E0DED9" stroke-width="1"/>
+
+    <line x1="60" y1="90" x2="800" y2="90" stroke="#E0DED9" stroke-width="1"/>
+
+    <line x1="60" y1="125" x2="800" y2="125" stroke="#E0DED9" stroke-width="1"/>
+
+    <line x1="60" y1="160" x2="800" y2="160" stroke="#E0DED9" stroke-width="1"/>
+
+    <!-- Labels -->
+
+    <text x="52" y="24" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">350</text>
+
+    <text x="52" y="59" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">280</text>
+
+    <text x="52" y="94" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">210</text>
+
+    <text x="52" y="129" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">140</text>
+
+    <text x="52" y="164" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">70</text>
+
+    <text x="52" y="198" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">0</text>
+
+    <!-- Wk17: total=189 (94.5px), AL=13 (6.5px) -->
+
+    <rect x="70" y="100.5" width="70" height="94.5" fill="#5463FF" rx="2" opacity="0.25"/>
+
+    <rect x="70" y="188.5" width="70" height="6.5" fill="#5463FF" rx="2"/>
+
+    <text x="105" y="93" font-family="DM Sans,sans-serif" font-size="9.5" fill="#575048" text-anchor="middle">189</text>
+
+    <text x="105" y="210" font-family="DM Sans,sans-serif" font-size="9.5" fill="#575048" text-anchor="middle">Wk17</text>
+
+    <text x="105" y="220" font-family="DM Sans,sans-serif" font-size="8" fill="#5463FF" text-anchor="middle">Apr 20</text>
+
+    <!-- Wk18: total=178 (89px), AL=11 (5.5px) -->
+
+    <rect x="197" y="106" width="70" height="89" fill="#5463FF" rx="2" opacity="0.25"/>
+
+    <rect x="197" y="189.5" width="70" height="5.5" fill="#5463FF" rx="2"/>
+
+    <text x="232" y="98" font-family="DM Sans,sans-serif" font-size="9.5" fill="#575048" text-anchor="middle">178</text>
+
+    <text x="232" y="210" font-family="DM Sans,sans-serif" font-size="9.5" fill="#575048" text-anchor="middle">Wk18</text>
+
+    <text x="232" y="220" font-family="DM Sans,sans-serif" font-size="8" fill="#5463FF" text-anchor="middle">Apr 27</text>
+
+    <!-- Wk19 LAUNCH: total=198 (99px), AL=9 (4.5px) -->
+
+    <rect x="324" y="96" width="70" height="99" fill="#F59E0B" rx="2" opacity="0.3"/>
+
+    <rect x="324" y="190.5" width="70" height="4.5" fill="#F59E0B" rx="2"/>
+
+    <text x="359" y="88" font-family="DM Sans,sans-serif" font-size="9.5" fill="#854D0E" text-anchor="middle" font-weight="700">198</text>
+
+    <text x="359" y="76" font-family="DM Sans,sans-serif" font-size="8" fill="#854D0E" text-anchor="middle">↑ LAUNCH</text>
+
+    <text x="359" y="210" font-family="DM Sans,sans-serif" font-size="9.5" fill="#575048" text-anchor="middle">Wk19</text>
+
+    <text x="359" y="220" font-family="DM Sans,sans-serif" font-size="8" fill="#854D0E" text-anchor="middle">May 4</text>
+
+    <!-- Wk20: total=245 (122.5px), AL=14 (7px) -->
+
+    <rect x="451" y="72.5" width="70" height="122.5" fill="#27AE60" rx="2" opacity="0.25"/>
+
+    <rect x="451" y="188" width="70" height="7" fill="#27AE60" rx="2"/>
+
+    <text x="486" y="64" font-family="DM Sans,sans-serif" font-size="9.5" fill="#575048" text-anchor="middle">245</text>
+
+    <text x="486" y="210" font-family="DM Sans,sans-serif" font-size="9.5" fill="#575048" text-anchor="middle">Wk20</text>
+
+    <text x="486" y="220" font-family="DM Sans,sans-serif" font-size="8" fill="#27AE60" text-anchor="middle">May 11</text>
+
+    <!-- Wk21: total=318 (159px), AL=17 (8.5px) -->
+
+    <rect x="578" y="36" width="70" height="159" fill="#27AE60" rx="2" opacity="0.25"/>
+
+    <rect x="578" y="186.5" width="70" height="8.5" fill="#27AE60" rx="2"/>
+
+    <text x="613" y="28" font-family="DM Sans,sans-serif" font-size="9.5" fill="#575048" text-anchor="middle">318</text>
+
+    <text x="613" y="210" font-family="DM Sans,sans-serif" font-size="9.5" fill="#575048" text-anchor="middle">Wk21</text>
+
+    <text x="613" y="220" font-family="DM Sans,sans-serif" font-size="8" fill="#27AE60" text-anchor="middle">May 18</text>
+
+    <line x1="60" y1="195" x2="800" y2="195" stroke="#1A1A2E" stroke-width="1.5"/>
+
+    <text x="105" y="185" font-family="DM Sans,sans-serif" font-size="9" fill="#5463FF" text-anchor="middle" font-weight="700">AL:13</text>
+
+    <text x="232" y="186" font-family="DM Sans,sans-serif" font-size="9" fill="#5463FF" text-anchor="middle" font-weight="700">AL:11</text>
+
+    <text x="359" y="187" font-family="DM Sans,sans-serif" font-size="9" fill="#854D0E" text-anchor="middle" font-weight="700">AL:9</text>
+
+    <text x="486" y="185" font-family="DM Sans,sans-serif" font-size="9" fill="#27AE60" text-anchor="middle" font-weight="700">AL:14</text>
+
+    <text x="613" y="183" font-family="DM Sans,sans-serif" font-size="9" fill="#27AE60" text-anchor="middle" font-weight="700">AL:17</text>
+
+  </svg>
+
+  <div class="legend">
+
+    <div class="legend-item"><div class="legend-dot" style="background:#5463FF;opacity:0.4"></div> Total Stocks tickets</div>
+
+    <div class="legend-item"><div class="legend-dot" style="background:#5463FF"></div> Account Limits (AL)</div>
+
+    <div class="legend-item"><div class="legend-dot" style="background:#F59E0B"></div> Launch week (Wk19)</div>
+
+    <div class="legend-item"><div class="legend-dot" style="background:#27AE60"></div> Post-release (Wk20–21)</div>
+
+  </div>
+
+</div>
+
+<h3>Contact Rate — Account Limits within Stocks (MX)</h3>
+
+<p>Contact rate normalizes the ticket volume against Weekly Active Users in Mexico (~300K), removing the effect of user base fluctuations. The Account Limits contact rate remained stable — confirming that the absolute ticket drop reflects the In-App Flow absorbing demand, not fewer users trying to upgrade.</p>
+
+<div class="tbl-wrap">
+
+<table>
+
+  <thead>
+
+    <tr>
+
+      <th>Week</th>
+
+      <th>Period</th>
+
+      <th>Stocks Total</th>
+
+      <th>Account Limits</th>
+
+      <th>AL % of Stocks</th>
+
+      <th>Active Users MX</th>
+
+      <th>CR Total</th>
+
+      <th>CR Account Limits</th>
+
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr>
+
+      <td>Wk17 (Apr 20)</td>
+
+      <td><span class="period-label before">Before</span></td>
+
+      <td>189</td><td>13</td><td>6.9%</td><td>307,496</td><td>0.061%</td><td>0.0042%</td>
+
+    </tr>
+
+    <tr>
+
+      <td>Wk18 (Apr 27)</td>
+
+      <td><span class="period-label before">Before</span></td>
+
+      <td>178</td><td>11</td><td>6.2%</td><td>301,300</td><td>0.059%</td><td>0.0037%</td>
+
+    </tr>
+
+    <tr>
+
+      <td>Wk19 (May 4)</td>
+
+      <td><span class="period-label during">During</span></td>
+
+      <td>198</td><td>9</td><td>4.5%</td><td>318,741</td><td>0.062%</td><td>0.0028%</td>
+
+    </tr>
+
+    <tr>
+
+      <td>Wk20 (May 11)</td>
+
+      <td><span class="period-label after">After</span></td>
+
+      <td>245</td><td>14</td><td>5.7%</td><td>308,248</td><td>0.079%</td><td>0.0045%</td>
+
+    </tr>
+
+    <tr>
+
+      <td>Wk21 (May 18)</td>
+
+      <td><span class="period-label after">After</span></td>
+
+      <td>318</td><td>17</td><td>5.3%</td><td>300,315</td><td>0.106%</td><td>0.0057%</td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+</div>
+
+<div class="callout tip">
+
+  <span class="callout-icon">✅</span>
+
+  <span><strong>The contact rate for Account Limits remained stable before and after the release</strong> (0.0042% → 0.0045–0.0057%). This is the key signal: the In-App Flow absorbed the coordination demand without increasing the proportion of users who need CS help. The total Stocks CR increase (0.06% → 0.11%) is driven by other sub-categories — primarily "I can't open my Stocks account," which is a separate issue worth investigating in a future capsule.</span>
+
+</div>
+
+<!-- 03 NOT SCHEDULED -->
+
+<div class="section-hd"><span class="section-num">03</span><span class="section-title">Stocks Form — The "Not Scheduled" Story</span></div>
+
+<p>The Stocks operations form provides the clearest before/after signal. Before May 7, the dominant status was <strong>"Not Scheduled"</strong> — users who had been contacted to coordinate the Kobra visit but never responded. After the release, users schedule directly in the app, so this status category collapsed almost entirely.</p>
+
+<div class="tbl-wrap">
+
+<table>
+
+  <thead>
+
+    <tr>
+
+      <th>Status</th>
+
+      <th>Wk17 <span class="period-label before" style="font-size:9px">Before</span></th>
+
+      <th>Wk18 <span class="period-label before" style="font-size:9px">Before</span></th>
+
+      <th>Wk19 <span class="period-label during" style="font-size:9px">During</span></th>
+
+      <th>Wk20 <span class="period-label after" style="font-size:9px">After</span></th>
+
+      <th>Wk21 <span class="period-label after" style="font-size:9px">After</span></th>
+
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr>
+
+      <td><strong>Not Scheduled</strong></td>
+
+      <td>171</td><td>186</td><td>199</td><td class="td-grn">23</td><td class="td-grn">24</td>
+
+    </tr>
+
+    <tr>
+
+      <td>Limit Increased</td>
+
+      <td>36</td><td>21</td><td>21</td><td>11</td><td>5</td>
+
+    </tr>
+
+    <tr>
+
+      <td>Scheduled - Kobra</td>
+
+      <td>6</td><td>3</td><td>2</td><td>2</td><td>2</td>
+
+    </tr>
+
+    <tr>
+
+      <td>Scheduled - DHL</td>
+
+      <td class="td-dim">—</td><td class="td-dim">—</td><td class="td-dim">—</td><td>1</td><td class="td-ora">7</td>
+
+    </tr>
+
+    <tr>
+
+      <td>Waybill sent</td>
+
+      <td>2</td><td>2</td><td>6</td><td>8</td><td>7</td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+</div>
+
+<div class="callout danger">
+
+  <span class="callout-icon">🔴</span>
+
+  <span><strong>"Not Scheduled" dropped 88%</strong> — from 199 in Wk19 to 23 in Wk20. Confirmed by the CS: this is entirely attributable to the In-App Flow release. Users who previously required manual coordination now schedule directly through Kobra in the app. Tickets in this category now represent only genuine blockers.</span>
+
+</div>
+
+<div class="callout warn">
+
+  <span class="callout-icon">⚠️</span>
+
+  <span><strong>DHL cases rising (0 → 7):</strong> As "Not Scheduled" dropped, "Scheduled - DHL" increased — from zero to 7 in Wk21. These are users in areas without Kobra coverage, where the CS still manually coordinates via DHL. This is the residual friction that the In-App Flow did not eliminate — and it's now clearly visible in the data.</span>
+
+</div>
+
+<!-- 04 HISTORICAL CONTEXT -->
+
+<div class="section-hd"><span class="section-num">04</span><span class="section-title">Historical Context — Dec 2025 to Apr 2026</span></div>
+
+<p>The weekly analysis sits within a broader 6-month trend. Account Limits had been a significantly larger share of Stocks volume in December–February — driven by the original manual coordination process — before dropping sharply in March when the process started transitioning.</p>
+
+<div class="tbl-wrap">
+
+<table>
+
+  <thead>
+
+    <tr>
+
+      <th>Month</th>
+
+      <th>Stocks Total</th>
+
+      <th>Account Limits</th>
+
+      <th>AL % of Stocks</th>
+
+      <th>Can't Open Account</th>
+
+      <th>CO % of Stocks</th>
+
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr><td>Dec '25</td><td>1,022</td><td>113</td><td class="td-ora">11.1%</td><td>667</td><td>65.3%</td></tr>
+
+    <tr><td>Jan '26</td><td>1,660</td><td class="td-red">286</td><td class="td-red">17.2%</td><td>1,001</td><td>60.3%</td></tr>
+
+    <tr><td>Feb '26</td><td>944</td><td>131</td><td class="td-ora">13.9%</td><td>615</td><td>65.1%</td></tr>
+
+    <tr><td>Mar '26</td><td>805</td><td class="td-grn">35</td><td class="td-grn">4.3%</td><td>549</td><td>68.2%</td></tr>
+
+    <tr><td>Apr '26</td><td>803</td><td class="td-grn">37</td><td class="td-grn">4.6%</td><td>540</td><td>67.2%</td></tr>
+
+  </tbody>
+
+</table>
+
+</div>
+
+<div class="callout info">
+
+  <span class="callout-icon">ℹ️</span>
+
+  <span><strong>January 2026 was the peak:</strong> Account Limits reached 286 tickets (17.2% of all Stocks volume) — nearly triple the March-April baseline. The sharp drop from February to March coincides with early Kobra implementations and process improvements that preceded the full In-App Flow launch. The May weekly data confirms stabilization at the lower 5–7% range.</span>
+
+</div>
+
+<p>One finding that stands out across all months: <strong>"I can't open my Stocks account"</strong> consistently represents 60–68% of all Stocks tickets — with Proof of Address as the dominant sub-reason (300–587 tickets/month), followed by PEP declarations and ID verification issues. This category is not addressed in this capsule but represents the next natural focus for the Investments Fleet.</p>
+
+<!-- 05 RESIDUAL FRICTION -->
+
+<div class="section-hd"><span class="section-num">05</span><span class="section-title">What Users Are Telling Us — Residual Friction Post-Release</span></div>
+
+<p>The In-App Flow eliminated the coordination burden. But CS still receives contacts — and they now represent the cases where the new process breaks down. The three tickets selected for the Live Ticket Review illustrate the three residual friction patterns:</p>
+
+<div class="pain-block">
+
+  <div class="pain-hd red">🔴 The visit was scheduled — but no one showed up</div>
+
+  <div class="pain-body">
+
+    <p>Ticket <span class="tk">#3341090</span> — User successfully scheduled the Kobra visit through the app, but the representative never arrived. The user followed the new process correctly and was left waiting with no resolution and no follow-up communication.</p>
+
+    <p>This is execution failure on the provider side — the In-App Flow worked, but Kobra didn't deliver on its commitment. From the user's perspective, the outcome is the same as before: no limit increase, no explanation.</p>
+
+  </div>
+
+</div>
+
+<div class="pain-block">
+
+  <div class="pain-hd ora">🟠 No coverage in the user's area</div>
+
+  <div class="pain-body">
+
+    <p>Ticket <span class="tk">#3339062</span> — User attempted to schedule through the app but Kobra has no coverage in their geographic area. The case is now handled manually by the CS via DHL — the same labor-intensive process as before, just for a smaller subset of users.</p>
+
+    <p>This is a geographic gap in the Kobra network. The DHL rise in Wk20–21 (0 → 7 cases) confirms this pattern is emerging as the In-App Flow scales. Without coverage expansion, users outside Kobra's network remain on the old process indefinitely.</p>
+
+  </div>
+
+</div>
+
+<div class="pain-block">
+
+  <div class="pain-hd ora">🟠 The visit can't be at the user's workplace</div>
+
+  <div class="pain-body">
+
+    <p>Ticket <span class="tk">#3343313</span> — User wants the visit at their office, but the process requires a home address. The user was not informed of this restriction before scheduling — they went through the full scheduling flow only to find out at the end that their preferred location is not valid.</p>
+
+    <p>This is a UX gap: the restriction on visit location is not communicated clearly during the scheduling process. Users discover it after investing time in the flow, generating a CS contact that could be prevented with a single line of copy in the right place.</p>
+
+  </div>
+
+</div>
+
+<div class="pain-block">
+
+  <div class="pain-hd blue">🏠 The physical visit itself — a process users don't want</div>
+
+  <div class="pain-body">
+
+    <p>Beyond the specific failure cases above, the CS notes a consistent pattern in user feedback: many users express frustration with the requirement to receive a physical visit at all. Users question why a digital financial platform requires someone to come to their home — especially when the process can take days to coordinate, requires being available at a specific time, and may not be compatible with their lifestyle or living situation.</p>
+
+    <p>This is a structural friction that the Kobra In-App Flow addresses partially — by making scheduling easier — but does not eliminate. The underlying requirement of a physical visit remains. As the platform scales and user expectations around fully digital experiences increase, the physical verification requirement is worth a proportionality review: is it the minimum necessary to meet regulatory requirements, or can any part of the process be digitized without compliance risk?</p>
+
+  </div>
+
+</div>
+
+<div class="callout tip">
+
+  <span class="callout-icon">💡</span>
+
+  <span><strong>What could help:</strong> Four targeted improvements to close the residual friction: (1) a Kobra SLA and reliability review to address execution failures; (2) a coverage map or upfront check before the user starts the scheduling flow, to redirect DHL-zone users immediately; (3) clear communication of visit location requirements (home address only) at the start of the scheduling flow, not at the end; (4) a proportionality review of the physical visit requirement — is it the minimum necessary for compliance, or can any part of the process be digitized?</span>
+
+</div>
+
+<hr>
+
+<div class="footer">
+
+  <strong>Javier Ruiz</strong> · Experience Senior Specialist · Bitso Customer Service &nbsp;·&nbsp;
+
+  Questions or feedback? <strong>#exp-retail-user-voice-capsule</strong>
+
+</div>
+
+</div>
+
+</body>
+
+</html></body>
+
+</html>
