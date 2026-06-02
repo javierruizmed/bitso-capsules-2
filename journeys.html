@@ -218,7 +218,7 @@
 
   <div class="cover-title">Account Limits</div>
 
-  <div class="cover-sub">KYC Verification Friction · Dec 2025 – Apr 2026 · Retail Segment</div>
+  <div class="cover-sub">KYC Verification Friction · Dec 2025 – Apr 2026 · All Markets</div>
 
   <div class="cover-divider"></div>
 
@@ -236,7 +236,7 @@
 
 <div class="intro">
 
-  This capsule covers <strong>Account Limits</strong> — a category where the user's ability to operate on Bitso is directly tied to completing identity verification successfully. When the verification journey breaks, users hit a hard stop that prevents them from accessing higher limits and transacting freely. This capsule takes a dual perspective: <strong>CS incoming data</strong> reveals what users experience, while <strong>KYC operational data</strong> reveals the systemic gaps that neither team can resolve alone. At the center of both: <strong>IDWall</strong> — Bitso's biometric verification provider — as a recurring point of failure.
+  This capsule covers <strong>Account Limits</strong> — a category where the user's ability to operate on Bitso is directly tied to completing identity verification successfully. When the verification journey breaks, users hit a hard stop that prevents them from accessing higher limits and transacting freely. This capsule takes a dual perspective: <strong>CS incoming data</strong> reveals what users experience, while <strong>KYC operational data</strong> reveals the systemic gaps that neither team can resolve alone. At the center of both: the biometric verification stack — <strong>Jumio</strong> (Mexico, Colombia, Argentina) and <strong>IDWall</strong> (Brazil) — where incidents and process gaps create friction for users at the highest-intent moment in their journey. Note: both providers are being migrated to <strong>Incode</strong> by end of 2026.
 
 </div>
 
@@ -244,7 +244,7 @@
 
 <div class="section-hd"><span class="section-num">01</span><span class="section-title">Incoming Overview — CS View</span></div>
 
-<p>Account Limits is a consistently high-volume contact type — users contact CS because they couldn't increase their limits, a problem that CS cannot resolve unilaterally. It peaked in January 2026 at 1,993 tickets and has trended downward since, though it remains structurally elevated.</p>
+<p>Account Limits is a consistently high-volume contact type — users contact CS because they couldn't increase their limits. CS resolves most cases directly through the Jumio validation process, but complex cases — such as suspected ID manipulation, third-party documents, or users who have failed verification three times — require escalation to the KYC team. The category peaked in January 2026 at 1,993 tickets and has trended downward since, though it remains structurally elevated.</p>
 
 <div class="kpi-row">
 
@@ -307,8 +307,6 @@
     <text x="52" y="149" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">500</text>
 
     <text x="52" y="178" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">0</text>
-
-    <!-- scale 2500→150px, baseline y=175 -->
 
     <!-- Dec 1504 -->
 
@@ -418,7 +416,7 @@
 
     <tr>
 
-      <td><strong>ID / Liveness Test</strong> <span style="font-size:10px;color:var(--red);font-weight:600">IDWall-dependent</span></td>
+      <td><strong>ID / Liveness Test</strong> <span style="font-size:10px;color:var(--red);font-weight:600">Jumio (MX/COL/ARG) · IDWall (BR)</span></td>
 
       <td>426</td><td class="td-red">598</td><td>534</td><td class="td-red">619</td><td>386</td>
 
@@ -428,7 +426,7 @@
 
     <tr>
 
-      <td><strong>Unique Identifier</strong> <span style="font-size:10px;color:var(--orange);font-weight:600">CURP/CPF</span></td>
+      <td><strong>Unique Identifier</strong> <span style="font-size:10px;color:var(--orange);font-weight:600">CURP · CPF · RFC · DNI · Cédula</span></td>
 
       <td>352</td><td>350</td><td>358</td><td>386</td><td>235</td>
 
@@ -500,7 +498,7 @@
 
       <td>Doesn't understand the process / can't complete it</td>
 
-      <td>Documentation rejected or inconsistent</td>
+      <td>Limit increase request — reviewed manually by KYC (no prior automated validation at Level 3+)</td>
 
     </tr>
 
@@ -542,7 +540,7 @@
 
     <tr>
 
-      <td><strong>IDWall</strong></td>
+      <td><strong>IDWall</strong> <span style="font-size:10px;color:var(--orange);font-weight:600">Brazil only</span></td>
 
       <td>702</td><td>755</td><td>733</td><td>733</td><td class="td-red">1,044</td>
 
@@ -552,7 +550,7 @@
 
     <tr><td>Stocks</td><td>507</td><td>735</td><td>486</td><td>546</td><td>771</td></tr>
 
-    <tr><td>Jumio Warning</td><td>363</td><td>474</td><td>406</td><td>536</td><td>366</td></tr>
+    <tr><td>Jumio Warning <span style="font-size:10px;color:var(--gray)">MX/COL/ARG</span></td><td>363</td><td>474</td><td>406</td><td>536</td><td>366</td></tr>
 
     <tr><td class="td-dim">Bridge / Level 4→5 / Other</td><td class="td-dim">357</td><td class="td-dim">385</td><td class="td-dim">303</td><td class="td-dim">302</td><td class="td-dim">373</td></tr>
 
@@ -566,7 +564,7 @@
 
   <span class="callout-icon">🔴</span>
 
-  <span><strong>IDWall spiked to 1,044 in April</strong> — nearly double any prior month. This coincides with the Operation Restitution fraud investigation and the April 1 Jumio delays incident. The KYC team was simultaneously dealing with fraud-related review volume and legitimate user verification failures at the same time.</span>
+  <span><strong>IDWall (Brazil) spiked to 1,044 in April</strong> — nearly double any prior month. This coincides with the Operation Restitution fraud investigation. Note: the April 1 incident was confirmed as a <strong>Jumio delay</strong> (affecting MX/COL/ARG), not an IDWall incident — these are separate providers.</span>
 
 </div>
 
@@ -660,7 +658,7 @@
 
     <tr>
 
-      <td><strong>Issues physical ID/Liveness</strong> <span style="font-size:10px;color:var(--red)">IDWall</span></td>
+      <td><strong>Internal Esc. · Issues physical ID/Liveness</strong> <span style="font-size:10px;color:var(--red)">Both providers</span></td>
 
       <td class="td-red">-16.7%<br><span style="font-size:10px;color:#aaa">n=6</span></td>
 
@@ -676,7 +674,7 @@
 
     <tr>
 
-      <td>Jumio Warning</td>
+      <td>Jumio Warning <span style="font-size:10px;color:var(--gray)">MX/COL/ARG</span></td>
 
       <td class="td-grn">100%</td><td>0.0%</td><td class="td-ora">60.0%</td><td class="td-grn">75.0%</td><td class="td-ora">33.3%</td>
 
@@ -766,9 +764,9 @@
 
 <!-- 05 ROOT CAUSE -->
 
-<div class="section-hd"><span class="section-num">05</span><span class="section-title">Root Cause — IDWall &amp; The Verification Stack</span></div>
+<div class="section-hd"><span class="section-num">05</span><span class="section-title">Root Cause — Verification Friction & Provider Incidents</span></div>
 
-<p>The event calendar shows a clear pattern: IDWall incidents directly cause spikes in both CS and KYC ticket volume, while simultaneously driving the worst CSI readings in the period.</p>
+<p>The event calendar shows a clear pattern: provider incidents and process decisions directly cause spikes in both CS and KYC ticket volume, while simultaneously driving the worst CSI readings in the period. As both providers migrate to Incode by end of 2026, future capsules will focus on the underlying journey friction rather than provider-specific issues.</p>
 
 <div style="margin:16px 0 20px;padding-left:8px;">
 
@@ -778,7 +776,7 @@
 
     <div class="tl-dot red"></div>
 
-    <div class="tl-content"><strong>Jumio Delay</strong> <span class="tl-tag incident">Incident</span><br>First IDWall/Jumio performance incident of 2026. Directly coincides with February being the worst month across all KYC metrics: Total KYC CSI 31.2%, Level 3→4 18.5%, Issues physical ID/Liveness -33.3%.</div>
+    <div class="tl-content"><strong>Jumio Delay</strong> <span class="tl-tag incident">Incident</span> <span style="font-size:10px;background:#FFF3E0;color:var(--orange);padding:1px 6px;border-radius:3px;font-weight:700">MX · COL · ARG</span><br>First Jumio performance incident of 2026. Directly coincides with February being the worst month across all KYC metrics: Total KYC CSI 31.2%, Level 3→4 18.5%, Issues physical ID/Liveness -33.3%.</div>
 
   </div>
 
@@ -818,7 +816,7 @@
 
     <div class="tl-dot red"></div>
 
-    <div class="tl-content"><strong>Jumio Delays</strong> <span class="tl-tag incident">Incident</span><br>Second IDWall incident in two months. Directly caused IDWall KYC sub-category to spike to 1,044 in April — nearly double any prior month.</div>
+    <div class="tl-content"><strong>Jumio Delays</strong> <span class="tl-tag incident">Incident</span> <span style="font-size:10px;background:#FFF3E0;color:var(--orange);padding:1px 6px;border-radius:3px;font-weight:700">MX · COL · ARG</span><br>Second Jumio incident in 60 days — confirmed as Jumio (not IDWall). Affects Mexico, Colombia, and Argentina. The IDWall spike to 1,044 in April is linked to the Operation Restitution fraud investigation in Brazil, which is a separate event.</div>
 
   </div>
 
@@ -826,9 +824,9 @@
 
     <div class="tl-date">28 Apr 2026</div>
 
-    <div class="tl-dot red"></div>
+    <div class="tl-dot blue"></div>
 
-    <div class="tl-content"><strong>Increase in KYC document review tickets — Brazil</strong> <span class="tl-tag incident">Incident</span><br>Spike in document review tickets specifically in Brazil — likely Jumio capacity combined with Brazil-specific document validation rules.</div>
+    <div class="tl-content"><strong>Increase in KYC manual review volume — Brazil</strong> <span class="tl-tag release">Business decision</span><br>Following the Operation Restitution fraud cases identified via IDWall, the team made a deliberate decision to route more cases to manual KYC review in Brazil. This spike reflects increased oversight — not an incident or provider failure.</div>
 
   </div>
 
@@ -846,9 +844,9 @@
 
 <!-- 06 OPERATION RESTITUIÇÃO -->
 
-<div class="section-hd"><span class="section-num">06</span><span class="section-title">Operation Restitution — The Other Side of the IDWall Gap</span></div>
+<div class="section-hd"><span class="section-num">06</span><span class="section-title">Operation Restitution — Context on IDWall (Brazil)</span></div>
 
-<p>The Operation Restitution case is the clearest example of what IDWall's verification gaps cost in practice. When the provider fails to detect manipulated biometrics — face swaps, static photo uploads, identity mismatches — it doesn't only block legitimate users. It also opens the door to the opposite problem: fraudulent accounts that pass verification they shouldn't. Both failures come from the same root cause: a provider whose detection model is not reliable enough for the volume and threat landscape Bitso operates in.</p>
+<p>The Operation Restitution case is the clearest example of what verification provider gaps cost in practice. This specific case involved <strong>IDWall in Brazil</strong> — where face swaps, static photo uploads, and Hubble/IDWall identity mismatches allowed fraudulent accounts to pass verification. When a provider fails to detect manipulated biometrics, it doesn't only block legitimate users: it also opens the door to the opposite problem. Both failures come from the same root cause: a provider whose detection model is not reliable enough for the volume and threat landscape Bitso operates in.</p>
 
 <div class="kpi-row">
 
@@ -940,17 +938,17 @@
 
 <div class="pain-block">
 
-  <div class="pain-hd red">🔍 IDWall reliability — a provider that needs closer oversight</div>
+  <div class="pain-hd red">🔍 Jumio reliability — a provider that needs closer oversight</div>
 
   <div class="pain-body">
 
-    <p>Two IDWall incidents in 60 days (Feb 3 and Apr 1) directly drove the worst CSI readings of the period — and in February, every KYC sub-category hit its floor simultaneously. CS agents have no visibility when IDWall is degraded, so they ask users to retry without being able to explain why verification is failing.</p>
+    <p>Two Jumio incidents in 60 days (Feb 3 and Apr 1 — affecting Mexico, Colombia, and Argentina) directly drove the worst CSI readings of the period. In February, every KYC sub-category hit its floor simultaneously. CS agents have no visibility when Jumio is degraded, so they ask users to retry without being able to explain why verification is failing.</p>
 
     <div class="callout tip">
 
       <span class="callout-icon">💡</span>
 
-      <div><strong>What could help:</strong> An internal alert for CS agents when IDWall is degraded, so they can set expectations proactively. A user-facing message that explains delays without exposing the provider. A review of IDWall's SLA and detection model performance as part of a formal vendor assessment.</div>
+      <div><strong>What could help:</strong> An internal alert for CS agents when Jumio is degraded (MX/COL/ARG), so they can set expectations proactively. A user-facing message that explains delays without exposing the provider. This becomes less critical as the Incode migration progresses, but remains relevant until the migration is complete.</div>
 
     </div>
 
