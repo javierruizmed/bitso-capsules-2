@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+
+    --blue:     #5463FF;
+
+    --blue-d:   #4250E0;
+
+    --lima:     #DFFF50;
+
+    --beige:    #E3DBD2;
+
+    --gray:     #575048;
+
+    --dark:     #1A1A2E;
+
+    --off:      #F5F4F2;
+
+    --white:    #ffffff;
+
+    --red:      #C0392B;
+
+    --orange:   #E67E22;
+
+    --green:    #27AE60;
+
+    --red-soft: #FFEBEE;
+
+    --ora-soft: #FFF3E0;
+
+    --grn-soft: #F0FDF4;
+
+  }
+
+  body {
+
+    font-family: 'DM Sans', sans-serif;
+
+    background: var(--white);
+
+    color: var(--dark);
+
+    font-size: 14px;
+
+    line-height: 1.65;
+
+    max-width: 920px;
+
+    margin: 0 auto;
+
+    padding: 0 0 56px;
+
+  }
+
+  .cover {
+
+    background: var(--blue);
+
+    padding: 44px 44px 40px;
+
+    position: relative;
+
+    overflow: hidden;
+
+  }
+
+  .cover::before {
+
+    content: '';
+
+    position: absolute;
+
+    left: 0; top: 0; bottom: 0;
+
+    width: 5px;
+
+    background: var(--lima);
+
+  }
+
+  .cover-eyebrow {
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 3.5px;
+
+    color: var(--lima);
+
+    text-transform: uppercase;
+
+    margin-bottom: 12px;
+
+  }
+
+  .cover-title {
+
+    font-size: 42px;
+
+    font-weight: 700;
+
+    color: var(--white);
+
+    line-height: 1.1;
+
+    margin-bottom: 6px;
+
+  }
+
+  .cover-sub {
+
+    font-size: 16px;
+
+    color: rgba(255,255,255,0.65);
+
+    margin-bottom: 28px;
+
+  }
+
+  .cover-divider {
+
+    width: 48px;
+
+    height: 2px;
+
+    background: rgba(255,255,255,0.25);
+
+    margin-bottom: 16px;
+
+  }
+
+  .cover-meta {
+
+    font-size: 12px;
+
+    color: rgba(255,255,255,0.5);
+
+    line-height: 1.7;
+
+  }
+
+  .cover-meta strong { color: rgba(255,255,255,0.82); }
+
+  .cover-meta .channel { color: var(--lima); font-weight: 600; }
+
+  .body { padding: 0 36px; }
+
+  .intro {
+
+    padding: 28px 0 20px;
+
+    font-size: 14px;
+
+    color: var(--gray);
+
+    border-bottom: 1px solid var(--beige);
+
+    margin-bottom: 32px;
+
+    line-height: 1.75;
+
+  }
+
+  .section-hd {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: var(--blue);
+
+    padding: 10px 18px;
+
+    border-radius: 4px;
+
+    margin: 36px 0 20px;
+
+  }
+
+  .section-num {
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,0.55);
+
+    text-transform: uppercase;
+
+  }
+
+  .section-title {
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    color: var(--white);
+
+    text-transform: uppercase;
+
+  }
+
+  h3 { font-size: 15px; font-weight: 700; color: var(--blue); margin: 24px 0 10px; }
+
+  p  { font-size: 13.5px; color: var(--dark); margin-bottom: 12px; line-height: 1.7; }
+
+  .kpi-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin: 16px 0 24px; }
+
+  .kpi-card {
+
+    background: var(--off);
+
+    border: 1px solid var(--beige);
+
+    border-radius: 8px;
+
+    padding: 18px 14px;
+
+    text-align: center;
+
+  }
+
+  .kpi-val  { font-size: 30px; font-weight: 700; color: var(--blue); line-height: 1.1; margin-bottom: 4px; }
+
+  .kpi-lbl  { font-size: 11px; color: var(--gray); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .kpi-sub  { font-size: 11px; color: var(--gray); margin-top: 2px; }
+
+  .kpi-red  { color: var(--red) !important; }
+
+  .kpi-ora  { color: var(--orange) !important; }
+
+  .kpi-grn  { color: var(--green) !important; }
+
+  .tbl-wrap { overflow-x: auto; margin: 16px 0 20px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+
+  thead tr { background: var(--blue); }
+
+  thead th {
+
+    padding: 9px 12px; color: var(--white);
+
+    font-weight: 600; font-size: 11.5px; text-align: center;
+
+  }
+
+  thead th:first-child { text-align: left; }
+
+  tbody tr:nth-child(even) { background: var(--off); }
+
+  tbody tr:hover { background: #EEF0FF; }
+
+  tbody td { padding: 8px 12px; border-bottom: 1px solid #ECEAE7; text-align: center; }
+
+  tbody td:first-child { text-align: left; font-weight: 500; }
+
+  .td-hi  { font-weight: 700; color: var(--blue); }
+
+  .td-red { font-weight: 700; color: var(--red); }
+
+  .td-ora { font-weight: 600; color: var(--orange); }
+
+  .td-grn { font-weight: 700; color: var(--green); }
+
+  .td-dim { color: #aaa; }
+
+  .callout {
+
+    display: flex; gap: 12px;
+
+    padding: 13px 16px; border-radius: 6px;
+
+    margin: 14px 0; font-size: 13px; line-height: 1.6;
+
+  }
+
+  .callout-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+  .callout.warn   { background: #FFF8E1; border-left: 4px solid #F59E0B; }
+
+  .callout.danger { background: #FEF2F2; border-left: 4px solid var(--red); }
+
+  .callout.info   { background: #EEF0FF; border-left: 4px solid var(--blue); }
+
+  .callout.tip    { background: var(--grn-soft); border-left: 4px solid var(--green); }
+
+  .pain-block { border: 1px solid var(--beige); border-radius: 8px; margin: 16px 0; overflow: hidden; }
+
+  .pain-hd {
+
+    padding: 10px 16px; font-size: 13px; font-weight: 700;
+
+    display: flex; align-items: center; gap: 8px;
+
+  }
+
+  .pain-hd.red  { background: var(--red-soft); color: var(--red); }
+
+  .pain-hd.ora  { background: var(--ora-soft); color: var(--orange); }
+
+  .pain-hd.blue { background: #EEF0FF; color: var(--blue); }
+
+  .pain-hd.grn  { background: var(--grn-soft); color: var(--green); }
+
+  .pain-body { padding: 14px 16px; font-size: 13px; line-height: 1.65; }
+
+  .pain-body p  { font-size: 13px; margin-bottom: 10px; }
+
+  .tk {
+
+    font-size: 11px; background: #EEF0FF; color: var(--blue);
+
+    padding: 1px 6px; border-radius: 3px; font-family: monospace; margin-left: 3px;
+
+  }
+
+  .chart-wrap {
+
+    background: var(--off); border: 1px solid var(--beige);
+
+    border-radius: 8px; padding: 20px 16px 14px; margin: 16px 0 24px;
+
+  }
+
+  .chart-title {
+
+    font-size: 11px; font-weight: 700; color: var(--gray);
+
+    text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 16px;
+
+  }
+
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; }
+
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--gray); }
+
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+  .badge {
+
+    display: inline-block; padding: 2px 8px; border-radius: 20px;
+
+    font-size: 11px; font-weight: 700;
+
+  }
+
+  .badge-done     { background: var(--grn-soft); color: var(--green); }
+
+  .badge-pending  { background: #FEF9C3; color: #854D0E; }
+
+  .badge-urgent   { background: var(--red-soft); color: var(--red); }
+
+  hr { border: none; border-top: 1px solid var(--beige); margin: 36px 0; }
+
+  .footer { font-size: 12px; color: var(--gray); line-height: 1.7; }
+
+  .footer strong { color: var(--dark); }
+
+</style>
+
+</head>
+
+<body>
+
+<!-- COVER -->
+
+<div class="cover">
+
+  <div class="cover-eyebrow">Experience Capsule · Guardians Squad</div>
+
+  <div class="cover-title">SMS Delivery Failures</div>
+
+  <div class="cover-sub">Access to My Account › I haven't received the SMS code · Jan – May 2026</div>
+
+  <div class="cover-divider"></div>
+
+  <div class="cover-meta">
+
+    Prepared by <strong>Javier Ruiz</strong> · Experience Senior Specialist · Bitso Customer Service
+
+    &nbsp;·&nbsp; <span class="channel">#exp-guardians-capsule</span>
+
+  </div>
+
+</div>
+
+<div class="body">
+
+<div class="intro">
+
+  This capsule continues where the May 2026 Access to My Account capsule left off. The volume spike tied to SMS delivery failures peaked in April and came down in May — but the underlying problem didn't go away. Codes are still not arriving. Withdrawals are still being blocked. And CS still has no resolution path to offer when Twilio confirms delivery but the user never receives anything. This capsule focuses on what changed, what didn't, and what the data suggests should come next.
+
+</div>
+
+<!-- 01 WHERE WE LEFT OFF -->
+
+<div class="section-hd"><span class="section-num">01</span><span class="section-title">Where We Left Off</span></div>
+
+<p>The previous capsule documented a sharp spike in SMS-related contacts beginning in March 2026, driven by authentication infrastructure changes and confirmed delivery incidents. By April, "I haven't received the SMS code" had reached <strong>2,517 incoming tickets</strong> — the highest volume in the period. Five action items were raised for the Guardians squad. One has been partially addressed. Four remain open.</p>
+
+<div class="tbl-wrap">
+
+<table>
+
+  <thead>
+
+    <tr><th>#</th><th>Action item</th><th>Status</th></tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr>
+
+      <td class="td-hi">1</td>
+
+      <td>Implement an alternative authentication channel (email OTP or authenticator app) as fallback when SMS fails</td>
+
+      <td><span class="badge badge-pending">Open — focus of this capsule</span></td>
+
+    </tr>
+
+    <tr>
+
+      <td class="td-hi">2</td>
+
+      <td>Extend session time on verification links to prevent expiry-driven repeat contacts</td>
+
+      <td><span class="badge badge-done">Done ✓</span></td>
+
+    </tr>
+
+    <tr>
+
+      <td class="td-hi">3</td>
+
+      <td>Define escalation path and resolution toolkit for agents handling SMS failures</td>
+
+      <td><span class="badge badge-done">Done ✓</span></td>
+
+    </tr>
+
+    <tr>
+
+      <td class="td-hi">4</td>
+
+      <td>Escalate with SMS providers / carriers to investigate delivery failures</td>
+
+      <td><span class="badge badge-urgent">Urgent — evidence in section 03</span></td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+</div>
+
+<!-- 02 WHAT CHANGED -->
+
+<div class="section-hd"><span class="section-num">02</span><span class="section-title">What Changed — And How Much It Helped</span></div>
+
+<p>On April 17, Engineering migrated from Twilio Messaging to Twilio Verify and extended the SMS code timeout from 2 to 10 minutes. The previous capsule documented a recurring pattern where codes arrived after they had already expired — two compounding failures in one contact. That specific friction was addressed by the change.</p>
+
+<p>The volume data confirms the improvement. Incoming tickets for "I haven't received the SMS code" dropped from 2,517 in April to 1,489 in May — a 41% reduction. The chart below shows the full trajectory.</p>
+
+<div class="chart-wrap">
+
+  <div class="chart-title">I Haven't Received the SMS Code — Monthly Incoming (Jan – May 2026)</div>
+
+  <!--
+
+    Scale: max=2517. Bar space=120px. 2517→120px. 1px=20.975 tickets.
+
+    Jan=483→23px, Feb=463→22px, Mar=1531→73px, Apr=2517→120px, May=1489→71px
+
+    Baseline y=140.
+
+  -->
+
+  <svg width="100%" viewBox="0 0 700 190" xmlns="http://www.w3.org/2000/svg">
+
+    <line x1="50" y1="20"  x2="680" y2="20"  stroke="#E0DED9" stroke-width="1"/>
+
+    <line x1="50" y1="60"  x2="680" y2="60"  stroke="#E0DED9" stroke-width="1"/>
+
+    <line x1="50" y1="100" x2="680" y2="100" stroke="#E0DED9" stroke-width="1"/>
+
+    <line x1="50" y1="140" x2="680" y2="140" stroke="#E0DED9" stroke-width="1"/>
+
+    <text x="44" y="24"  font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">2,500</text>
+
+    <text x="44" y="64"  font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">1,800</text>
+
+    <text x="44" y="104" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">900</text>
+
+    <text x="44" y="144" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">0</text>
+
+    <!-- Jan: 483 → 23px -->
+
+    <rect x="65"  y="117" width="90" height="23" fill="#9BA5FF" rx="3"/>
+
+    <text x="110" y="111" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">483</text>
+
+    <!-- Feb: 463 → 22px -->
+
+    <rect x="185" y="118" width="90" height="22" fill="#9BA5FF" rx="3"/>
+
+    <text x="230" y="112" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">463</text>
+
+    <!-- Mar: 1531 → 73px -->
+
+    <rect x="305" y="67"  width="90" height="73" fill="#E67E22" rx="3"/>
+
+    <text x="350" y="61"  font-family="DM Sans,sans-serif" font-size="10" fill="#E67E22" text-anchor="middle" font-weight="700">1,531</text>
+
+    <!-- Apr: 2517 → 120px -->
+
+    <rect x="425" y="20"  width="90" height="120" fill="#C0392B" rx="3"/>
+
+    <text x="470" y="14"  font-family="DM Sans,sans-serif" font-size="10" fill="#C0392B" text-anchor="middle" font-weight="700">2,517</text>
+
+    <!-- May: 1489 → 71px -->
+
+    <rect x="545" y="69"  width="90" height="71" fill="#E67E22" rx="3"/>
+
+    <text x="590" y="63"  font-family="DM Sans,sans-serif" font-size="10" fill="#E67E22" text-anchor="middle" font-weight="700">1,489</text>
+
+    <!-- x labels -->
+
+    <text x="110" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Jan '26</text>
+
+    <text x="230" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Feb '26</text>
+
+    <text x="350" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Mar '26</text>
+
+    <text x="470" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#C0392B" text-anchor="middle" font-weight="700">Apr '26 ↑peak</text>
+
+    <text x="590" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#E67E22" text-anchor="middle" font-weight="700">May '26 ↓fix</text>
+
+    <line x1="50" y1="140" x2="680" y2="140" stroke="#1A1A2E" stroke-width="1.5"/>
+
+    <!-- Apr 17 fix annotation -->
+
+    <line x1="515" y1="20" x2="515" y2="140" stroke="#27AE60" stroke-width="1" stroke-dasharray="4,3"/>
+
+    <text x="518" y="32" font-family="DM Sans,sans-serif" font-size="9" fill="#27AE60" font-weight="700">Apr 17</text>
+
+    <text x="518" y="43" font-family="DM Sans,sans-serif" font-size="9" fill="#27AE60">Twilio Verify</text>
+
+  </svg>
+
+  <div class="legend">
+
+    <div class="legend-item"><div class="legend-dot" style="background:#C0392B"></div> Peak — April</div>
+
+    <div class="legend-item"><div class="legend-dot" style="background:#E67E22"></div> Elevated</div>
+
+    <div class="legend-item"><div class="legend-dot" style="background:#9BA5FF"></div> Baseline (Jan–Feb)</div>
+
+    <div class="legend-item"><div class="legend-dot" style="background:#27AE60; border-radius:0;"></div> Apr 17 — Twilio Verify migration</div>
+
+  </div>
+
+</div>
+
+<div class="callout warn">
+
+  <span class="callout-icon">⚠️</span>
+
+  <span>May's 1,489 tickets represent a meaningful improvement from April's peak — but they are still <strong>3× the January–February baseline of ~470/month</strong>. The Twilio Verify migration addressed the timeout issue. It did not address the delivery failures. Those are a separate problem, and they persist.</span>
+
+</div>
+
+<h3>CSI — the satisfaction picture</h3>
+
+<p>The CSI for this subcategory has improved gradually alongside the volume reduction, though the sample sizes remain small. What matters here is less the specific score and more the direction: even as agents handled fewer SMS contacts in May, users continued to report friction — which points to a structural issue rather than a support quality issue.</p>
+
+<div class="tbl-wrap">
+
+<table>
+
+  <thead>
+
+    <tr><th>Month</th><th>CS Surveys</th><th>CSI Score</th><th>Signal</th></tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr><td>Feb '26</td><td>16</td><td class="td-ora">25.0%</td><td>Baseline pre-spike</td></tr>
+
+    <tr><td>Mar '26</td><td>39</td><td class="td-ora">45.0%</td><td>↑ Spike onset</td></tr>
+
+    <tr><td>Apr '26</td><td>40</td><td class="td-ora">50.0%</td><td>Peak volume — 1 in 4 users left dissatisfied</td></tr>
+
+    <tr><td>May '26</td><td>35</td><td class="td-grn">54.3%</td><td>↑ Marginal improvement — issue persists</td></tr>
+
+    <tr><td>Jun '26*</td><td class="td-dim">6</td><td class="td-dim">50.0%*</td><td class="td-dim">* Partial · Jun 1–11 · directional only</td></tr>
+
+  </tbody>
+
+</table>
+
+</div>
+
+<!-- 03 WHAT DIDN'T CHANGE -->
+
+<div class="section-hd"><span class="section-num">03</span><span class="section-title">What Didn't Change — The Undelivered Problem</span></div>
+
+<p>The timeout fix worked. What it didn't fix is a different failure: codes that Twilio marks as dispatched but that never reach the user's phone. These aren't slow — they're absent. And they appear consistently across both Twilio Messaging and Twilio Verify, meaning the migration didn't address them. The logs below are from three separate cases in May 2026, reviewed internally by the CS team.</p>
+
+<div class="tbl-wrap">
+
+<table>
+
+  <thead>
+
+    <tr>
+
+      <th>Ticket</th>
+
+      <th>Phone number</th>
+
+      <th>Date(s)</th>
+
+      <th>Attempts logged</th>
+
+      <th>Status — Messaging</th>
+
+      <th>Status — Verify</th>
+
+      <th>Impact</th>
+
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr>
+
+      <td><strong>#3332257</strong></td>
+
+      <td>+526861456402</td>
+
+      <td>19 May 2026</td>
+
+      <td>6+ across same day<br><span style="font-size:11px;color:#aaa;">11:51 · 11:52 · 12:00 · 17:22 · 17:23 · 17:27</span></td>
+
+      <td class="td-red">Undelivered</td>
+
+      <td class="td-red">Undelivered</td>
+
+      <td>Account access blocked</td>
+
+    </tr>
+
+    <tr>
+
+      <td><strong>#3331758</strong></td>
+
+      <td>+525543450010</td>
+
+      <td>18 May 2026</td>
+
+      <td>8 in under 10 min<br><span style="font-size:11px;color:#aaa;">15:26 · 15:28 · 15:31 · 15:34</span></td>
+
+      <td class="td-red">Undelivered</td>
+
+      <td class="td-red">Undelivered</td>
+
+      <td>Withdrawal blocked — user moved to SPEI workaround</td>
+
+    </tr>
+
+    <tr>
+
+      <td><strong>#3324700</strong></td>
+
+      <td>+529981271316</td>
+
+      <td>15–19 May 2026</td>
+
+      <td>12+ across 5 days<br><span style="font-size:11px;color:#aaa;">May 15 · 16 · 17 · 19</span></td>
+
+      <td class="td-red">Undelivered</td>
+
+      <td class="td-red">Undelivered</td>
+
+      <td>Withdrawal blocked for 5 days</td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+</div>
+
+<p style="font-size:12px; color:var(--gray); margin-top:-8px; margin-bottom:16px;">Source: Twilio SMS Logs reviewed internally by CS team. All attempts returned Undelivered status on both Messaging and Verify channels.</p></div>
+
+<div class="callout danger">
+
+  <span class="callout-icon">🔴</span>
+
+  <span>In all three cases, <strong>both Twilio Messaging and Twilio Verify return Undelivered simultaneously</strong>. The issue is not channel-specific — it persists after the migration. The root cause has not been identified. CS has no resolution path: the workaround is a Jumio bypass or asking users to withdraw smaller amounts, neither of which addresses the underlying failure.</span>
+
+</div>
+
+<h3>A newly identified behavior — cooldown and silent SMS</h3>
+
+<p>A separate pattern was flagged during an internal spot review: when a user triggers a login cooldown through repeated failed attempts, the system logs an SMS as sent in the event trail — but no SMS is actually dispatched. If confirmed as expected behavior, it means users in cooldown are waiting for a code that was never sent. If it's a bug, the scope is unknown. Either way, it isn't currently documented as a mapped process.</p>
+
+<div class="callout info">
+
+  <span class="callout-icon">ℹ️</span>
+
+  <span>This behavior was observed in a single case during an internal review. It has not been confirmed as systemic. The open question for the squad: is this the expected behavior during a cooldown period, and if so, is it communicated to the user?</span>
+
+</div>
+
+<!-- 04 VOICE OF THE CUSTOMER -->
+
+<div class="section-hd"><span class="section-num">04</span><span class="section-title">Voice of the Customer</span></div>
+
+<p>The verbatims from May tell a consistent story: users aren't frustrated by the experience of contacting CS. They're frustrated by having to contact CS at all — to do something as fundamental as access their account or move their money. Two patterns stand out in the May data that weren't as visible before.</p>
+
+<div class="pain-block">
+
+  <div class="pain-hd red">🔴 SMS failures blocking withdrawals — not just logins</div>
+
+  <div class="pain-body">
+
+    <p>The previous capsule focused on login friction. May's data surfaces a higher-stakes version: SMS failures blocking withdrawals. When a user needs a verification code to authorize a transfer and that code never arrives, the result isn't inconvenience — it's their money being inaccessible.</p>
+
+    <p><em>"Para poder mover mi dinero tuve que efectuar 10 pagos por SPEI ya que su sistema de SMS no funciona y realmente es muy complicado trabajar con un banco así. Hay muchos bancos nuevos y es más sencillo abrir otra cuenta donde sus plataformas sí funcionen bien."</em> <span class="tk">#3331758</span></p>
+
+    <p><em>"No me sirve Bitso si ustedes deciden qué movimientos puedo o no puedo hacer. Quiero hacer una transferencia a mis cuentas guardadas pero no recibo nunca el SMS de seguridad — llevo intentando todo el día. No es problema mío porque he recibido mensajes de otros números sin problema."</em> <span class="tk">#3324700</span></p>
+
+  </div>
+
+</div>
+
+<div class="pain-block">
+
+  <div class="pain-hd ora">🟠 Users asking for biometrics — explicitly</div>
+
+  <div class="pain-body">
+
+    <p>A thread running through May's survey feedback is users pointing to the solution themselves. They've already benchmarked the experience against other apps. Some have partially used biometrics on Bitso and found it broken. The ask is direct.</p>
+
+    <p><em>"Tener más de un método de verificación de cuenta."</em> <span class="tk">CSI survey · May '26</span></p>
+
+    <p><em>"La solucion de acceso a mi cuenta ya que los SMS no están activados y podrían mandar los codigos de acceso via e-mail."</em> <span class="tk">CSI survey · May '26</span></p>
+
+    <p><em>"La app dice 'Habilita biométricos para un acceso rápido y seguro'... pero cada vez que inicio sesión me pide configurar mi PIN a pesar de que la app dice: '¡Habilitaste la autenticación biométrica!'"</em> <span class="tk">CSI survey · May '26</span></p>
+
+    <p>That last verbatim is particularly pointed: the user enabled biometrics, the app confirmed it, and then kept asking for PIN anyway. The feature exists in partial form — and in its current state, it's adding frustration rather than reducing it.</p>
+
+  </div>
+
+</div>
+
+<div class="pain-block">
+
+  <div class="pain-hd blue">👍 What the timeout fix changed — from promoters</div>
+
+  <div class="pain-body">
+
+    <p>It's worth acknowledging what improved. Several May promoters specifically noted that CS resolved their SMS issue, and the tone shifted from the multi-agent chains documented in April. The timeout extension reduced one failure mode. The data shows it.</p>
+
+    <p><em>"Jamás me llegó el SMS. Ahí inició el problema. Afortunadamente el equipo técnico me apoyó al 100."</em> <span class="tk">CSI survey · May '26</span></p>
+
+    <p>The agent resolved it — but only because the user reached CS. The goal is for the user to never need to.</p>
+
+  </div>
+
+</div>
+
+<!-- 05 WHAT USERS ARE TELLING US -->
+
+<div class="section-hd"><span class="section-num">05</span><span class="section-title">What Users Are Telling Us — And What Could Help</span></div>
+
+<div class="pain-block">
+
+  <div class="pain-hd blue">The fix that's already in progress — and what it proves</div>
+
+  <div class="pain-body">
+
+    <p>The Twilio Verify migration reduced volume by 41% in a single month. That result makes a strong case for the next step: an alternative authentication method that doesn't depend on SMS delivery at all. Users are already asking for it. Some have already tried the partial biometrics implementation and found it inconsistent. The infrastructure investment has clearly moved the needle before — the question is whether the squad has what it needs to take the next step.</p>
+
+  </div>
+
+</div>
+
+<div class="pain-block">
+
+  <div class="pain-hd red">What CS needs from product to unblock biometrics</div>
+
+  <div class="pain-body">
+
+    <p>The request from CS is not to solve the SMS delivery problem in isolation — it's to reduce the dependency on SMS as the only path for authentication and withdrawal verification. Biometrics as a fully functional alternative would address the majority of the contacts this capsule documents. To have that conversation properly, we'd like to understand:</p>
+
+    <ul style="font-size:13px; color:var(--dark); line-height:1.9; padding-left:20px; margin:10px 0;">
+
+      <li>What is currently blocking full biometrics enablement?</li>
+
+      <li>Is the partial implementation (the one prompting users to configure PIN after biometrics is already set) a known bug with an open ticket?</li>
+
+      <li>Is there a roadmap item for biometrics as a withdrawal verification alternative, not just login?</li>
+
+      <li>What would a competitive benchmark (Binance, OKX) of authentication methods look like — and does the squad already have that data?</li>
+
+    </ul>
+
+    <p>CS is seeing the downstream effects of each gap in authentication. We'd like to be part of the conversation about how to close them.</p>
+
+  </div>
+
+</div>
+
+<div class="pain-block">
+
+  <div class="pain-hd red">The undelivered problem still needs a carrier-level investigation</div>
+
+  <div class="pain-body">
+
+    <p>The three Twilio log cases in section 03 confirm what users have been saying since March: Bitso's SMS is specifically not reaching them while messages from other senders arrive normally. The logs show Undelivered status on both Messaging and Verify for the same phone numbers, across multiple days. This is not a timeout issue and it was not resolved by the April 17 migration. An escalation with Twilio and the relevant mobile carriers is still the right path — and the evidence to support that escalation now exists in documented cases.</p>
+
+  </div>
+
+</div>
+
+<div class="callout tip">
+
+  <span class="callout-icon">💡</span>
+
+  <span>A benchmark of how Binance, OKX, and other crypto exchanges handle authentication — particularly for markets with known SMS delivery limitations — would strengthen the case for biometrics internally. If the squad doesn't have this data, CS can help gather it as part of the next capsule cycle.</span>
+
+</div>
+
+<hr>
+
+<div class="footer">
+
+  <strong>Javier Ruiz</strong> · Experience Senior Specialist · Bitso Customer Service &nbsp;·&nbsp;
+
+  Questions or feedback? <strong>#exp-guardians-capsule</strong>
+
+  &nbsp;·&nbsp; Created June 11, 2026
+
+</div>
+
+</div>
+
+</body>
+
+</html>
