@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+
+    --blue:     #5463FF;
+
+    --blue-d:   #4250E0;
+
+    --lima:     #DFFF50;
+
+    --beige:    #E3DBD2;
+
+    --gray:     #575048;
+
+    --dark:     #1A1A2E;
+
+    --off:      #F5F4F2;
+
+    --white:    #ffffff;
+
+    --red:      #C0392B;
+
+    --orange:   #E67E22;
+
+    --green:    #27AE60;
+
+    --red-soft: #FFEBEE;
+
+    --ora-soft: #FFF3E0;
+
+    --grn-soft: #F0FDF4;
+
+  }
+
+  body {
+
+    font-family: 'DM Sans', sans-serif;
+
+    background: var(--white);
+
+    color: var(--dark);
+
+    font-size: 14px;
+
+    line-height: 1.65;
+
+    max-width: 920px;
+
+    margin: 0 auto;
+
+    padding: 0 0 56px;
+
+  }
+
+  /* ── COVER ─────────────────────────────────── */
+
+  .cover {
+
+    background: var(--blue);
+
+    padding: 44px 44px 40px;
+
+    position: relative;
+
+    overflow: hidden;
+
+  }
+
+  .cover::before {
+
+    content: '';
+
+    position: absolute;
+
+    left: 0; top: 0; bottom: 0;
+
+    width: 5px;
+
+    background: var(--lima);
+
+  }
+
+  .cover-eyebrow {
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 3.5px;
+
+    color: var(--lima);
+
+    text-transform: uppercase;
+
+    margin-bottom: 12px;
+
+  }
+
+  .cover-title {
+
+    font-size: 42px;
+
+    font-weight: 700;
+
+    color: var(--white);
+
+    line-height: 1.1;
+
+    margin-bottom: 6px;
+
+  }
+
+  .cover-sub {
+
+    font-size: 16px;
+
+    color: rgba(255,255,255,0.65);
+
+    margin-bottom: 28px;
+
+  }
+
+  .cover-divider {
+
+    width: 48px;
+
+    height: 2px;
+
+    background: rgba(255,255,255,0.25);
+
+    margin-bottom: 16px;
+
+  }
+
+  .cover-meta {
+
+    font-size: 12px;
+
+    color: rgba(255,255,255,0.5);
+
+    line-height: 1.7;
+
+  }
+
+  .cover-meta strong { color: rgba(255,255,255,0.82); }
+
+  .cover-meta .channel { color: var(--lima); font-weight: 600; }
+
+  /* ── BODY ───────────────────────────────────── */
+
+  .body { padding: 0 36px; }
+
+  .intro {
+
+    padding: 28px 0 20px;
+
+    font-size: 14px;
+
+    color: var(--gray);
+
+    border-bottom: 1px solid var(--beige);
+
+    margin-bottom: 32px;
+
+    line-height: 1.75;
+
+  }
+
+  /* ── SECTION HEADER ─────────────────────────── */
+
+  .section-hd {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: var(--blue);
+
+    padding: 10px 18px;
+
+    border-radius: 4px;
+
+    margin: 36px 0 20px;
+
+  }
+
+  .section-num {
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,0.55);
+
+    text-transform: uppercase;
+
+  }
+
+  .section-title {
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    color: var(--white);
+
+    text-transform: uppercase;
+
+  }
+
+  /* ── TYPOGRAPHY ─────────────────────────────── */
+
+  h3 { font-size: 15px; font-weight: 700; color: var(--blue); margin: 24px 0 10px; }
+
+  p  { font-size: 13.5px; color: var(--dark); margin-bottom: 12px; line-height: 1.7; }
+
+  /* ── KPI ROW ────────────────────────────────── */
+
+  .kpi-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin: 16px 0 24px; }
+
+  .kpi-card {
+
+    background: var(--off);
+
+    border: 1px solid var(--beige);
+
+    border-radius: 8px;
+
+    padding: 18px 14px;
+
+    text-align: center;
+
+  }
+
+  .kpi-val  { font-size: 30px; font-weight: 700; color: var(--blue); line-height: 1.1; margin-bottom: 4px; }
+
+  .kpi-lbl  { font-size: 11px; color: var(--gray); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .kpi-sub  { font-size: 11px; color: var(--gray); margin-top: 2px; }
+
+  .kpi-red  { color: var(--red) !important; }
+
+  .kpi-ora  { color: var(--orange) !important; }
+
+  /* ── TABLES ─────────────────────────────────── */
+
+  .tbl-wrap { overflow-x: auto; margin: 16px 0 20px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+
+  thead tr { background: var(--blue); }
+
+  thead th {
+
+    padding: 9px 12px; color: var(--white);
+
+    font-weight: 600; font-size: 11.5px; text-align: center;
+
+  }
+
+  thead th:first-child { text-align: left; }
+
+  tbody tr:nth-child(even) { background: var(--off); }
+
+  tbody tr:hover { background: #EEF0FF; }
+
+  tbody td { padding: 8px 12px; border-bottom: 1px solid #ECEAE7; text-align: center; }
+
+  tbody td:first-child { text-align: left; font-weight: 500; }
+
+  .td-hi  { font-weight: 700; color: var(--blue); }
+
+  .td-red { font-weight: 700; color: var(--red); }
+
+  .td-ora { font-weight: 600; color: var(--orange); }
+
+  .td-grn { font-weight: 700; color: var(--green); }
+
+  .td-dim { color: #aaa; }
+
+  /* ── CALLOUTS ───────────────────────────────── */
+
+  .callout {
+
+    display: flex; gap: 12px;
+
+    padding: 13px 16px; border-radius: 6px;
+
+    margin: 14px 0; font-size: 13px; line-height: 1.6;
+
+  }
+
+  .callout-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+  .callout.warn   { background: #FFF8E1; border-left: 4px solid #F59E0B; }
+
+  .callout.danger { background: #FEF2F2; border-left: 4px solid var(--red); }
+
+  .callout.info   { background: #EEF0FF; border-left: 4px solid var(--blue); }
+
+  .callout.tip    { background: var(--grn-soft); border-left: 4px solid var(--green); }
+
+  /* ── PAIN BLOCKS ────────────────────────────── */
+
+  .pain-block { border: 1px solid var(--beige); border-radius: 8px; margin: 16px 0; overflow: hidden; }
+
+  .pain-hd {
+
+    padding: 10px 16px; font-size: 13px; font-weight: 700;
+
+    display: flex; align-items: center; gap: 8px;
+
+  }
+
+  .pain-hd.red  { background: var(--red-soft); color: var(--red); }
+
+  .pain-hd.ora  { background: var(--ora-soft); color: var(--orange); }
+
+  .pain-hd.blue { background: #EEF0FF; color: var(--blue); }
+
+  .pain-hd.grn  { background: var(--grn-soft); color: var(--green); }
+
+  .pain-body { padding: 14px 16px; font-size: 13px; line-height: 1.65; }
+
+  .pain-body p  { font-size: 13px; margin-bottom: 10px; }
+
+  .tk {
+
+    font-size: 11px; background: #EEF0FF; color: var(--blue);
+
+    padding: 1px 6px; border-radius: 3px; font-family: monospace; margin-left: 3px;
+
+  }
+
+  /* ── TIMELINE ───────────────────────────────── */
+
+  .timeline { margin: 16px 0 20px; padding-left: 8px; }
+
+  .tl-item {
+
+    display: flex; gap: 16px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #F0EDE9;
+
+  }
+
+  .tl-item:last-child { border-bottom: none; }
+
+  .tl-date {
+
+    flex-shrink: 0; width: 72px;
+
+    font-size: 11px; font-weight: 700;
+
+    color: var(--blue); padding-top: 2px;
+
+  }
+
+  .tl-dot {
+
+    flex-shrink: 0; width: 10px; height: 10px;
+
+    border-radius: 50%; background: var(--blue);
+
+    margin-top: 5px;
+
+  }
+
+  .tl-dot.red { background: var(--red); }
+
+  .tl-dot.ora { background: var(--orange); }
+
+  .tl-dot.grn { background: var(--green); }
+
+  .tl-content { font-size: 13px; line-height: 1.55; }
+
+  .tl-content strong { color: var(--dark); }
+
+  .tl-tag {
+
+    display: inline-block; font-size: 10px; font-weight: 700;
+
+    padding: 1px 7px; border-radius: 20px; margin-left: 6px;
+
+    vertical-align: middle;
+
+  }
+
+  .tl-tag.release  { background: #EEF0FF; color: var(--blue); }
+
+  .tl-tag.incident { background: var(--red-soft); color: var(--red); }
+
+  .tl-tag.resolved { background: var(--grn-soft); color: var(--green); }
+
+  /* ── CHART WRAP ─────────────────────────────── */
+
+  .chart-wrap {
+
+    background: var(--off); border: 1px solid var(--beige);
+
+    border-radius: 8px; padding: 20px 16px 14px; margin: 16px 0 24px;
+
+  }
+
+  .chart-title {
+
+    font-size: 11px; font-weight: 700; color: var(--gray);
+
+    text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 16px;
+
+  }
+
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; }
+
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--gray); }
+
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+  /* ── BADGE ──────────────────────────────────── */
+
+  .badge {
+
+    display: inline-block; padding: 2px 8px; border-radius: 20px;
+
+    font-size: 11px; font-weight: 700;
+
+  }
+
+  .badge-done     { background: var(--grn-soft); color: var(--green); }
+
+  .badge-pending  { background: #FEF9C3; color: #854D0E; }
+
+  .badge-watch    { background: var(--ora-soft); color: var(--orange); }
+
+  /* ── V4 BOX ─────────────────────────────────── */
+
+  .v4-box {
+
+    border: 1px solid var(--beige);
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    margin: 20px 0;
+
+  }
+
+  .v4-hd {
+
+    background: var(--dark);
+
+    padding: 10px 16px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    color: var(--lima);
+
+    letter-spacing: 0.5px;
+
+  }
+
+  .v4-body {
+
+    padding: 16px;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+
+  }
+
+  .v4-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-top: 12px;
+
+  }
+
+  .v4-cell {
+
+    background: var(--off);
+
+    border-radius: 6px;
+
+    padding: 12px 14px;
+
+  }
+
+  .v4-cell-lbl {
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.8px;
+
+    color: var(--gray);
+
+    margin-bottom: 4px;
+
+  }
+
+  .v4-cell-val { font-size: 13px; color: var(--dark); }
+
+  /* ── DIVIDER / FOOTER ───────────────────────── */
+
+  hr { border: none; border-top: 1px solid var(--beige); margin: 36px 0; }
+
+  .footer { font-size: 12px; color: var(--gray); line-height: 1.7; }
+
+  .footer strong { color: var(--dark); }
+
+</style>
+
+</head>
+
+<body>
+
+<!-- COVER -->
+
+<div class="cover">
+
+  <div class="cover-eyebrow">Experience Capsule · Journeys Fleet</div>
+
+  <div class="cover-title">Referral Program</div>
+
+  <div class="cover-sub">Dec 2025 – May 2026 · Mexico-focused analysis</div>
+
+  <div class="cover-divider"></div>
+
+  <div class="cover-meta">
+
+    Prepared by <strong>Javier Ruiz</strong> · Experience Senior Specialist · Bitso Customer Service
+
+    &nbsp;·&nbsp; <span class="channel">#exp-retail-user-voice-capsule</span>
+
+  </div>
+
+</div>
+
+<div class="body">
+
+<div class="intro">
+
+  When a user refers a friend to Bitso, the expectation is simple: friend signs up, reward arrives on Wednesday. What CS saw in April and May 2026 tells a different story. Within weeks of the V3 launch, <strong>Referral Program had become the #2 subcategory within Other — and the one with the steepest growth in the group</strong>. The contacts weren't noise: they reflected a consistent gap between what the program promised and what users experienced. This capsule follows that chain: what the volume says, what the satisfaction data shows, where the product breaks before CS even gets involved, and what users are asking for in their own words.
+
+</div>
+
+<!-- 01 PROGRAM CONTEXT -->
+
+<div class="section-hd"><span class="section-num">01</span><span class="section-title">Program Context</span></div>
+
+<p>Referral Program V3 simplified the experience significantly: refer a friend, they verify their phone number, and the referrer earns $500 MXN — no deposit required. The mechanic was straightforward and the intent was clear. What made the V3 launch period difficult for CS was a timing gap between when the program went live and when the supporting documentation — the public FAQ and the agent CS guide — reflected the new conditions. That window, however brief, is where much of the friction this capsule documents originates.</p>
+
+<h3>Program version timeline — Mexico</h3>
+
+<p>Three versions ran across the period covered by this capsule. The table below shows what changed at each transition and how documentation was handled at launch.</p>
+
+<div class="tbl-wrap">
+
+<table>
+
+  <thead>
+
+    <tr><th>Version</th><th>Period</th><th>Reward trigger</th><th>Amount</th><th>Docs at launch</th></tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr>
+
+      <td><strong>V3</strong></td>
+
+      <td>Apr 2026 – Apr 15, 2026*</td>
+
+      <td>Referee verifies phone — no deposit required</td>
+
+      <td>$300 MXN</td>
+
+      <td class="td-red">FAQ described previous version · CS guide updated after launch</td>
+
+    </tr>
+
+    <tr>
+
+      <td><strong>V3.1</strong></td>
+
+      <td>Apr 16 – Jun 8, 2026</td>
+
+      <td>Referee makes first deposit within 7 days</td>
+
+      <td>$500 MXN</td>
+
+      <td class="td-grn">FAQ and CS guides updated at launch</td>
+
+    </tr>
+
+    <tr>
+
+      <td><strong>V4</strong></td>
+
+      <td>Jun 9 – Aug 30, 2026</td>
+
+      <td>A/B: Group A = first deposit · Group B = first trade (within 7 days)</td>
+
+      <td>$300–$400 MXN (A/B) · max $6,000 MXN</td>
+
+      <td class="td-grn">CS guides and FAQ updated at launch</td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+</div>
+
+<div class="callout info">
+
+  <span class="callout-icon">ℹ️</span>
+
+  <span>The ticket volume and CSI data in this capsule covers the full April–May period. <strong>April splits across V3 (Apr 1–15*) and V3.1 (Apr 16–30)</strong>. May runs entirely under V3.1. (* Exact V3 start date to be confirmed.) The friction documented in verbatims may reflect either version — the data does not allow separation by version at this level of granularity.</span>
+
+</div>
+
+<!-- 02 INCOMING VOLUME -->
+
+<div class="section-hd"><span class="section-num">02</span><span class="section-title">Incoming Volume</span></div>
+
+<p>The numbers make the story obvious. For five months — December through March — Referral Program generated between 25 and 47 tickets per month across all markets. Then V3 launched and Mexico alone produced 428 tickets in April. That's not growth — it's a structural shift. The chart below shows exactly where and when it happened.</p>
+
+<div class="kpi-row">
+
+  <div class="kpi-card">
+
+    <div class="kpi-val kpi-red">428</div>
+
+    <div class="kpi-lbl">Peak tickets — April 2026</div>
+
+    <div class="kpi-sub">#2 subcategory within Other · highest growth in group</div>
+
+  </div>
+
+  <div class="kpi-card">
+
+    <div class="kpi-val kpi-red">+1,166%</div>
+
+    <div class="kpi-lbl">MoM growth — Mexico</div>
+
+    <div class="kpi-sub">March (20) → April (428) · largest jump within Other</div>
+
+  </div>
+
+  <div class="kpi-card">
+
+    <div class="kpi-val">787</div>
+
+    <div class="kpi-lbl">Mexico tickets — Apr–May</div>
+
+    <div class="kpi-sub">96% of all Referral Program contacts</div>
+
+  </div>
+
+</div>
+
+<!-- Incoming volume chart -->
+
+<div class="chart-wrap">
+
+  <div class="chart-title">Referral Program — Mexico Incoming Tickets (Dec 2025 – May 2026)</div>
+
+  <svg width="100%" viewBox="0 0 820 190" xmlns="http://www.w3.org/2000/svg">
+
+    <line x1="60" y1="20"  x2="800" y2="20"  stroke="#E0DED9" stroke-width="1"/>
+
+    <line x1="60" y1="60"  x2="800" y2="60"  stroke="#E0DED9" stroke-width="1"/>
+
+    <line x1="60" y1="100" x2="800" y2="100" stroke="#E0DED9" stroke-width="1"/>
+
+    <line x1="60" y1="140" x2="800" y2="140" stroke="#E0DED9" stroke-width="1"/>
+
+    <text x="52" y="24"  font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">428</text>
+
+    <text x="52" y="64"  font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">300</text>
+
+    <text x="52" y="104" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">150</text>
+
+    <text x="52" y="144" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="end">0</text>
+
+    <rect x="78"  y="135" width="70" height="5"   fill="#9BA5FF" rx="3"/>
+
+    <text x="113" y="129" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">19</text>
+
+    <rect x="188" y="136" width="70" height="4"   fill="#9BA5FF" rx="3"/>
+
+    <text x="223" y="130" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">16</text>
+
+    <rect x="298" y="132" width="70" height="8"   fill="#9BA5FF" rx="3"/>
+
+    <text x="333" y="126" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">28</text>
+
+    <rect x="408" y="134" width="70" height="6"   fill="#9BA5FF" rx="3"/>
+
+    <text x="443" y="128" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">20</text>
+
+    <rect x="518" y="20"  width="70" height="120" fill="#C0392B" rx="3"/>
+
+    <text x="553" y="14"  font-family="DM Sans,sans-serif" font-size="10" fill="#C0392B" text-anchor="middle" font-weight="700">428</text>
+
+    <rect x="628" y="39"  width="70" height="101" fill="#E67E22" rx="3"/>
+
+    <text x="663" y="33"  font-family="DM Sans,sans-serif" font-size="10" fill="#E67E22" text-anchor="middle" font-weight="700">359</text>
+
+    <text x="113" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Dec '25</text>
+
+    <text x="223" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Jan '26</text>
+
+    <text x="333" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Feb '26</text>
+
+    <text x="443" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">Mar '26</text>
+
+    <text x="553" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#C0392B" text-anchor="middle" font-weight="700">Apr '26 ↑V3</text>
+
+    <text x="663" y="158" font-family="DM Sans,sans-serif" font-size="10" fill="#575048" text-anchor="middle">May '26</text>
+
+    <line x1="60" y1="140" x2="800" y2="140" stroke="#1A1A2E" stroke-width="1.5"/>
+
+  </svg>
+
+  <div class="legend">
+
+    <div class="legend-item"><div class="legend-dot" style="background:#C0392B"></div> April — V3 launch peak</div>
+
+    <div class="legend-item"><div class="legend-dot" style="background:#E67E22"></div> May — still elevated</div>
+
+    <div class="legend-item"><div class="legend-dot" style="background:#9BA5FF"></div> Baseline (Dec–Mar)</div>
+
+  </div>
+
+</div>
+
+<div class="callout warn">
+
+  <span class="callout-icon">⚠️</span>
+
+  <span>May's drop from April is worth noting — but it doesn't indicate recovery. At 359 tickets, May remained well above the pre-V3 average of ~20 tickets/month. The program is generating <strong>sustained CS load</strong>, not a one-month spike.</span>
+
+</div>
+
+<!-- 03 CSI -->
+
+<div class="section-hd"><span class="section-num">03</span><span class="section-title">Customer Satisfaction (CSI)</span></div>
+
+<p>High volume is one problem. How users felt about the experience is another — and in this case, both are moving in the wrong direction at the same time. The CSI score for Referral Program contacts has declined every month since launch, which means the program is not only generating more contacts but generating progressively more dissatisfied ones.</p>
+
+<h3>Metric definition</h3>
+
+<div style="background:var(--off); border:1px solid var(--beige); border-radius:8px; padding:14px 16px; margin:10px 0; font-size:13px;">
+
+  <div style="font-weight:700; color:var(--dark); margin-bottom:4px;">CSI — Customer Satisfaction Index</div>
+
+  Survey that measures the experience of the user <strong>with Bitso</strong> on a scale from 1 to 10. Sent once the ticket is set to solved.<br><br>
+
+  <strong>Score:</strong> Detractor (0–6) = −1 &nbsp;·&nbsp; Passive (7–8) = 0 &nbsp;·&nbsp; Promoter (9–10) = +1<br>
+
+  <span style="font-family:monospace; font-size:12px; background:#fff; border:1px solid var(--beige); border-radius:4px; padding:4px 8px; margin-top:6px; display:inline-block; color:var(--blue);">(Promoters − Detractors) / Total surveys responded</span>
+
+</div>
+
+<p>Two months of data, two consecutive drops. April's 40% was already low for a program in its first month. May fell to 30.4%. June's incoming volume — already at 167 tickets by the 11th — signals the load isn't slowing down.</p>
+
+<div class="tbl-wrap">
+
+<table>
+
+  <thead>
+
+    <tr><th>Month</th><th>CS Surveys</th><th>CSI Score</th><th>Signal</th></tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr><td>Apr '26</td><td>30</td><td class="td-ora">40.0%</td><td>First full month of V3 · already low</td></tr>
+
+    <tr><td>May '26</td><td>23</td><td class="td-red">30.4%</td><td>↓ −9.6 pp MoM · deteriorating</td></tr>
+
+    <tr><td class="td-dim">Jun '26*</td><td class="td-dim">—</td><td class="td-dim">—</td><td class="td-dim">* 167+ incoming tickets already by Jun 11 — CSI not reported, insufficient surveys</td></tr>
+
+  </tbody>
+
+</table>
+
+</div>
+
+<div class="callout danger">
+
+  <span class="callout-icon">🔴</span>
+
+  <span>CSI dropped from <strong>40% in April to 30.4% in May</strong>. June's incoming volume — 167+ tickets in the first 11 days — confirms the program continues to generate CS load at the same rate. Every Wednesday payout cycle that passes without a structural fix generates new detractors.</span>
+
+</div>
+
+<h3>Weekly CSI breakdown</h3>
+
+<p>The weekly view adds granularity but should be read carefully — sample sizes range from 2 to 10 surveys per week, so individual data points are directional at best. The week of April 20 stands out: 8 surveys and −25.0% CSI, the lowest recorded in the period. The rest of the weeks fluctuate without a clear recovery trend, which is consistent with the monthly picture.</p>
+
+<div class="tbl-wrap">
+
+<table>
+
+  <thead>
+
+    <tr>
+
+      <th>Survey week</th>
+
+      <th>MX surveys</th>
+
+      <th>MX % CSI</th>
+
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr><td>Mar 30</td><td>2</td><td class="td-dim">0.0%</td></tr>
+
+    <tr><td>Apr 6</td><td>10</td><td class="td-ora">40.0%</td></tr>
+
+    <tr><td>Apr 13</td><td>6</td><td class="td-grn">100.0%</td></tr>
+
+    <tr><td>Apr 20</td><td>8</td><td class="td-red">−25.0%</td></tr>
+
+    <tr><td>Apr 27</td><td>3</td><td class="td-ora">33.3%</td></tr>
+
+    <tr><td>May 4</td><td>7</td><td class="td-ora">42.9%</td></tr>
+
+    <tr><td>May 11</td><td>5</td><td class="td-grn">60.0%</td></tr>
+
+    <tr><td>May 18</td><td>4</td><td class="td-ora">50.0%</td></tr>
+
+    <tr><td>May 25</td><td>6</td><td class="td-dim">0.0%</td></tr>
+
+    <tr>
+
+      <td><strong>Total</strong></td>
+
+      <td class="td-hi">51</td>
+
+      <td class="td-ora"><strong>33.3%</strong></td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+</div>
+
+<div class="callout info">
+
+  <span class="callout-icon">ℹ️</span>
+
+  <span>Weekly sample sizes range from 2 to 10 surveys — scores like 100.0% on Apr 13 (6 surveys) should be read directionally, not as stable signals. The most reliable reading is the full-period total: <strong>33.3% CSI on 51 surveys</strong>. The Apr 20 week (−25.0%, 8 surveys) is the most statistically meaningful negative datapoint.</span>
+
+</div>
+
+<!-- 04 UX BREAKDOWN -->
+
+<div class="section-hd"><span class="section-num">04</span><span class="section-title">UX Breakdown — What Breaks Before CS</span></div>
+
+<p>Not every Referral Program contact was about a misunderstood rule or an unmet expectation. Some of them happened before the user ever had a chance to make sense of the program — because the app itself broke. The failures documented here are product-side. They don't require agent training to fix. They require product decisions.</p>
+
+<div class="callout info">
+
+  <span class="callout-icon">ℹ️</span>
+
+  <span>The UX issues documented here reflect the state of the product during the <strong>V3/V3.1 period (Apr – Jun 8, 2026)</strong>. V4, launched June 9, may address some of these — this is to be confirmed by the Acquisition squad.</span>
+
+</div>
+
+<h3>Broken flow — code redemption</h3>
+
+<p>This failure does not occur on every attempt, but we were able to reproduce it during our own internal test using a real code. Because the code was ours, we could verify in Hubble that the registration didn't go through for either the referrer or the referee — no event was logged on either side. The screenshots below document the flow we went through.</p>
+
+<div style="background:var(--off); border:1px solid var(--beige); border-radius:8px; padding:16px; margin:12px 0; font-size:13px; line-height:2;">
+
+  Opens app
+
+  &nbsp;<strong style="color:var(--gray)">→</strong>&nbsp;
+
+  Gift icon (top right)
+
+  &nbsp;<strong style="color:var(--gray)">→</strong>&nbsp;
+
+  Rewards hub
+
+  &nbsp;<strong style="color:var(--gray)">→</strong>&nbsp;
+
+  "Send invitation" screen
+
+  &nbsp;<strong style="color:var(--gray)">→</strong>&nbsp;
+
+  "I have an invitation code"
+
+  &nbsp;<strong style="color:var(--gray)">→</strong>&nbsp;
+
+  Types code
+
+  &nbsp;<strong style="color:var(--gray)">→</strong>&nbsp;
+
+  <span style="color:var(--red); font-weight:700;">❌ "Something went wrong"</span>
+
+  &nbsp;<strong style="color:var(--gray)">→</strong>&nbsp;
+
+  <span style="color:var(--red); font-weight:700;">Contacts CS</span>
+
+</div>
+
+<div style="margin:16px 0 20px;">
+
+  <p style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--gray); margin-bottom:12px;">Screenshots — Flow documented during internal test</p>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+
+    <div>
+
+      <p style="font-size:11px; color:var(--gray); margin-top:6px; text-align:center;">[Screenshot 1: Rewards hub → "Send invitation" → "I have an invitation code" — the entry point for code redemption is buried inside the outbound referral flow.]</p>
+
+    </div>
+
+    <div>
+
+      <p style="font-size:11px; color:var(--gray); margin-top:6px; text-align:center;">[Screenshot 2: WhatsApp invitation with code "jvaqs" → code entered in app → "Something went wrong. We're having an issue on our end." — no diagnostic information, only "Try again."]</p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<p style="font-size:13px; color:var(--gray); margin:20px 0 4px;">The flow breaks in two places: where the user enters, and what happens when it fails.</p>
+
+<div class="pain-block">
+
+  <div class="pain-hd ora">🟠 Code entry placed in the wrong flow</div>
+
+  <div class="pain-body">
+
+    <p>To redeem an invitation code, users must navigate through the "Send invitation" screen — a flow designed for referring others, not for being referred. The entry point is mismatched with the user's intent. Someone who received a code is looking to apply it; instead, they end up in an outbound referral flow.</p>
+
+  </div>
+
+</div>
+
+<div class="pain-block">
+
+  <div class="pain-hd red">🔴 Generic error screen — zero diagnostic information</div>
+
+  <div class="pain-body">
+
+    <p>The "Something went wrong. We're having an issue on our end." screen offers no diagnostic information. The user cannot tell whether the code is invalid, expired, already used, or if there was a system error. The only action offered is "Try again" — which typically fails again, leading to CS contact.</p>
+
+  </div>
+
+</div>
+
+<p style="font-size:13px; color:var(--gray); margin:20px 0 4px;">When the error occurs, the damage goes deeper than a bad UX moment — the failure leaves no trace.</p>
+
+<div class="pain-block">
+
+  <div class="pain-hd red">🔴 Silent code registration failure</div>
+
+  <div class="pain-body">
+
+    <p>When a code is entered, no event is logged internally and no record appears in either user's rewards dashboard. The referral link is silently broken — the referrer has no way of knowing the registration didn't go through until their Wednesday payout doesn't arrive.</p>
+
+    <p><strong>Confirmed internally:</strong> no Hubble event was logged and no record appeared in either user's rewards dashboard for a tested code. The failure is silent on both sides.</p>
+
+  </div>
+
+</div>
+
+<p style="font-size:13px; color:var(--gray); margin:20px 0 4px;">And even when the flow works, there's a fourth problem waiting on the other side.</p>
+
+<div class="pain-block">
+
+  <div class="pain-hd ora">🟠 No referral or reward status visible in-app</div>
+
+  <div class="pain-body">
+
+    <p>Once a referral is made, there is no in-app mechanism to track how many contacts registered, whether their code was applied, or when the Wednesday payout will arrive. Users contact CS reactively — not because something failed, but because the app gives them no information to work with.</p>
+
+  </div>
+
+</div>
+
+<!-- 05 VOICE OF THE CUSTOMER -->
+
+<div class="section-hd"><span class="section-num">05</span><span class="section-title">Voice of the Customer</span></div>
+
+<p>The numbers and UX failures tell one version of the story. Users tell it in their own words, and the pattern is impossible to miss: what comes through consistently is good faith. These are users who participated, followed the steps, and genuinely expected the program to work as described. The frustration in their words is proportional to the effort they put in. The quotes below are evidence, not illustration.</p>
+
+<p style="font-size:13px; color:var(--gray); margin:16px 0 4px;">The dominant pattern — across both months, across different users — is a single broken loop: user refers, requirement appears to be met, reward doesn't arrive, CS can't explain why.</p>
+
+<div class="pain-block">
+
+  <div class="pain-hd red">👎 Detractors — broken promise pattern</div>
+
+  <div class="pain-body">
+
+    <p><em>"Pusieron una campaña en la que la gente solo tenía que registrarse sin depósito y cuando me tenían que pagar el bono, dijeron que no porque no depositaron y me dijeron que me esperara de martes a miércoles y después que esperara una semana más y así pasan los 7 días y ya no me pagan nada."</em> <span class="tk">#3276960</span></p>
+
+    <p><em>"En que no mintean. Yo los recomendé con mucha gente y nunca me dieron los bonos."</em> <span class="tk">#3277425</span></p>
+
+    <p><em>"Es una estafa, no me quisieron pagar mis referidos aún cuando cumplí todas y cada una de las condiciones."</em></p>
+
+    <p><em>"PUES QUE PAGUEN LO QUE DICEN EN SU PUBLICIDAD POR RECOMENDAR BITSO, HE RECOMENDADO A DOS PERSONAS Y SIMPLEMENTE NO ME DAN NINGÚN BONO."</em> <span class="tk">#3461388</span></p>
+
+    <p><em>"Solo me gustaría mencionar que he participado en dos promociones que han lanzado cumpliendo con los requisitos mencionados y en ninguno de los casos recibí la bonificación argumentando la misma respuesta en los dos tickets: que no se hizo el registro desde el link cuando sí fue así. Eso desanima un poco porque me gusta mucho su app pero otros brokers sí pagan las recompensas sin problemas."</em> <span class="tk">#3263965</span></p>
+
+    <p><em>"Literalmente no me dieron 900 pesos."</em> <span class="tk">#3291199</span></p>
+
+  </div>
+
+</div>
+
+<p style="font-size:13px; color:var(--gray); margin:16px 0 4px;">A second pattern sits underneath the first: users who are not just frustrated by the outcome, but exhausted by the process of chasing it.</p>
+
+<div class="pain-block">
+
+  <div class="pain-hd ora">🟠 Detractors — process frustration and lack of automation</div>
+
+  <div class="pain-body">
+
+    <p><em>"Para mí es muy molesto y desgastante tener que estar realizando este seguimiento y queja porque es algo que Bitso debería estar haciendo por sí solo en automático."</em> <span class="tk">#3291199</span></p>
+
+    <p><em>"Que lástima que sean una farsa, deberían de actualizar su aplicación o quitar el anuncio referente a las recompensas por los referidos porque solo engañan a la gente."</em> <span class="tk">#3349151</span></p>
+
+    <p><em>"Ya no mentir referente a sus programas de recompensas."</em></p>
+
+  </div>
+
+</div>
+
+<p style="font-size:13px; color:var(--gray); margin:16px 0 4px;">Even users who scored positively pointed to the same structural gap — which means this isn't just a detractor problem.</p>
+
+<div class="pain-block">
+
+  <div class="pain-hd blue">👍 Promoters &amp; passives — signal for improvement</div>
+
+  <div class="pain-body">
+
+    <p><em>"Dar seguimiento en automático a las recompensas de los referidos que hace uno para evitar que se tenga que contactar a soporte para solicitar las acreditaciones."</em></p>
+
+    <p><em>"Ser más claros en sus promociones. Para afiliar a alguien tuve que darle casi una cátedra a la persona para convencerla de invertir en cripto."</em></p>
+
+    <p><em>"En lo personal siento que está muy bien toda la información proporcionada para poder recibir el dinero por referidos. Ahora solo esperaré a que mañana realicen el depósito."</em></p>
+
+  </div>
+
+</div>
+
+<div class="callout danger">
+
+  <span class="callout-icon">🔴</span>
+
+  <span>Churn risk is explicit in the data. Ticket <strong>#3263965</strong> directly compares Bitso to competing brokers that pay rewards reliably. Ticket <strong>#3349151</strong> uses the word "farsa." Multiple detractors express damage to trust in Bitso broadly — not just in the referral feature. This is trust erosion, not feature feedback.</span>
+
+</div>
+
+<!-- 06 V4 UPDATE -->
+
+<div class="section-hd"><span class="section-num">06</span><span class="section-title">V4 Update — What Changed on June 9</span></div>
+
+<p>The V2 period is the focus of this capsule — but V4 launched on June 9, 2026, the day before this document was finalized. What happened in the first 48 hours of V4 is relevant context: it shows that some of the structural risks identified in V2 did not resolve themselves with a new version.</p>
+
+<div class="v4-box">
+
+  <div class="v4-hd">V4 — Program mechanics (A/B experiment)</div>
+
+  <div class="v4-body">
+
+    <div class="v4-grid">
+
+      <div class="v4-cell">
+
+        <div class="v4-cell-lbl">Group A — Control</div>
+
+        <div class="v4-cell-val">Referrer earns <strong>$300 MXN</strong> when referee makes their <strong>first deposit</strong> within 7 days</div>
+
+      </div>
+
+      <div class="v4-cell">
+
+        <div class="v4-cell-lbl">Group B — Treatment</div>
+
+        <div class="v4-cell-val">Referrer earns <strong>$400 MXN</strong> when referee completes their <strong>first trade</strong> within 7 days</div>
+
+      </div>
+
+      <div class="v4-cell">
+
+        <div class="v4-cell-lbl">Rules (both groups)</div>
+
+        <div class="v4-cell-val">Referrer must have balance &gt; $0 · Referee has 30 days to enter code · Rewards paid Wednesdays · Max $6,000 MXN per referrer</div>
+
+      </div>
+
+      <div class="v4-cell">
+
+        <div class="v4-cell-lbl">Markets / Duration</div>
+
+        <div class="v4-cell-val">Mexico only · June 9 – August 30, 2026 · ~800,000 Bitizens</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<h3>Early issues surfaced within days of launch</h3>
+
+<div class="timeline">
+
+  <div class="tl-item">
+
+    <div class="tl-date">Jun 9</div>
+
+    <div class="tl-dot"></div>
+
+    <div class="tl-content">
+
+      <strong>V4 launches</strong> <span class="tl-tag release">Launch</span><br>
+
+      CS Guides (EN + ES) and FAQ Jira ticket submitted at launch. CS team flagged to double-check Help Center alignment.
+
+    </div>
+
+  </div>
+
+  <div class="tl-item">
+
+    <div class="tl-date">Jun 10</div>
+
+    <div class="tl-dot red"></div>
+
+    <div class="tl-content">
+
+      <strong>Reward amount discrepancy detected across channels</strong> <span class="tl-tag incident">Comms issue</span><br>
+
+      BPO reports different reward amounts showing across email, app, and Help Center. Standardized to <strong>$6,000 MXN</strong> across all channels by end of day. Rewards are paid every <strong>Wednesday</strong>.
+
+    </div>
+
+  </div>
+
+  <div class="tl-item">
+
+    <div class="tl-date">Jun 10</div>
+
+    <div class="tl-dot ora"></div>
+
+    <div class="tl-content">
+
+      <strong>Eligibility visibility change by Engineering</strong> <span class="tl-tag incident">UX change</span><br>
+
+      After an Engineering fix, only eligible users can see the referral promotion in the app. Users who had already seen the promo no longer see it, generating questions and complaints. Ailu flags the risk: users who saw the promotion first may contact CS asking why it disappeared.
+
+    </div>
+
+  </div>
+
+  <div class="tl-item">
+
+    <div class="tl-date">Jun 10</div>
+
+    <div class="tl-dot grn"></div>
+
+    <div class="tl-content">
+
+      <strong>Amount homologated — $6,000 MXN across all channels</strong> <span class="tl-tag resolved">Resolved</span><br>
+
+      CS guides, FAQs, and app rewards hub updated to $6,000 MXN. PR merged after code freeze exception filed. Comms and app confirmed aligned by end of day.
+
+    </div>
+
+  </div>
+
+</div>
+
+<h3>Additional issues surfaced on June 11</h3>
+
+<p>On the same day this capsule was created, three operational pain points were flagged internally — all of them echoing patterns already visible in the V2 data.</p>
+
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin:12px 0 20px;">
+
+  <div class="pain-block" style="margin:0;">
+
+    <div class="pain-hd ora">Complex and unclear campaign</div>
+
+    <div class="pain-body"><p>The A/B structure with two groups, different reward amounts, and different trigger conditions makes the program difficult to explain — both for agents and for users who receive the promotion.</p></div>
+
+  </div>
+
+  <div class="pain-block" style="margin:0;">
+
+    <div class="pain-hd ora">Fragmented information across channels</div>
+
+    <div class="pain-body"><p>Different amounts and conditions appeared across email, app, and Help Center at launch. This is the same communication fragmentation pattern that drove V2 contacts.</p></div>
+
+  </div>
+
+  <div class="pain-block" style="margin:0;">
+
+    <div class="pain-hd red">Display bug — wrong users saw the promotion</div>
+
+    <div class="pain-body"><p>A confirmed bug caused some ineligible users to see the referral promotion. After the fix, those users could no longer see it — generating confusion and CS contacts. At least one Brazilian user was shown a Mexican promotion. Users already in V3.1 Control (no rewards by design) were also surfacing as cases.</p></div>
+
+  </div>
+
+</div>
+
+<div class="callout warn">
+
+  <span class="callout-icon">⚠️</span>
+
+  <span>The communication fragmentation at V4 launch mirrors the V2 pattern. The squad resolved the amounts the same day — but the underlying risk of misaligned channels at launch persists and is worth addressing structurally before future versions ship.</span>
+
+</div>
+
+<!-- 07 WHAT USERS ARE TELLING US -->
+
+<div class="section-hd"><span class="section-num">07</span><span class="section-title">What Users Are Telling Us — And What Could Help</span></div>
+
+<p>Users didn't ask for the program to be scrapped — they asked for it to work the way it was described. The data points toward specific, bounded interventions. Some have already been addressed. The ones that haven't are worth a direct conversation with the Acquisition squad.</p>
+
+<div class="pain-block">
+
+  <div class="pain-hd grn">✅ Resolved — FAQ and agent documentation aligned</div>
+
+  <div class="pain-body">
+
+    <p>The public FAQ was updated to reflect the current program mechanics, and agent documentation is now aligned. These were the two most acute sources of contradictory information during the V2 period. Both are confirmed aligned and up to date ahead of V4.</p>
+
+  </div>
+
+</div>
+
+<div class="pain-block">
+
+  <div class="pain-hd blue">📋 Open — Referral and reward status visible in-app</div>
+
+  <div class="pain-body">
+
+    <p>The survey data is consistent on this: users want to track their referrals without contacting support. A dedicated section showing each referred contact's status, the reward state, and the expected payout day (Wednesday) would address the most frequent reactive contact type in this category. The information already exists internally — surfacing it to users is the gap.</p>
+
+  </div>
+
+</div>
+
+<div class="pain-block">
+
+  <div class="pain-hd blue">📋 Open — Code entry flow and error feedback</div>
+
+  <div class="pain-body">
+
+    <p>The UX section documents this in detail. The ask here is simple: a diagnostic error message that tells users what went wrong would convert a dead end into an actionable moment — and reduce the contacts that arrive purely because users had nowhere else to turn. Whether this persists in V4 is worth confirming with the squad.</p>
+
+  </div>
+
+</div>
+
+<div class="pain-block">
+
+  <div class="pain-hd blue">📋 Open — A/B group communication in V4</div>
+
+  <div class="pain-body">
+
+    <p>V4 runs two groups with different reward amounts and trigger conditions. Agents need to know which group a user belongs to in order to give the correct response. This is the same vector that generated confusion in V2 when agents used V1 guidelines. A clear lookup path in Hubble and an explicit macro for each group condition would prevent the same pattern from recurring under a new version.</p>
+
+    <p>The squad should confirm that a Hubble lookup path is available for agents to identify a user's group, and that agents have been briefed on the specific handling for each group's conditions.</p>
+
+  </div>
+
+</div>
+
+<div class="pain-block">
+
+  <div class="pain-hd ora">⚠️ Watch — Eligibility visibility change</div>
+
+  <div class="pain-body">
+
+    <p>After the June 10 Engineering fix, only eligible users see the referral promotion. Users who had already seen the promo before the fix may contact CS asking why it disappeared. This is a known CS risk flagged at launch — agents should be briefed on how to explain the change without amplifying confusion about program eligibility.</p>
+
+  </div>
+
+</div>
+
+<hr>
+
+<div class="footer">
+
+  <strong>Javier Ruiz</strong> · Experience Senior Specialist · Bitso Customer Service &nbsp;·&nbsp;
+
+  Questions or feedback? <strong>#exp-retail-user-voice-capsule</strong>
+
+  &nbsp;·&nbsp; Created June 11, 2026
+
+</div>
+
+</div><!-- /body -->
+
+</body>
+
+</html>
