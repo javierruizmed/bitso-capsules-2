@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue:     #5463FF;
+    --blue-d:   #4250E0;
+    --lima:     #DFFF50;
+    --beige:    #E3DBD2;
+    --gray:     #575048;
+    --dark:     #1A1A2E;
+    --off:      #F5F4F2;
+    --white:    #ffffff;
+    --red:      #C0392B;
+    --orange:   #E67E22;
+    --green:    #27AE60;
+    --red-soft: #FFEBEE;
+    --ora-soft: #FFF3E0;
+    --grn-soft: #F0FDF4;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--dark);
+    font-size: 14px;
+    line-height: 1.65;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 0 56px;
+  }
+
+  .cover {
+    background: var(--blue);
+    padding: 44px 44px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 5px;
+    background: var(--lima);
+  }
+  .cover-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3.5px;
+    color: var(--lima);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .cover-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .cover-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 28px;
+  }
+  .cover-divider {
+    width: 48px;
+    height: 2px;
+    background: rgba(255,255,255,0.25);
+    margin-bottom: 16px;
+  }
+  .cover-meta {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+  }
+  .cover-meta strong { color: rgba(255,255,255,0.82); }
+  .cover-meta .channel { color: var(--lima); font-weight: 600; }
+
+  .body { padding: 0 36px; }
+
+  .intro {
+    padding: 28px 0 20px;
+    font-size: 14px;
+    color: var(--gray);
+    border-bottom: 1px solid var(--beige);
+    margin-bottom: 32px;
+    line-height: 1.75;
+  }
+
+  .section-hd {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--blue);
+    padding: 10px 18px;
+    border-radius: 4px;
+    margin: 36px 0 20px;
+  }
+  .section-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+  }
+  .section-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+
+  h3 { font-size: 15px; font-weight: 700; color: var(--blue); margin: 24px 0 10px; }
+  p  { font-size: 13.5px; color: var(--dark); margin-bottom: 12px; line-height: 1.7; }
+
+  .kpi-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin: 16px 0 24px; }
+  .kpi-card {
+    background: var(--off);
+    border: 1px solid var(--beige);
+    border-radius: 8px;
+    padding: 18px 14px;
+    text-align: center;
+  }
+  .kpi-val  { font-size: 30px; font-weight: 700; color: var(--blue); line-height: 1.1; margin-bottom: 4px; }
+  .kpi-lbl  { font-size: 11px; color: var(--gray); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi-sub  { font-size: 11px; color: var(--gray); margin-top: 2px; }
+  .kpi-red  { color: var(--red) !important; }
+  .kpi-ora  { color: var(--orange) !important; }
+  .kpi-grn  { color: var(--green) !important; }
+
+  .tbl-wrap { overflow-x: auto; margin: 16px 0 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead tr { background: var(--blue); }
+  thead th {
+    padding: 9px 12px; color: var(--white);
+    font-weight: 600; font-size: 11.5px; text-align: center;
+  }
+  thead th:first-child { text-align: left; }
+  tbody tr:nth-child(even) { background: var(--off); }
+  tbody tr:hover { background: #EEF0FF; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid #ECEAE7; text-align: center; }
+  tbody td:first-child { text-align: left; font-weight: 500; }
+  .td-hi  { font-weight: 700; color: var(--blue); }
+  .td-red { font-weight: 700; color: var(--red); }
+  .td-ora { font-weight: 600; color: var(--orange); }
+  .td-grn { font-weight: 700; color: var(--green); }
+  .td-dim { color: #aaa; }
+
+  .callout {
+    display: flex; gap: 12px;
+    padding: 13px 16px; border-radius: 6px;
+    margin: 14px 0; font-size: 13px; line-height: 1.6;
+  }
+  .callout-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+  .callout.warn   { background: #FFF8E1; border-left: 4px solid #F59E0B; }
+  .callout.danger { background: #FEF2F2; border-left: 4px solid var(--red); }
+  .callout.info   { background: #EEF0FF; border-left: 4px solid var(--blue); }
+  .callout.tip    { background: var(--grn-soft); border-left: 4px solid var(--green); }
+
+  .pain-block { border: 1px solid var(--beige); border-radius: 8px; margin: 16px 0; overflow: hidden; }
+  .pain-hd {
+    padding: 10px 16px; font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .pain-hd.red  { background: var(--red-soft); color: var(--red); }
+  .pain-hd.ora  { background: var(--ora-soft); color: var(--orange); }
+  .pain-hd.blue { background: #EEF0FF; color: var(--blue); }
+  .pain-hd.grn  { background: var(--grn-soft); color: var(--green); }
+  .pain-body { padding: 14px 16px; font-size: 13px; line-height: 1.65; }
+  .pain-body p { font-size: 13px; margin-bottom: 10px; }
+  .tk {
+    font-size: 11px; background: #EEF0FF; color: var(--blue);
+    padding: 1px 6px; border-radius: 3px; font-family: monospace; margin-left: 3px;
+  }
+
+  .chart-wrap {
+    background: var(--off); border: 1px solid var(--beige);
+    border-radius: 8px; padding: 20px 16px 14px; margin: 16px 0 24px;
+  }
+  .chart-title {
+    font-size: 11px; font-weight: 700; color: var(--gray);
+    text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 16px;
+  }
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--gray); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+  .badge {
+    display: inline-block; padding: 2px 8px; border-radius: 20px;
+    font-size: 11px; font-weight: 700;
+  }
+  .badge-done     { background: var(--grn-soft); color: var(--green); }
+  .badge-pending  { background: #FEF9C3; color: #854D0E; }
+  .badge-confirm  { background: #EEF0FF; color: var(--blue); }
+
+  hr { border: none; border-top: 1px solid var(--beige); margin: 36px 0; }
+  .footer { font-size: 12px; color: var(--gray); line-height: 1.7; }
+  .footer strong { color: var(--dark); }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-eyebrow">Experience Capsule · Investments Fleet</div>
+  <div class="cover-title">Stocks</div>
+  <div class="cover-sub">May 2026 · Retail Segment</div>
+  <div class="cover-divider"></div>
+  <div class="cover-meta">
+    Prepared by <strong>Javier Ruiz</strong> · Experience Senior Specialist · Bitso Customer Service
+    &nbsp;·&nbsp; <span class="channel">#exp-investments-fleet-capsule</span>
+  </div>
+</div>
+
+<div class="body">
+
+<div class="intro">
+  This capsule focuses on the main contact driver within the Stocks level of the Customer Support form in Mexico: <strong>"I can't open my stocks account."</strong> We review the most relevant friction points, the evolution of this contact type, and the latest data available through May 2026. In addition, we analyze the impact of the Kobra In-App Flow within the Stocks Form (Account Limits process) to understand how it has influenced user behavior and the volume of contacts generated.
+</div>
+
+<!-- 01 INCOMING OVERVIEW -->
+<div class="section-hd"><span class="section-num">01</span><span class="section-title">Incoming Overview</span></div>
+
+<p>Stocks represented between 4% and 10% of total CS incoming in Mexico across the January–May period. Since Stocks is a Mexico-only product, all figures in this capsule refer to Mexico unless otherwise noted. After declining from January's peak through April, volume rebounded in May — reaching 1,014 tickets and 6% of total CS Mexico. The rebound is driven primarily by a rise in "I can't open my stocks account," which climbed back from 540 in April to 690 in May after several months of gradual decline.</p>
+
+<div class="kpi-row">
+  <div class="kpi-card">
+    <div class="kpi-val kpi-red">68%</div>
+    <div class="kpi-lbl">Share within Stocks — May</div>
+    <div class="kpi-sub">690 of 1,014 tickets · up from 67% in April</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-val kpi-red">690</div>
+    <div class="kpi-lbl">Can't open stocks account — May</div>
+    <div class="kpi-sub">↑ vs 540 in April · rebound after 3-month decline</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-val kpi-ora">6%</div>
+    <div class="kpi-lbl">May share of CS Mexico</div>
+    <div class="kpi-sub">Up from 4% in March–April</div>
+  </div>
+</div>
+
+<div class="tbl-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Contact type</th>
+      <th>Jan '26</th>
+      <th>Feb '26</th>
+      <th>Mar '26</th>
+      <th>Apr '26</th>
+      <th>May '26</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>I can't open my stocks account</strong></td>
+      <td class="td-red">1,001</td>
+      <td>615</td>
+      <td>549</td>
+      <td>540</td>
+      <td class="td-ora">690</td>
+    </tr>
+    <tr>
+      <td>Account limits</td>
+      <td>286</td>
+      <td>131</td>
+      <td>35</td>
+      <td>48</td>
+      <td class="td-grn">72</td>
+    </tr>
+    <tr>
+      <td>General Information</td>
+      <td>195</td>
+      <td>110</td>
+      <td>52</td>
+      <td>54</td>
+      <td>134</td>
+    </tr>
+    <tr>
+      <td>Issues with an order</td>
+      <td>74</td>
+      <td>42</td>
+      <td>59</td>
+      <td>67</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <td>Issues with a trade</td>
+      <td>55</td>
+      <td>27</td>
+      <td>34</td>
+      <td>28</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>General / Other</td>
+      <td>49</td>
+      <td>17</td>
+      <td>75</td>
+      <td>64</td>
+      <td>53</td>
+    </tr>
+    <tr style="font-weight:600; background:#EEF0FF;">
+      <td>Total</td>
+      <td class="td-red">1,660 <span style="font-size:10px;color:#575048;font-weight:400;">· 10% MX</span></td>
+      <td>944 <span style="font-size:10px;color:#575048;font-weight:400;">· 6% MX</span></td>
+      <td>805 <span style="font-size:10px;color:#575048;font-weight:400;">· 4% MX</span></td>
+      <td>803 <span style="font-size:10px;color:#575048;font-weight:400;">· 4% MX</span></td>
+      <td class="td-ora">1,014 <span style="font-size:10px;color:#575048;font-weight:400;">· 6% MX</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p style="font-size:11px; color:var(--gray); margin-top:-8px; margin-bottom:16px;">% = share of total CS incoming in Mexico that month. Stocks is a Mexico-only product.</p>
+
+<div class="callout warn">
+  <span class="callout-icon">⚠️</span>
+  <span>The May rebound in "I can't open my stocks account" (540 → 690) breaks a three-month downward trend. Proof of Address is the main driver of that subcategory and also increased in May (290 → 418). This is worth monitoring — the pattern from January, where account-opening friction peaked at over 1,000 tickets, suggests the category can scale quickly when left unaddressed.</span>
+</div>
+
+<!-- 02 USER EXPERIENCE — CSI -->
+<div class="section-hd"><span class="section-num">02</span><span class="section-title">User Experience — CSI</span></div>
+
+<p>CSI for Stocks has been volatile across the period, ranging from 54.3% to 79.3%. Survey volume recovered significantly in May (62 surveys vs 29 in April), which makes the May reading of 67.7% more statistically meaningful than the months before it.</p>
+
+<div class="tbl-wrap">
+<table>
+  <thead>
+    <tr><th>Month</th><th>CS Surveys</th><th>CSI Score</th><th>Signal</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Dec '25</td><td>54</td><td class="td-grn">61.1%</td><td>Baseline</td></tr>
+    <tr><td>Jan '26</td><td>51</td><td class="td-grn">72.5%</td><td>↑ Despite peak volume</td></tr>
+    <tr><td>Feb '26</td><td>41</td><td class="td-grn">69.0%</td><td>Stable</td></tr>
+    <tr><td>Mar '26</td><td>35</td><td class="td-red">54.3%</td><td>↓ Lowest in period</td></tr>
+    <tr><td>Apr '26</td><td>29</td><td class="td-grn">79.3%</td><td>↑ Low sample — treat with caution</td></tr>
+    <tr><td>May '26</td><td class="td-hi">62</td><td class="td-grn">67.7%</td><td>Most reliable reading in recent months</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="callout info">
+  <span class="callout-icon">ℹ️</span>
+  <span>March (54.3%) is the only month below the 60% target in this period. May's 67.7% on 62 surveys is the most statistically meaningful reading and sits above target. A meaningful portion of Stocks data remains unavailable — the Account Limits form does not yet have surveys enabled.</span>
+</div>
+
+<!-- 04 KOBRA IN-APP FLOW — UPDATE -->
+<div class="section-hd"><span class="section-num">03</span><span class="section-title">Kobra In-App Flow — Update</span></div>
+
+<p>We shared a dedicated Kobra capsule with the squad earlier this month. The In-App Flow launched May 7 and drove an 88% drop in "Not Scheduled" tickets that same week — a significant improvement that held through May. June shows volume returning as new users enter the process, and DHL cases are rising in areas where Kobra has no coverage.</p>
+
+<p>One additional signal worth sharing: on June 8, a member of the CS team went through the Kobra visit process to increase their own limit. The experience raised some concerns we'd like to flag.</p>
+
+<div class="pain-block">
+  <div class="pain-hd ora">🟠 The visit experience — firsthand account</div>
+  <div class="pain-body">
+    <p>The scheduling window was 3 hours, and the representative arrived late. He came in a personal vehicle with no uniform or visible identification, and began photographing the house and electricity meter on arrival. Signing was done on the user's own device. During the visit, the representative was on his personal phone asking colleagues what documentation was still needed. The scheduling flow did not communicate upfront that the visit had to take place at a personal residence.</p>
+    <p>We raise this not to escalate, but because it helps explain the drop-off rate the data shows. For users who complete the In-App scheduling and then experience this, the friction hasn't gone away — it's moved to a different part of the process.</p>
+  </div>
+</div>
+
+<div class="pain-block">
+  <div class="pain-hd ora">🟠 Service quality — DHL agent behavior</div>
+  <div class="pain-body">
+    <p>Two users — one Premium Bit and one Has Been Premium Bit — escalated complaints in May about the behavior of DHL representatives during document collection visits.</p>
+    <p><em>"La persona que me contactó para hacer la visita de campo ha tenido una actitud muy extraña... pero me marcó y muy grosero. La verdad es que no se ve un tipo profesional."</em> <span class="tk">#3305409</span></p>
+    <p><em>"No por favor, no se vale jugar con el tiempo de sus clientes, es un muy mal gusto y falta de respeto... Pues no quisiera ir a CONDUSEF eh."</em> <span class="tk">#3334545</span></p>
+    <p>Both tickets were resolved, but the experience left a negative impression on both users — one Premium Bit and one Has Been Premium Bit.</p>
+  </div>
+</div>
+
+<!-- 04 KOBRA IN-APP FLOW — UPDATE -->
+
+
+
+
+<!-- 03 PAIN POINTS -->
+<div class="section-hd"><span class="section-num">04</span><span class="section-title">Pain Points</span></div>
+
+<h3>Inside "I can't open my stocks account"</h3>
+<p>This subcategory accounts for the majority of Stocks volume every month — between 60% and 68% of total incoming. Within it, Proof of Address has been the dominant friction point since January, consistently representing around 50–60% of account-opening failures. PEP-related contacts have grown steadily, reaching 126 in May. The table below shows the full breakdown.</p>
+
+<div class="tbl-wrap">
+<table>
+  <thead>
+    <tr><th>Friction point</th><th>Jan '26</th><th>Feb '26</th><th>Mar '26</th><th>Apr '26</th><th>May '26</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Proof of Address</strong></td>
+      <td class="td-red">587</td>
+      <td>384</td>
+      <td>300</td>
+      <td>290</td>
+      <td class="td-ora">418</td>
+    </tr>
+    <tr>
+      <td>PEP issues</td>
+      <td>73</td>
+      <td>63</td>
+      <td>104</td>
+      <td>107</td>
+      <td class="td-ora">126</td>
+    </tr>
+    <tr>
+      <td>Issues with ID verification</td>
+      <td>115</td>
+      <td>57</td>
+      <td>53</td>
+      <td>54</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <td class="td-dim">Other</td>
+      <td class="td-dim">226</td>
+      <td class="td-dim">111</td>
+      <td class="td-dim">92</td>
+      <td class="td-dim">89</td>
+      <td class="td-dim">83</td>
+    </tr>
+    <tr style="font-weight:600;">
+      <td>Total</td>
+      <td>1,001</td>
+      <td>615</td>
+      <td>549</td>
+      <td>540</td>
+      <td class="td-red">690</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="pain-block">
+  <div class="pain-hd red">🔴 Proof of Address — the validation gap</div>
+  <div class="pain-body">
+    <p>Proof of Address has been the largest single friction point in Stocks account opening across all five months. The pattern observed in May tickets points to a specific recurring scenario: users upload a valid proof of address document, but the address on it doesn't match the address registered in their Bitso profile. The document is rejected, and the user receives an automatic email from Bitso — triggered by internal Zendesk rules — letting them know the verification couldn't be completed and inviting them to contact chat.</p>
+    <p>This is by design: when the KYC API creates a ticket and auto-resolves it, Bitso sends that automatic message to provide a faster path to resolution. The intent is good — chat can solve the issue in the first contact. The gap is in what the email communicates: it tells users to reach out, but not <em>why</em> the document was rejected or what to fix before resubmitting. The agent in chat identifies the mismatch and guides the user to update their address — the interaction resolves, but it shouldn't require that step.</p>
+    <p>The scale of this is larger than CS incoming alone reflects. The table below shows auto-solved API validator tickets by rejection reason. Proof of Address accounts for the vast majority — 2,418 of 2,791 auto-solved tickets in May (87%).</p>
+
+    <div class="tbl-wrap" style="margin-top:12px;">
+    <table>
+      <thead>
+        <tr><th>Rejection reason</th><th>Dec '25</th><th>Jan '26</th><th>Feb '26</th><th>Mar '26</th><th>Apr '26</th><th>May '26</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Proof of Address</strong></td><td class="td-ora">2,059</td><td class="td-red">2,700</td><td>1,688</td><td>1,657</td><td>1,795</td><td class="td-red">2,418</td></tr>
+        <tr><td>Expired ID</td><td>37</td><td>205</td><td>118</td><td>79</td><td>95</td><td>91</td></tr>
+        <tr><td>Duplicate Account</td><td>117</td><td>171</td><td>126</td><td>113</td><td>154</td><td>185</td></tr>
+        <tr><td>Bad quality</td><td>74</td><td>70</td><td>33</td><td>30</td><td>42</td><td>45</td></tr>
+        <tr><td class="td-dim">Other</td><td class="td-dim">51</td><td class="td-dim">75</td><td class="td-dim">28</td><td class="td-dim">46</td><td class="td-dim">40</td><td class="td-dim">52</td></tr>
+        <tr style="font-weight:600;"><td>Total auto-solved</td><td>2,338</td><td>3,221</td><td>1,993</td><td>1,925</td><td>2,126</td><td class="td-red">2,791</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="font-size:11px; color:var(--gray); margin-top:6px;">Source: L5 - Retail - API - Validators - Auto Solved. These tickets are auto-resolved by Zendesk rules; the user receives an automatic email and is directed to chat.</p>
+
+    <p style="margin-top:12px;">Two cases reviewed in May confirm the mismatch pattern directly. <span class="tk">#3330669</span> <span class="tk">#3332648</span></p>
+    <p>An open question for the squad: is the address mismatch requirement communicated clearly enough during the upload flow itself — or does the user only find out after the rejection email?</p>
+  </div>
+</div>
+
+<div class="pain-block">
+  <div class="pain-hd ora">🟠 PEP declaration — growing and structural</div>
+  <div class="pain-body">
+    <p>PEP-related contacts have grown steadily from 73 in January to 126 in May. Unlike Proof of Address, which can be resolved once the user understands the mismatch, PEP errors often create a hard block — an incorrect declaration prevents account activation entirely. Three confirmed cases from the previous period showed users completely blocked with no self-correction path available. The previous capsule flagged a confirmation modal as a potential intervention. We'd like to understand whether anything has changed in this flow since then.</p>
+  </div>
+</div>
+
+<div class="pain-block">
+  <div class="pain-hd ora">🟠 Account limits — volume down significantly</div>
+  <div class="pain-body">
+    <p>Account limits tickets dropped from 286 in January to 72 in May. The reduction reflects process improvements in how limit increases are coordinated. Residual volume represents cases that still require manual handling.</p>
+  </div>
+</div>
+
+<!-- 05 VOICE OF THE CUSTOMER -->
+<div class="section-hd"><span class="section-num">05</span><span class="section-title">Voice of the Customer</span></div>
+
+<p>Survey feedback for April and May shows a high proportion of promoters — the 67.7% CSI in May reflects genuine satisfaction with agent resolution. What the detractors surface is worth attention: the frustration isn't usually with the agent, it's with a process that requires too many steps, too many document resubmissions, and too little feedback when something fails.</p>
+
+<div class="pain-block">
+  <div class="pain-hd red">👎 Detractors — documentation loop</div>
+  <div class="pain-body">
+    <p><em>"En mucho falta de mejorar, tengo un mes tratando de activar mi cuenta y cada día meter otra vez mis documentos. A la hora que termino todo el proceso se brinca y me pide otra vez mis documentos y aparte piden mi comprobante de domicilio que está en mi INE y otra vez empezar de nuevo. Nunca hay ningún asesor de servicio al cliente, puro bot."</em> <span class="tk">#3316619</span></p>
+  </div>
+</div>
+
+<div class="pain-block">
+  <div class="pain-hd blue">👍 Promoters — agent resolution works, product gaps remain visible</div>
+  <div class="pain-body">
+    <p>Most promoters in May credited the support team for resolving their issue. A recurring suggestion across both months points to a product gap rather than a support issue: users want clearer portfolio performance data and more transparency in how investment results are displayed. These aren't CS friction points, but they reflect product expectations that aren't being met.</p>
+    <p><em>"Poner el gráfico exacto de lo que se está ganando en una inversión en las acciones, no el acumulado — eso dificulta la inversión."</em></p>
+  </div>
+</div>
+
+<!-- 06 CS NEEDS FROM PRODUCT -->
+<div class="section-hd"><span class="section-num">06</span><span class="section-title">CS Needs from Product</span></div>
+
+<p>The items below carry over from the previous capsule. Status will be confirmed by the squad during the presentation session.</p>
+
+<div class="tbl-wrap">
+<table>
+  <thead>
+    <tr><th>#</th><th>Issue</th><th>Action required</th><th>Owner</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="td-hi">1</td>
+      <td>Proof of Address upload unclear — address mismatch not communicated before rejection</td>
+      <td>Review whether address match requirement is surfaced during the upload flow, not only in the rejection email. Improve in-app guidance with a clear expectation before submission.</td>
+      <td>Stocks / Ramps Journey</td>
+      <td><span class="badge badge-confirm">To be confirmed</span></td>
+    </tr>
+    <tr>
+      <td class="td-hi">2</td>
+      <td>PEP declaration causes hard blocks — no self-correction path</td>
+      <td>Implement a confirmation modal for high-impact PEP selections. Three confirmed cases in the previous period resulted in complete account blocks with no resolution path available to the user.</td>
+      <td>Stocks</td>
+      <td><span class="badge badge-confirm">To be confirmed</span></td>
+    </tr>
+    <tr>
+      <td class="td-hi">3</td>
+      <td>T&C acceptance not enforced on PC account opening</td>
+      <td>Validate with engineering — potential compliance gap.</td>
+      <td>Stocks / Engineering</td>
+      <td><span class="badge badge-confirm">To be confirmed</span></td>
+    </tr>
+    <tr>
+      <td class="td-hi">4</td>
+      <td>No clear distinction between Stocks and Warrants — users lose assets on expiry without understanding why</td>
+      <td>We noticed new Help Center articles on Warrants were published recently. Is this item addressed, or is there still a product-side gap to close?</td>
+      <td>Asset Management</td>
+      <td><span class="badge badge-confirm">To be confirmed</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- 07 WHAT USERS ARE TELLING US -->
+<div class="section-hd"><span class="section-num">07</span><span class="section-title">What Users Are Telling Us — And What Could Help</span></div>
+
+<p>The account-opening flow is generating contacts that agents resolve well — the CSI reflects that. What the data points to is friction that sits upstream of CS: users who don't understand why their document was rejected, or who restart a multi-step process without knowing what went wrong the first time.</p>
+
+<div class="pain-block">
+  <div class="pain-hd grn">✅ Agent macro for Kobra escalation — addressed</div>
+  <div class="pain-body">
+    <p>In May, it was identified that agents were not consistently directing users to the In-App Kobra flow when they reached their limit. A new macro was implemented to ensure agents guide users to schedule through the app first — before escalating to the manual process. This should reduce unnecessary tickets.</p>
+  </div>
+</div>
+
+<div class="pain-block">
+  <div class="pain-hd blue">📋 Clearer rejection feedback on Proof of Address</div>
+  <div class="pain-body">
+    <p>The current rejection email tells users their verification failed and to contact CS. What it doesn't tell them is why. In the cases reviewed, the reason was an address mismatch — something the user could fix themselves if they knew what to look for. A rejection message that identifies the specific issue (and ideally links to the profile section where it can be corrected) would reduce a significant share of the contacts this category generates.</p>
+  </div>
+</div>
+
+
+
+<hr>
+<div class="footer">
+  <strong>Javier Ruiz</strong> · Experience Senior Specialist · Bitso Customer Service &nbsp;·&nbsp;
+  Questions or feedback? <strong>#exp-investments-fleet-capsule</strong>
+  &nbsp;·&nbsp; Created June 16, 2026
+</div>
+
+</div>
+</body>
+</html>
